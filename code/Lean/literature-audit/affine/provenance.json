@@ -1,0 +1,41 @@
+{
+  "review_date": "2026-10-30",
+  "sources": [
+    {
+      "name": "Lusztig1999",
+      "url": "https://math.mit.edu/~gyuri/papers/aper.ps",
+      "path": "PolishedWebProof/code/literature-audit/affine/Lusztig1999.ps",
+      "sha256": "043e4a15eddf37d625aa2d4292d2e2072f49dc50d5be72ac1e5f94a8a484c9dc",
+      "note": "Original author copy; converted locally with ps2pdf and pdftotext -layout."
+    },
+    {
+      "name": "Williamson2011-v3",
+      "url": "https://arxiv.org/pdf/1010.1283v3",
+      "path": "PolishedWebProof/code/literature-audit/affine/Williamson2011-v3.pdf",
+      "sha256": "90c658c6c94bea743abc4a5f0b379ac444ed593ab6eccd0bed2dd247b36d5675",
+      "note": "Corrected arXiv version 3, 2 January 2024."
+    },
+    {
+      "name": "Cui2014",
+      "url": "https://arxiv.org/html/1407.4557v3",
+      "path": "RevisedWeb/references/cui.pdf",
+      "sha256": "643b15445ce25ea16bb1efe6230ffb433de453cccb69b7e54c7dc4ef8ebea548",
+      "note": "Existing local primary paper; checked against arXiv HTML v3."
+    },
+    {
+      "name": "DuFu2013",
+      "url": "https://arxiv.org/pdf/1311.1868",
+      "path": "RevisedWeb/references/du_fu.pdf",
+      "sha256": "10d634468976c97b0b9759db24cc56ace0bbefc935b1bace1a1535339692920b",
+      "note": "Existing local primary paper; checked against arXiv PDF."
+    }
+  ],
+  "reviewed_interfaces_sha256": {
+    "Guralnick/WebLiterature.lean": "8528e9c7b54d8ecd8644b2bdb03669977678e4342c374a5f09731107849917eb",
+    "Guralnick/FlagConvolution.lean": "6adced817a5c5672d03d0e18deda497124b8941bedb7be784a7515705bab8348",
+    "Guralnick/OrbitMatrix.lean": "749c6b3b4f36b8497b2ff70466276d238266b62fa8b756f8475254192a28eee0",
+    "Guralnick/OrbitLengthInput.lean": "7e80c9085e1a2ea0074a8ac8fc7834bf66b017240a9378497f111a0746df354c",
+    "Guralnick/CanonicalSchur.lean": "7615876872cf4b83325a33697d479bdeff5867121d8e68d4764c3f2827d8f3e4",
+    "Guralnick/CanonicalRefinement.lean": "ce73a9a9b9c89f2c2eeb9e844183716542b60500897f50f25b8c47f8d977ae76"
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "source": "PolishedWebProof/main.tex",
+    "sha256": "082e7c5d3f539f389d05c68eeb151ee6e1efd2364475973735ea03cb72b6c361",
+    "bytes": 254356
+  },
+  {
+    "source": "RevisedWeb/code/guralnick_candidate_kl.py",
+    "copy": "scripts/vendor/guralnick_candidate_kl.py",
+    "sha256": "9220ddcb7f99e82bb325028efdeefddefc20301b89898f6c7fb61da8d5ae5332"
+  },
+  {
+    "source": "RevisedWeb/data/kl-m2.json",
+    "copy": "certificates/reference/kl-m2.json",
+    "sha256": "2496fec9e89df51672383667a93218b3e90443687f9d813d6be229bacf3b0948"
+  },
+  {
+    "source": "RevisedWeb/data/kl-m3.json",
+    "copy": "certificates/reference/kl-m3.json",
+    "sha256": "9b533fccf17a8369a4b54ae9f01922a344646089afda053fddf9f1bfa0c7f396"
+  },
+  {
+    "source": "RevisedWeb/data/seed-aggregate-calibration.json",
+    "copy": "certificates/reference/seed-aggregate-calibration.json",
+    "sha256": "a562ac8f49d2d72e422f97570a85be202466f3f893db9bdd3050669e203d2c55"
+  }
+]

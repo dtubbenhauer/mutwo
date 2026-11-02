@@ -1,0 +1,10 @@
+'Guralnick.ModelComparisonCounterexample.not_absoluteBoundedness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/var/folders/1j/v9h1tx0d3lv864_nbmj5_q0h0000gn/T/guralnick-audit-negative-q_5jgwc6/unexpected_axiom.lean:5:0: error: ❌️ Docstring on `#guard_msgs` does not match generated message:
+
+- info: 'Guralnick.ModelComparisonCounterexample.not_absoluteBoundedness'
+- depends on axioms: [propext, Classical.choice]
++ info: 'Guralnick.ModelComparisonCounterexample.not_absoluteBoundedness' depends on axioms: [propext,
++  Classical.choice,
++  Quot.sound]

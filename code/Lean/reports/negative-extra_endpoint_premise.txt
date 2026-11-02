@@ -1,0 +1,6 @@
+/var/folders/1j/v9h1tx0d3lv864_nbmj5_q0h0000gn/T/guralnick-audit-negative-q_5jgwc6/extra_endpoint_premise.lean:15:2: error: type mismatch
+  strengthenedEndpoint T W I
+has type
+  False → ¬Cohomology.AbsoluteBoundedness : Prop
+but is expected to have type
+  ¬Cohomology.AbsoluteBoundedness : Prop

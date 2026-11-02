@@ -1,0 +1,28 @@
+{
+  "review_date": "2026-11-02",
+  "timezone": "Australia/Sydney",
+  "files": [
+    {
+      "path": "../main.tex",
+      "role": "current manuscript",
+      "sha256": "1f926a87b4000953c4c32b0995c844687ab68861100a9ce39b07a965308ca8a4",
+      "bytes": 267110
+    },
+    {
+      "path": "../main_old.tex",
+      "role": "previous manuscript, matching original inventory",
+      "sha256": "082e7c5d3f539f389d05c68eeb151ee6e1efd2364475973735ea03cb72b6c361",
+      "bytes": 254356
+    },
+    {
+      "path": "../Lean_verification_recommendations.pdf",
+      "role": "verification recommendations",
+      "sha256": "3e0e2648c132720c878e85e74c16fa38e6da8b3266200e244cb1ef47f1df4763",
+      "bytes": 308976
+    }
+  ],
+  "comparison": "audit-updated-manuscript.md",
+  "original_source_inventory": "certificates/source-inventory.json",
+  "scope": "Human/source comparison of main theorem and proof dependencies; hashes are provenance, not proof of semantic equivalence.",
+  "manuscript_edited": false
+}

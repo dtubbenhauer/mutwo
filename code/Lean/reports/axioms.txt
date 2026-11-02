@@ -1,0 +1,1061 @@
+'Guralnick.AffinePermutation.onIntegers_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.AffinePermutation.sum_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.AffinePermutation.inverse_dotZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WindowCertificate.check_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WindowCertificate.toAffine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Certificates.m2j2_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Certificates.m5j5_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Certificates.m5j5_dotZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Certificates.invalid_rejected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Family.window_eq_familyWindow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Family.inverse_dotZero_eq_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Weights.sum_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Weights.dynkin_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Weights.familyWeight_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Weights.familyWeight_pRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.normalize_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.gapFormula_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.normalize_family_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.suppliedSeed_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Web.family_wellFormed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Web.family_boundaries' depends on axioms: [propext, Quot.sound]
+'Guralnick.Web.family_incident_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Web.family_seam_degree' depends on axioms: [propext, Quot.sound]
+'Guralnick.Web.seed_matches_builder' does not depend on any axioms
+'Guralnick.Web.rank_one_needs_zero_edge_contraction' does not depend on any axioms
+'Guralnick.Positivity.isLowest_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Positivity.cancel_lowerBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Positivity.cleared_support_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Positivity.cleared_constant_of_zero_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Positivity.cleared_zero_or_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Positivity.positive_division_is_invalid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.DegreeBounds.six_positions_of_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.DegreeBounds.boundary_position_of_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CentralQuotient.finiteKernelInflationLinearEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CentralQuotient.central_quotient_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CentralQuotient.representation_faithful_of_simple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Cohomology.h1IsoExtFromTrivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Cohomology.rowSum_and_lowerBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Cohomology.exists_PSL_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Cohomology.not_algebraicallyClosedBoundedness' depends on axioms: [propext, Classical.choice, Quot.sound]
+Guralnick.Cohomology.exists_PSL_counterexample (μ : ℕ → ℕ → ℕ) (hrow : Guralnick.Cohomology.DoubledRowSum μ)
+  (htransfer : Guralnick.Cohomology.PrimeFieldTransfer μ) (C lowerPrimeBound : ℕ) :
+  ∃ m,
+    2 ≤ m ∧
+      ∃ p,
+        ∃ (hp : Nat.Prime p),
+          lowerPrimeBound ≤ p ∧
+            ∃ A,
+              Guralnick.Cohomology.Admissible A ∧
+                FiniteDimensional (Guralnick.Cohomology.PrimeClosure p) ↑(Guralnick.Cohomology.H1 A) ∧
+                  C < Guralnick.Cohomology.h1Dimension A
+Guralnick.Cohomology.rowSum_and_lowerBound (μ : ℕ → ℕ → ℕ) (hrow : Guralnick.Cohomology.DoubledRowSum μ)
+  (htransfer : Guralnick.Cohomology.PrimeFieldTransfer μ) (m : ℕ) (hm : 2 ≤ m) :
+  ∃ p₀,
+    ∀ (p : ℕ) (hp : Nat.Prime p),
+      p₀ ≤ p →
+        5 * (2 * m) ≤ p →
+          ∃ A,
+            (∀ (j : Fin m), Guralnick.Cohomology.Admissible (A j)) ∧
+              (∀ (j : Fin m),
+                  FiniteDimensional (Guralnick.Cohomology.PrimeClosure p) ↑(Guralnick.Cohomology.H1 (A j))) ∧
+                2 * ∑ j, Guralnick.Cohomology.h1Dimension (A j) = m * (m + 1) ∧
+                  ∃ j, m / 2 + 1 ≤ Guralnick.Cohomology.h1Dimension (A j)
+Guralnick.Cohomology.not_algebraicallyClosedBoundedness (μ : ℕ → ℕ → ℕ) (hrow : Guralnick.Cohomology.DoubledRowSum μ)
+  (htransfer : Guralnick.Cohomology.PrimeFieldTransfer μ) : ¬Guralnick.Cohomology.AlgebraicallyClosedBoundedness
+def Guralnick.Cohomology.DoubledRowSum : (ℕ → ℕ → ℕ) → Prop :=
+fun μ => ∀ (m : ℕ), 2 ≤ m → 2 * ∑ j, μ m (↑j + 1) = m * (m + 1)
+def Guralnick.Cohomology.PrimeFieldTransfer : (ℕ → ℕ → ℕ) → Prop :=
+fun μ =>
+  ∀ (m : ℕ),
+    2 ≤ m →
+      ∃ p₀,
+        ∀ (p : ℕ) (hp : Nat.Prime p),
+          p₀ ≤ p →
+            5 * (2 * m) ≤ p →
+              ∃ A,
+                (∀ (j : Fin m), Guralnick.Cohomology.Admissible (A j)) ∧
+                  (∀ (j : Fin m),
+                      FiniteDimensional (Guralnick.Cohomology.PrimeClosure p) ↑(Guralnick.Cohomology.H1 (A j))) ∧
+                    ∀ (j : Fin m), Guralnick.Cohomology.h1Dimension (A j) = μ m (↑j + 1)
+'Guralnick.Family.upper_matrixEntry_eq_prescribedArray' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Hecke.family_length_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Hecke.familyMu_inverse_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebMasks.stage_masks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicWeb.Family.raw_cleared' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicWeb.Family.raw_cleared_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.MainGalleryCount.main_gallery_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.MainSourceCoordinate.raw_source_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.MainPacketCoordinate.raw_packet_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.MainCanonicalSupport.raw_six_position_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.MainFamilyCoordinate.marked_raw_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PacketIndexClassification.typeF_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PacketIndexClassification.full_pattern_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PacketCoarsening.strong_doubleMaximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PacketCoarsening.weak_doubleMaximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalOneLineEvaluation.canonical_of_leading' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalOneLinePatterns.strong_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalOneLinePatterns.weakDual_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalSphericalTransition.transition_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalRefinement.spherical_at_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalAuxiliaryMargins.strong_source_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.OneLineSpecialization.strong_at_marked_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.OneLineSpecialization.weak_at_spherical_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Gaussian.normalized_Q_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalFullCorrection.corrected_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebLiterature.auxiliary_family_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebLiterature.nonspherical_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebLiterature.auxiliary_source_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebProof.row_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.HighestWeight.root_lattice_center_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SLQuotient.center_order_invertible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SLQuotient.descended_h1_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Cohomology.irreducible_absolutelyIrreducible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LiteratureTransfer.familyModule_h1_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LiteratureTransfer.familyModule_absolutelyAdmissible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.WebProof.named_row_and_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebProof.not_absoluteBoundedness' depends on axioms: [propext, Classical.choice, Quot.sound]
+Guralnick.WebProof.row_sum {m : ℕ} (hm : 2 ≤ m) (T : Guralnick.Hecke.Theory (2 * m + 1))
+  (W : Guralnick.WebLiterature T) : ∑ j, Guralnick.Hecke.familyMu hm ⋯ ⋯ T.kl = ↑((m + 1).choose 2)
+Guralnick.WebProof.named_row_and_lower_bound (T : Guralnick.Hecke.TheoryFamily)
+  (W : (m : ℕ) → (hm : 2 ≤ m) → Guralnick.WebLiterature (T m hm)) (I : Guralnick.LiteratureTransfer.Inputs T) (m : ℕ)
+  (hm : 2 ≤ m) (p : ℕ) [Fact (Nat.Prime p)] (hp : 2 * m + 1 < p)
+  (hp₀ : Guralnick.LiteratureTransfer.threshold I m hm ≤ p) (hBNP : 5 * (2 * m) ≤ p) :
+  have A := fun j => Guralnick.LiteratureTransfer.familyModule I hm ⋯ ⋯ hp;
+  (∀ (j : Fin m), Guralnick.Cohomology.AbsolutelyAdmissible (A j)) ∧
+    (∀ (j : Fin m), FiniteDimensional (Guralnick.Cohomology.PrimeClosure p) ↑(Guralnick.Cohomology.H1 (A j))) ∧
+      2 * ∑ j, Guralnick.Cohomology.h1Dimension (A j) = m * (m + 1) ∧
+        ∃ j, m / 2 + 1 ≤ Guralnick.Cohomology.h1Dimension (A j)
+Guralnick.WebProof.not_absoluteBoundedness (T : Guralnick.Hecke.TheoryFamily)
+  (W : (m : ℕ) → (hm : 2 ≤ m) → Guralnick.WebLiterature (T m hm)) (I : Guralnick.LiteratureTransfer.Inputs T) :
+  ¬Guralnick.Cohomology.AbsoluteBoundedness
+def Guralnick.Cohomology.AbsoluteBoundedness : Prop :=
+∃ C, Guralnick.Cohomology.AbsoluteUniformH1Bound C
+def Guralnick.Cohomology.AbsoluteUniformH1Bound : ℕ → Prop :=
+fun C =>
+  ∀ (k : Type) [inst : Field k] (G : Type) [inst_1 : Group G] [Finite G] (A : Rep k G),
+    Guralnick.Cohomology.AbsolutelyAdmissible A → Guralnick.Cohomology.h1Dimension A ≤ C
+structure Guralnick.Hecke.Theory (n : ℕ) : Type
+number of parameters: 1
+fields:
+  Guralnick.Hecke.Theory.coxeter : Guralnick.Hecke.WindowCoxeter n
+  Guralnick.Hecke.Theory.kl : Guralnick.Hecke.KLRealization self.coxeter
+  Guralnick.Hecke.Theory.positivity : Guralnick.Hecke.PositivityInput self.kl
+constructor:
+  Guralnick.Hecke.Theory.mk {n : ℕ} (coxeter : Guralnick.Hecke.WindowCoxeter n)
+    (kl : Guralnick.Hecke.KLRealization coxeter) (positivity : Guralnick.Hecke.PositivityInput kl) :
+    Guralnick.Hecke.Theory n
+structure Guralnick.Hecke.WindowCoxeter (n : ℕ) : Type
+number of parameters: 1
+fields:
+  Guralnick.Hecke.WindowCoxeter.system : CoxeterSystem (Guralnick.AffineCoxeter.matrix n)
+      (Guralnick.AffinePermutation n)
+  Guralnick.Hecke.WindowCoxeter.simple_window : ∀ (s i : Fin n),
+      (self.system.simple s).entry i = Guralnick.Hecke.simpleEntry s i
+  Guralnick.Hecke.WindowCoxeter.length_formula : ∀ (w : Guralnick.AffinePermutation n),
+      self.system.length w = w.inversionCount
+constructor:
+  Guralnick.Hecke.WindowCoxeter.mk {n : ℕ}
+    (system : CoxeterSystem (Guralnick.AffineCoxeter.matrix n) (Guralnick.AffinePermutation n))
+    (simple_window : ∀ (s i : Fin n), (system.simple s).entry i = Guralnick.Hecke.simpleEntry s i)
+    (length_formula : ∀ (w : Guralnick.AffinePermutation n), system.length w = w.inversionCount) :
+    Guralnick.Hecke.WindowCoxeter n
+structure Guralnick.Hecke.KLRealization {n : ℕ} (c : Guralnick.Hecke.WindowCoxeter n) : Type
+number of parameters: 2
+fields:
+  Guralnick.Hecke.KLRealization.standard : Basis (Guralnick.AffinePermutation n) Guralnick.Hecke.R
+      (Guralnick.Hecke.Algebra n)
+  Guralnick.Hecke.KLRealization.standard_reduced : ∀ (l : List (Fin n)),
+      c.system.IsReduced l → self.standard (c.system.wordProd l) = Guralnick.Hecke.word l
+  Guralnick.Hecke.KLRealization.bar : Guralnick.Hecke.Algebra n ≃+* Guralnick.Hecke.Algebra n
+  Guralnick.Hecke.KLRealization.bar_scalar : ∀ (r : Guralnick.Hecke.R),
+      self.bar ((algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) r) =
+        (algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) (LaurentPolynomial.invert r)
+  Guralnick.Hecke.KLRealization.bar_generator : ∀ (i : Fin n),
+      self.bar (Guralnick.Hecke.H i) =
+        Guralnick.Hecke.H i +
+          (algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) (LaurentPolynomial.T 1 - LaurentPolynomial.T (-1))
+  Guralnick.Hecke.KLRealization.canonical : Basis (Guralnick.AffinePermutation n) Guralnick.Hecke.R
+      (Guralnick.Hecke.Algebra n)
+  Guralnick.Hecke.KLRealization.bar_canonical : ∀ (w : Guralnick.AffinePermutation n),
+      self.bar (self.canonical w) = self.canonical w
+  Guralnick.Hecke.KLRealization.canonical_diagonal : ∀ (w : Guralnick.AffinePermutation n),
+      (self.standard.repr (self.canonical w)) w = 1
+  Guralnick.Hecke.KLRealization.canonical_lower : ∀ (y w : Guralnick.AffinePermutation n),
+      y ≠ w → Guralnick.Positivity.LowerBound ((self.standard.repr (self.canonical w)) y) 1
+  Guralnick.Hecke.KLRealization.canonical_support : ∀ (y w : Guralnick.AffinePermutation n),
+      (self.standard.repr (self.canonical w)) y ≠ 0 → Guralnick.Hecke.Bruhat c y w
+  Guralnick.Hecke.KLRealization.polynomial : Guralnick.AffinePermutation n →
+      Guralnick.AffinePermutation n → Polynomial ℤ
+  Guralnick.Hecke.KLRealization.polynomial_normalization : ∀ (y w : Guralnick.AffinePermutation n),
+      (self.standard.repr (self.canonical w)) y =
+        Guralnick.normalize (↑(c.system.length w) - ↑(c.system.length y)) (self.polynomial y w)
+constructor:
+  Guralnick.Hecke.KLRealization.mk {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+    (standard : Basis (Guralnick.AffinePermutation n) Guralnick.Hecke.R (Guralnick.Hecke.Algebra n))
+    (standard_reduced :
+      ∀ (l : List (Fin n)), c.system.IsReduced l → standard (c.system.wordProd l) = Guralnick.Hecke.word l)
+    (bar : Guralnick.Hecke.Algebra n ≃+* Guralnick.Hecke.Algebra n)
+    (bar_scalar :
+      ∀ (r : Guralnick.Hecke.R),
+        bar ((algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) r) =
+          (algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) (LaurentPolynomial.invert r))
+    (bar_generator :
+      ∀ (i : Fin n),
+        bar (Guralnick.Hecke.H i) =
+          Guralnick.Hecke.H i +
+            (algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n))
+              (LaurentPolynomial.T 1 - LaurentPolynomial.T (-1)))
+    (canonical : Basis (Guralnick.AffinePermutation n) Guralnick.Hecke.R (Guralnick.Hecke.Algebra n))
+    (bar_canonical : ∀ (w : Guralnick.AffinePermutation n), bar (canonical w) = canonical w)
+    (canonical_diagonal : ∀ (w : Guralnick.AffinePermutation n), (standard.repr (canonical w)) w = 1)
+    (canonical_lower :
+      ∀ (y w : Guralnick.AffinePermutation n),
+        y ≠ w → Guralnick.Positivity.LowerBound ((standard.repr (canonical w)) y) 1)
+    (canonical_support :
+      ∀ (y w : Guralnick.AffinePermutation n), (standard.repr (canonical w)) y ≠ 0 → Guralnick.Hecke.Bruhat c y w)
+    (polynomial : Guralnick.AffinePermutation n → Guralnick.AffinePermutation n → Polynomial ℤ)
+    (polynomial_normalization :
+      ∀ (y w : Guralnick.AffinePermutation n),
+        (standard.repr (canonical w)) y =
+          Guralnick.normalize (↑(c.system.length w) - ↑(c.system.length y)) (polynomial y w)) :
+    Guralnick.Hecke.KLRealization c
+structure Guralnick.WebLiterature {n : ℕ} [NeZero n] (T : Guralnick.Hecke.Theory n) : Type
+number of parameters: 3
+fields:
+  Guralnick.WebLiterature.longest : (I : Guralnick.ParabolicWeb.Index n) →
+      Guralnick.ParabolicWeb.LongestData T.coxeter I
+  Guralnick.WebLiterature.parabolic : Guralnick.ParabolicWeb.Laws T.kl self.longest
+  Guralnick.WebLiterature.schur : Guralnick.CanonicalSchur.Compatibility T.kl
+  Guralnick.WebLiterature.refinement : Guralnick.CanonicalRefinement.StandardCompatibility T.kl self.longest
+  Guralnick.WebLiterature.convolution : Guralnick.FlagConvolution.Input T.kl self.longest ⋯
+  Guralnick.WebLiterature.lattice_flags : Guralnick.GeneralLatticeFlagInput
+  Guralnick.WebLiterature.coordinates : Guralnick.MainPacketCoordinate.CoordinateInput n
+  Guralnick.WebLiterature.matrix_lengths : Guralnick.OrbitMatrix.ThreeColumnLengthInput T.coxeter
+  Guralnick.WebLiterature.block_lengths : Guralnick.FiniteBlocks.BlockLengthInput self.longest
+  Guralnick.WebLiterature.finite_longest : Guralnick.FiniteBlocks.StandardFiniteLongestInput self.longest
+  Guralnick.WebLiterature.diagram_invariance : Guralnick.AffineReflection.DiagramInvarianceInput T.kl
+constructor:
+  Guralnick.WebLiterature.mk {n : ℕ} [NeZero n] {T : Guralnick.Hecke.Theory n}
+    (longest : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData T.coxeter I)
+    (parabolic : Guralnick.ParabolicWeb.Laws T.kl longest) (schur : Guralnick.CanonicalSchur.Compatibility T.kl)
+    (refinement : Guralnick.CanonicalRefinement.StandardCompatibility T.kl longest)
+    (convolution : Guralnick.FlagConvolution.Input T.kl longest parabolic)
+    (lattice_flags : Guralnick.GeneralLatticeFlagInput) (coordinates : Guralnick.MainPacketCoordinate.CoordinateInput n)
+    (matrix_lengths : Guralnick.OrbitMatrix.ThreeColumnLengthInput T.coxeter)
+    (block_lengths : Guralnick.FiniteBlocks.BlockLengthInput longest)
+    (finite_longest : Guralnick.FiniteBlocks.StandardFiniteLongestInput longest)
+    (diagram_invariance : Guralnick.AffineReflection.DiagramInvarianceInput T.kl) : Guralnick.WebLiterature T
+structure Guralnick.FlagConvolution.Input {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+  (K : Guralnick.Hecke.KLRealization c)
+  (D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I)
+  (L : Guralnick.ParabolicWeb.Laws K D) : Prop
+number of parameters: 5
+fields:
+  Guralnick.FlagConvolution.Input.realization : ∀ (p : ℕ) (hp : Nat.Prime p) (I J : Guralnick.ParabolicWeb.Index n)
+      (w : Guralnick.AffinePermutation n),
+      ∃ source target, Guralnick.AffineLatticePosition.RelativePosition (GaloisField p 2) n target source w
+  Guralnick.FlagConvolution.Input.specialization : ∀ (p : ℕ) (hp : Nat.Prime p) {I J : Guralnick.ParabolicWeb.Index n}
+      (path : Guralnick.CanonicalChains.Chain I J)
+      (source : Guralnick.LatticeFlags.Flag (GaloisField p 2) n (Guralnick.LatticeFlags.retained I))
+      (target : Guralnick.LatticeFlags.Flag (GaloisField p 2) n (Guralnick.LatticeFlags.retained J))
+      (w : Guralnick.AffinePermutation n),
+      Guralnick.AffineLatticePosition.RelativePosition (GaloisField p 2) n target source w →
+        (Guralnick.PolynomialsFromCounts.specialize p hp)
+            ((K.standard.repr (Guralnick.CanonicalChains.Chain.raw K D L path)) w) =
+          ↑(Guralnick.PolynomialsFromCounts.primeUnit p hp ^
+                (Guralnick.CanonicalChains.Chain.weight D path - ↑(c.system.length w))) *
+            ↑(Nat.card (Guralnick.FlagConvolution.Gallery (GaloisField p 2) path source target))
+constructor:
+  Guralnick.FlagConvolution.Input.mk {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n} {K : Guralnick.Hecke.KLRealization c}
+    {D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I}
+    {L : Guralnick.ParabolicWeb.Laws K D}
+    (realization :
+      ∀ (p : ℕ) (hp : Nat.Prime p) (I J : Guralnick.ParabolicWeb.Index n) (w : Guralnick.AffinePermutation n),
+        ∃ source target, Guralnick.AffineLatticePosition.RelativePosition (GaloisField p 2) n target source w)
+    (specialization :
+      ∀ (p : ℕ) (hp : Nat.Prime p) {I J : Guralnick.ParabolicWeb.Index n} (path : Guralnick.CanonicalChains.Chain I J)
+        (source : Guralnick.LatticeFlags.Flag (GaloisField p 2) n (Guralnick.LatticeFlags.retained I))
+        (target : Guralnick.LatticeFlags.Flag (GaloisField p 2) n (Guralnick.LatticeFlags.retained J))
+        (w : Guralnick.AffinePermutation n),
+        Guralnick.AffineLatticePosition.RelativePosition (GaloisField p 2) n target source w →
+          (Guralnick.PolynomialsFromCounts.specialize p hp)
+              ((K.standard.repr (Guralnick.CanonicalChains.Chain.raw K D L path)) w) =
+            ↑(Guralnick.PolynomialsFromCounts.primeUnit p hp ^
+                  (Guralnick.CanonicalChains.Chain.weight D path - ↑(c.system.length w))) *
+              ↑(Nat.card (Guralnick.FlagConvolution.Gallery (GaloisField p 2) path source target))) :
+    Guralnick.FlagConvolution.Input K D L
+structure Guralnick.OrbitMatrix.ThreeColumnLengthInput {N : ℕ} [NeZero N] (c : Guralnick.Hecke.WindowCoxeter N) : Prop
+number of parameters: 3
+fields:
+  Guralnick.OrbitMatrix.ThreeColumnLengthInput.dimension_length : ∀ (A : Guralnick.FiniteBlocks.Composition N),
+      ↑A.cut = 0 →
+        ∀ (w : Guralnick.AffinePermutation N),
+          Guralnick.WindowPacketMatrix.Supported w →
+            Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) w →
+              (Guralnick.PeriodicMatrix.dimension fun i j => ↑(Guralnick.OrbitMatrix.compositionEntries A w i j)) =
+                ↑(c.system.length w) - ↑(c.system.length (Guralnick.AffinePermutation.longest N))
+  Guralnick.OrbitMatrix.ThreeColumnLengthInput.maximal_of_dimension : ∀ (A : Guralnick.FiniteBlocks.Composition N),
+      ↑A.cut = 0 →
+        ∀ (w : Guralnick.AffinePermutation N),
+          Guralnick.WindowPacketMatrix.Supported w →
+            (∀ i ∈ ↑(Guralnick.CanonicalChains.source ⋯), c.system.IsRightDescent w i) →
+              (↑(c.system.length w) - ↑(c.system.length (Guralnick.AffinePermutation.longest N)) =
+                  Guralnick.PeriodicMatrix.dimension fun i j => ↑(Guralnick.OrbitMatrix.compositionEntries A w i j)) →
+                Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) w
+  Guralnick.OrbitMatrix.ThreeColumnLengthInput.matrix_injective : ∀ (A : Guralnick.FiniteBlocks.Composition N),
+      ↑A.cut = 0 →
+        ∀ (u v : Guralnick.AffinePermutation N),
+          Guralnick.WindowPacketMatrix.Supported u →
+            Guralnick.WindowPacketMatrix.Supported v →
+              Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) u →
+                Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) v →
+                  Guralnick.OrbitMatrix.compositionEntries A u = Guralnick.OrbitMatrix.compositionEntries A v → u = v
+constructor:
+  Guralnick.OrbitMatrix.ThreeColumnLengthInput.mk {N : ℕ} [NeZero N] {c : Guralnick.Hecke.WindowCoxeter N}
+    (dimension_length :
+      ∀ (A : Guralnick.FiniteBlocks.Composition N),
+        ↑A.cut = 0 →
+          ∀ (w : Guralnick.AffinePermutation N),
+            Guralnick.WindowPacketMatrix.Supported w →
+              Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) w →
+                (Guralnick.PeriodicMatrix.dimension fun i j => ↑(Guralnick.OrbitMatrix.compositionEntries A w i j)) =
+                  ↑(c.system.length w) - ↑(c.system.length (Guralnick.AffinePermutation.longest N)))
+    (maximal_of_dimension :
+      ∀ (A : Guralnick.FiniteBlocks.Composition N),
+        ↑A.cut = 0 →
+          ∀ (w : Guralnick.AffinePermutation N),
+            Guralnick.WindowPacketMatrix.Supported w →
+              (∀ i ∈ ↑(Guralnick.CanonicalChains.source ⋯), c.system.IsRightDescent w i) →
+                (↑(c.system.length w) - ↑(c.system.length (Guralnick.AffinePermutation.longest N)) =
+                    Guralnick.PeriodicMatrix.dimension fun i j => ↑(Guralnick.OrbitMatrix.compositionEntries A w i j)) →
+                  Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) w)
+    (matrix_injective :
+      ∀ (A : Guralnick.FiniteBlocks.Composition N),
+        ↑A.cut = 0 →
+          ∀ (u v : Guralnick.AffinePermutation N),
+            Guralnick.WindowPacketMatrix.Supported u →
+              Guralnick.WindowPacketMatrix.Supported v →
+                Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) u →
+                  Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) v →
+                    Guralnick.OrbitMatrix.compositionEntries A u = Guralnick.OrbitMatrix.compositionEntries A v →
+                      u = v) :
+    Guralnick.OrbitMatrix.ThreeColumnLengthInput c
+structure Guralnick.GeneralLatticeFlagInput : Prop
+number of parameters: 0
+fields: (none)
+constructor:
+  Guralnick.GeneralLatticeFlagInput.mk : Guralnick.GeneralLatticeFlagInput
+structure Guralnick.LiteratureTransfer.Inputs (T : Guralnick.Hecke.TheoryFamily) : Prop
+number of parameters: 1
+fields:
+  Guralnick.LiteratureTransfer.Inputs.existence : Guralnick.LiteratureTransfer.HighestWeightExistence
+  Guralnick.LiteratureTransfer.Inputs.andersen : Guralnick.LiteratureTransfer.AndersenAJS T
+  Guralnick.LiteratureTransfer.Inputs.bnp : Guralnick.LiteratureTransfer.BNP
+  Guralnick.LiteratureTransfer.Inputs.steinberg : Guralnick.LiteratureTransfer.Steinberg
+  Guralnick.LiteratureTransfer.Inputs.simple : Guralnick.LiteratureTransfer.PSLSimplicity
+constructor:
+  Guralnick.LiteratureTransfer.Inputs.mk {T : Guralnick.Hecke.TheoryFamily}
+    (existence : Guralnick.LiteratureTransfer.HighestWeightExistence)
+    (andersen : Guralnick.LiteratureTransfer.AndersenAJS T) (bnp : Guralnick.LiteratureTransfer.BNP)
+    (steinberg : Guralnick.LiteratureTransfer.Steinberg) (simple : Guralnick.LiteratureTransfer.PSLSimplicity) :
+    Guralnick.LiteratureTransfer.Inputs T
+def Guralnick.LiteratureTransfer.AndersenAJS : Guralnick.Hecke.TheoryFamily → Prop :=
+fun T =>
+  ∀ (m : ℕ) (hm : 2 ≤ m),
+    ∃ p₀,
+      ∀ (p : ℕ) (hp : Nat.Prime p),
+        p₀ ≤ p →
+          2 * m + 1 < p →
+            ∀ (wt : Guralnick.Weights.RootLattice (2 * m + 1))
+              (A : Guralnick.LiteratureTransfer.SimpleModule (Guralnick.Cohomology.PrimeClosure p) (2 * m + 1) wt)
+              (b : Guralnick.AffinePermutation (2 * m + 1)),
+              Guralnick.LiteratureTransfer.finiteLeftMinimal (T m hm).coxeter b →
+                Guralnick.DominantRestricted ↑p ↑wt →
+                  ↑wt = b.dotZero (↑p) (Guralnick.Weights.rho m) →
+                    ↑(Module.finrank (Guralnick.Cohomology.PrimeClosure p)
+                          (Guralnick.RationalCohomology.RationalH1 A.rep)) =
+                      (((T m hm).kl.standard.repr
+                            ((T m hm).kl.canonical (Guralnick.AffinePermutation.longest (2 * m + 1) * b)))
+                          (Guralnick.AffinePermutation.longest (2 * m + 1)))
+                        1
+def Guralnick.LiteratureTransfer.BNP : Prop :=
+∀ (m : ℕ),
+  2 ≤ m →
+    ∀ (p : ℕ) (hp : Nat.Prime p),
+      5 * (2 * m) ≤ p →
+        ∀ (wt : Guralnick.Weights.RootLattice (2 * m + 1))
+          (A : Guralnick.LiteratureTransfer.SimpleModule (Guralnick.Cohomology.PrimeClosure p) (2 * m + 1) wt)
+          (b : Guralnick.AffinePermutation (2 * m + 1)),
+          Guralnick.DominantRestricted ↑p ↑wt →
+            ↑wt = b.dotZero (↑p) (Guralnick.Weights.rho m) →
+              Nonempty
+                (Guralnick.RationalCohomology.RationalH1 A.rep ≃ₗ[Guralnick.Cohomology.PrimeClosure p]
+                  ↑(Guralnick.Cohomology.H1 (Guralnick.HighestWeight.restrictPrime (2 * m + 1) p A.rep)))
+'Guralnick.FidelityKL.normalize_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityKL.standard_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityKL.bar_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityKL.bar_fixed_positive_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityKL.canonical_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityKL.polynomial_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityKL.familyMu_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityWeb.family_frontiers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityWeights.dynkin_eq_manuscript' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityWeights.coordinate_eq_manuscript' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityWeights.etaCoordinate_eq_fundamental' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityWeights.etaCoordinate_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityWeights.m2_j1_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FidelityWeights.m2_j2_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebBoundary.Family.mem_index_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebBoundary.Family.local_relations' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTrace.family_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTrace.familyState_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTrace.family_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTrace.family_frontier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceWinding.step_mass' depends on axioms: [propext, Quot.sound]
+'Guralnick.WebTraceWinding.run_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceWinding.run_zero_cut_seam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceWinding.single_packet_turn_rejected' depends on axioms: [propext]
+'Guralnick.WebTraceWinding.consecutive_right_rejected' depends on axioms: [propext, Quot.sound]
+'Guralnick.WebRecutPositions.step_right_positions' depends on axioms: [propext, Quot.sound]
+'Guralnick.WebRecutPositions.step_left_positions' depends on axioms: [propext, Quot.sound]
+'Guralnick.WebPresentedWinding.seamDegree_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebPresentedWinding.not_presentable_of_nonzero_seam' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.WebEvaluation.merge_linear_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebEvaluation.merge_comp_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebEvaluationCompression.Resolution.fine_linear_eq_coarse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.WebTraceEvaluation.Program.replay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceEvaluation.familyProgram_operations' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceEvaluation.familyPresentedGraph_replay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceEvaluation.family_graph_evaluation_eq_raw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebRightLinearity.program_rightLinear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebRightLinearity.ext_generator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebProof.graph_morphism_eq_sixMaps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebProof.graph_standard_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebProof.graph_canonical_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebProof.graph_corrected_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebProof.graph_corrected_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebProof.graph_critical_eq_row_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTrace.seed_replay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTrace.rank_one_rejected' does not depend on any axioms
+'Guralnick.WebTrace.erased_graph_rejected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceSeamExample.ordinary_merge_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceSeamExample.seam_merge_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.WebTraceSeamExample.seam_channel_replay' does not depend on any axioms
+'Guralnick.WebTraceSeamExample.seam_channel_winding' does not depend on any axioms
+Guralnick.WebTraceEvaluation.family_graph_evaluation_eq_raw {m : ℕ} (hm : 2 ≤ m)
+  {c : Guralnick.Hecke.WindowCoxeter (2 * m + 1)} (K : Guralnick.Hecke.KLRealization c)
+  (D : (I : Guralnick.ParabolicWeb.Index (2 * m + 1)) → Guralnick.ParabolicWeb.LongestData c I)
+  (L : Guralnick.ParabolicWeb.Laws K D) :
+  Guralnick.WebTraceEvaluation.PresentedGraph.evaluate ⋯ K D L (Guralnick.WebTraceEvaluation.familyPresentedGraph hm) =
+    Guralnick.ParabolicWeb.Family.raw K D L
+Guralnick.WebProof.graph_morphism_eq_sixMaps {m : ℕ} (hm : 2 ≤ m) (T : Guralnick.Hecke.Theory (2 * m + 1))
+  (W : Guralnick.WebLiterature T) :
+  Guralnick.WebProof.graphMorphism hm T W = (Guralnick.ParabolicWeb.Family.sixMaps T.kl W.longest ⋯).linear
+Guralnick.WebProof.graph_corrected_critical {m : ℕ} (hm : 2 ≤ m) (T : Guralnick.Hecke.Theory (2 * m + 1))
+  (W : Guralnick.WebLiterature T) :
+  ((T.kl.standard.repr (Guralnick.WebProof.graphCorrected hm T W)) (Guralnick.AffinePermutation.longest (2 * m + 1)))
+      1 =
+    ↑((m + 1).choose 2)
+Guralnick.WebProof.graph_critical_eq_row_sum {m : ℕ} (hm : 2 ≤ m) (T : Guralnick.Hecke.Theory (2 * m + 1))
+  (W : Guralnick.WebLiterature T) :
+  ((T.kl.standard.repr (Guralnick.WebProof.graphCorrected hm T W)) (Guralnick.AffinePermutation.longest (2 * m + 1)))
+      1 =
+    ∑ j, Guralnick.Hecke.familyMu hm ⋯ ⋯ T.kl
+structure Guralnick.WebTraceEvaluation.PresentedGraph {n : ℕ} (hn : 0 < n) (g : Guralnick.Web.Graph) : Type
+number of parameters: 3
+fields:
+  Guralnick.WebTraceEvaluation.PresentedGraph.inputMass : g.input.mass = n
+  Guralnick.WebTraceEvaluation.PresentedGraph.sourceCut : g.input.cut = 0
+  Guralnick.WebTraceEvaluation.PresentedGraph.targetCut : g.output.cut = 0
+  Guralnick.WebTraceEvaluation.PresentedGraph.wellFormed : g.WellFormed
+  Guralnick.WebTraceEvaluation.PresentedGraph.target : Guralnick.WebTrace.State
+  Guralnick.WebTraceEvaluation.PresentedGraph.program : Guralnick.WebTraceEvaluation.Program hn
+      (Guralnick.WebTrace.initial g.input) self.target
+  Guralnick.WebTraceEvaluation.PresentedGraph.realizes : self.target.finish g.input = g
+constructor:
+  Guralnick.WebTraceEvaluation.PresentedGraph.mk {n : ℕ} {hn : 0 < n} {g : Guralnick.Web.Graph}
+    (inputMass : g.input.mass = n) (sourceCut : g.input.cut = 0) (targetCut : g.output.cut = 0)
+    (wellFormed : g.WellFormed) (target : Guralnick.WebTrace.State)
+    (program : Guralnick.WebTraceEvaluation.Program hn (Guralnick.WebTrace.initial g.input) target)
+    (realizes : target.finish g.input = g) : Guralnick.WebTraceEvaluation.PresentedGraph hn g
+'Guralnick.ParabolicWeb.scalar_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicWeb.Laws.scalar_bar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.interval_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.intervalLattice_source_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.intervalLattice_upper_module' depends on axioms: [propext, Classical.choice, Quot.sound]
+structure Guralnick.ParabolicWeb.Laws {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+  (K : Guralnick.Hecke.KLRealization c)
+  (D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I) : Prop
+number of parameters: 4
+fields:
+  Guralnick.ParabolicWeb.Laws.standard_sum : ∀ (I : Guralnick.ParabolicWeb.Index n),
+      Guralnick.ParabolicWeb.symmetrizer K D I =
+        ∑ w, LaurentPolynomial.T (↑(c.system.length ↑(D I).longest) - ↑(c.system.length ↑w)) • K.standard ↑w
+  Guralnick.ParabolicWeb.Laws.inclusion : ∀ (I J : Guralnick.ParabolicWeb.Index n),
+      ↑I ⊆ ↑J →
+        Guralnick.SphericalMaps.spherical (Guralnick.ParabolicWeb.symmetrizer K D J) ≤
+          Guralnick.SphericalMaps.spherical (Guralnick.ParabolicWeb.symmetrizer K D I)
+constructor:
+  Guralnick.ParabolicWeb.Laws.mk {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n} {K : Guralnick.Hecke.KLRealization c}
+    {D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I}
+    (standard_sum :
+      ∀ (I : Guralnick.ParabolicWeb.Index n),
+        Guralnick.ParabolicWeb.symmetrizer K D I =
+          ∑ w, LaurentPolynomial.T (↑(c.system.length ↑(D I).longest) - ↑(c.system.length ↑w)) • K.standard ↑w)
+    (inclusion :
+      ∀ (I J : Guralnick.ParabolicWeb.Index n),
+        ↑I ⊆ ↑J →
+          Guralnick.SphericalMaps.spherical (Guralnick.ParabolicWeb.symmetrizer K D J) ≤
+            Guralnick.SphericalMaps.spherical (Guralnick.ParabolicWeb.symmetrizer K D I)) :
+    Guralnick.ParabolicWeb.Laws K D
+structure Guralnick.LaurentLattice.Theory.{u_1} (k : Type u_1) [Field k] (N : ℕ) : Prop
+number of parameters: 3
+fields:
+  Guralnick.LaurentLattice.Theory.finite_quotient : ∀ (Λ M : Guralnick.LaurentLattice.Lattice k N),
+      Λ ≤ M → FiniteDimensional k (Guralnick.LatticeGallery.QuotientSpace Λ.space M.space)
+  Guralnick.LaurentLattice.Theory.dimension_degree : ∀ (Λ M : Guralnick.LaurentLattice.Lattice k N),
+      Λ ≤ M →
+        ↑(Module.finrank k (Guralnick.LatticeGallery.QuotientSpace Λ.space M.space)) =
+          Guralnick.LaurentLattice.degree k N M - Guralnick.LaurentLattice.degree k N Λ
+  Guralnick.LaurentLattice.Theory.period_dimension : ∀ (Λ : Guralnick.LaurentLattice.Lattice k N),
+      Module.finrank k
+          (Guralnick.LatticeGallery.QuotientSpace Λ.space
+            (Guralnick.LatticeGallery.expand (Guralnick.LaurentLattice.shift k N) Λ.space)) =
+        N
+  Guralnick.LaurentLattice.Theory.period_finite : ∀ (Λ : Guralnick.LaurentLattice.Lattice k N),
+      FiniteDimensional k
+        (Guralnick.LatticeGallery.QuotientSpace Λ.space
+          (Guralnick.LatticeGallery.expand (Guralnick.LaurentLattice.shift k N) Λ.space))
+constructor:
+  Guralnick.LaurentLattice.Theory.mk.{u_1} {k : Type u_1} [Field k] {N : ℕ}
+    (finite_quotient :
+      ∀ (Λ M : Guralnick.LaurentLattice.Lattice k N),
+        Λ ≤ M → FiniteDimensional k (Guralnick.LatticeGallery.QuotientSpace Λ.space M.space))
+    (dimension_degree :
+      ∀ (Λ M : Guralnick.LaurentLattice.Lattice k N),
+        Λ ≤ M →
+          ↑(Module.finrank k (Guralnick.LatticeGallery.QuotientSpace Λ.space M.space)) =
+            Guralnick.LaurentLattice.degree k N M - Guralnick.LaurentLattice.degree k N Λ)
+    (period_dimension :
+      ∀ (Λ : Guralnick.LaurentLattice.Lattice k N),
+        Module.finrank k
+            (Guralnick.LatticeGallery.QuotientSpace Λ.space
+              (Guralnick.LatticeGallery.expand (Guralnick.LaurentLattice.shift k N) Λ.space)) =
+          N)
+    (period_finite :
+      ∀ (Λ : Guralnick.LaurentLattice.Lattice k N),
+        FiniteDimensional k
+          (Guralnick.LatticeGallery.QuotientSpace Λ.space
+            (Guralnick.LatticeGallery.expand (Guralnick.LaurentLattice.shift k N) Λ.space))) :
+    Guralnick.LaurentLattice.Theory k N
+Guralnick.ParabolicWeb.scalar_ne_zero {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+  (D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I)
+  (I : Guralnick.ParabolicWeb.Index n) : Guralnick.ParabolicWeb.scalar D I ≠ 0
+Guralnick.LaurentLattice.interval_lift.{u_1} {k : Type u_1} [Field k] {N : ℕ} (Λ : Guralnick.LaurentLattice.Lattice k N)
+  (A : Submodule k (Guralnick.LaurentLattice.Ambient k N)) (hlower : Λ.space ≤ A)
+  (hupper : A ≤ Guralnick.LatticeGallery.expand (Guralnick.LaurentLattice.shift k N) Λ.space) : ∃ M, M.space = A
+'Guralnick.LaurentLattice.latticeBasis_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.periodCoefficients_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.periodEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.period_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.period_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.exists_X_pow_smul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.finite_quotient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.standardLattice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.interLattice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeGallery.relative_degree_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.dimension_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.provedTheory' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.GeneralLatticeFlagInput.lattice_theory' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PowerSeriesCompletion.completionEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PowerSeriesCompletion.completion_parameter_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PowerSeriesCompletion.stableSubspaceEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PowerSeriesCompletion.subspace_inf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PowerSeriesCompletion.subspace_sup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PowerSeriesCompletion.series_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PowerSeriesCompletion.quotient_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.XStable_iff_lattice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.truncatedIntervalIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.truncatedLattice_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LaurentLattice.truncatedLattice_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+Guralnick.LaurentLattice.provedTheory.{u_1} (k : Type u_1) [Field k] (N : ℕ) : Guralnick.LaurentLattice.Theory k N
+Guralnick.LaurentLattice.dimension_degree.{u_1} {k : Type u_1} [Field k] {N : ℕ}
+  (Λ M : Guralnick.LaurentLattice.Lattice k N) (hΛM : Λ ≤ M) :
+  ↑(Module.finrank k (Guralnick.LatticeGallery.QuotientSpace Λ.space M.space)) =
+    Guralnick.LaurentLattice.degree k N M - Guralnick.LaurentLattice.degree k N Λ
+Guralnick.LaurentLattice.periodEquiv.{u_1} {k : Type u_1} [Field k] {N : ℕ} (Λ : Guralnick.LaurentLattice.Lattice k N) :
+  Guralnick.LatticeGallery.QuotientSpace Λ.space
+      (Guralnick.LatticeGallery.expand (Guralnick.LaurentLattice.shift k N) Λ.space) ≃ₗ[k]
+    Fin N → k
+'Guralnick.LatticeCompletion.algebraize_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeCompletion.complete_algebraize' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeCompletion.orderIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeCompletion.quotientEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeCompletion.complete_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeCompletion.complete_cyclic_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialLattice.vectorInclusion_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialAffineCoordinates.complete_coordinateLattice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.PolynomialAffineCoordinates.complete_window_coordinateModule' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.SLCoordinate.evaluation_ker_eq_determinantIdeal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SLCoordinate.quotientDeterminantEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SLCoordinate.comultiplication_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SLCoordinate.antipode_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SLCoordinate.coordinateHopfAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CoordinateTensor.regularEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CoordinateTensor.linearEvaluation_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.RationalCoordinate.coaction_coassociative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.RationalCoordinate.dOne_dZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.RationalCoordinate.h1Equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.RationalCoordinate.cocycle_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.RationalCoordinate.empty_rank_cocycles_subsingleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.RationalCoordinate.toCoordinateRepresentation_pointRep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.RationalCoordinate.coordinateRepresentation_roundtrip_full' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.RationalCoordinate.intertwiner_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.RationalCoordinate.invariant_subspace_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CoordinateLiteratureTransfer.andersen_iff_function' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.CoordinateLiteratureTransfer.bnp_iff_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CoordinateLiteratureTransfer.not_absoluteBoundedness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Guralnick.RationalCoordinate.h1Equiv {k ι : Type} [Field k] [Fintype ι] [DecidableEq ι]
+  {A : Rep k (Guralnick.RationalCohomology.SL ι k)} [FiniteDimensional k ↑A.V]
+  (hA : Guralnick.RationalCohomology.IsPolynomialRepresentation A) :
+  Guralnick.RationalCoordinate.CoordinateH1 hA ≃ₗ[k] Guralnick.RationalCohomology.RationalH1 A
+Guralnick.CoordinateLiteratureTransfer.not_absoluteBoundedness (T : Guralnick.Hecke.TheoryFamily)
+  (W : (m : ℕ) → (hm : 2 ≤ m) → Guralnick.WebLiterature (T m hm))
+  (I : Guralnick.CoordinateLiteratureTransfer.Inputs T) : ¬Guralnick.Cohomology.AbsoluteBoundedness
+def Guralnick.CoordinateLiteratureTransfer.AndersenAJS : Guralnick.Hecke.TheoryFamily → Prop :=
+fun T =>
+  ∀ (m : ℕ) (hm : 2 ≤ m),
+    ∃ p₀,
+      ∀ (p : ℕ) (hp : Nat.Prime p),
+        p₀ ≤ p →
+          2 * m + 1 < p →
+            ∀ (wt : Guralnick.Weights.RootLattice (2 * m + 1))
+              (A : Guralnick.LiteratureTransfer.SimpleModule (Guralnick.Cohomology.PrimeClosure p) (2 * m + 1) wt)
+              (b : Guralnick.AffinePermutation (2 * m + 1)),
+              Guralnick.LiteratureTransfer.finiteLeftMinimal (T m hm).coxeter b →
+                Guralnick.DominantRestricted ↑p ↑wt →
+                  ↑wt = b.dotZero (↑p) (Guralnick.Weights.rho m) →
+                    ↑(Module.finrank (Guralnick.Cohomology.PrimeClosure p)
+                          (Guralnick.RationalCoordinate.CoordinateH1 ⋯)) =
+                      (((T m hm).kl.standard.repr
+                            ((T m hm).kl.canonical (Guralnick.AffinePermutation.longest (2 * m + 1) * b)))
+                          (Guralnick.AffinePermutation.longest (2 * m + 1)))
+                        1
+def Guralnick.CoordinateLiteratureTransfer.BNP : Prop :=
+∀ (m : ℕ),
+  2 ≤ m →
+    ∀ (p : ℕ) (hp : Nat.Prime p),
+      5 * (2 * m) ≤ p →
+        ∀ (wt : Guralnick.Weights.RootLattice (2 * m + 1))
+          (A : Guralnick.LiteratureTransfer.SimpleModule (Guralnick.Cohomology.PrimeClosure p) (2 * m + 1) wt)
+          (b : Guralnick.AffinePermutation (2 * m + 1)),
+          Guralnick.DominantRestricted ↑p ↑wt →
+            ↑wt = b.dotZero (↑p) (Guralnick.Weights.rho m) →
+              Nonempty
+                (Guralnick.RationalCoordinate.CoordinateH1 ⋯ ≃ₗ[Guralnick.Cohomology.PrimeClosure p]
+                  ↑(Guralnick.Cohomology.H1 (Guralnick.HighestWeight.restrictPrime (2 * m + 1) p A.rep)))
+'Guralnick.PolynomialLattice.exists_basis_extending' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeEquivariance.subspaceQuotientEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeEquivariance.degree_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeEquivariance.flagEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.LatticeEquivariance.galleryEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFlags.flagEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFlags.galleryEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFlags.gallery_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialOrbitCoordinates.block_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialOrbitCoordinates.cumulative_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialOrbitCoordinates.blockEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialOrbitCoordinates.cumulativeEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialOrbitCoordinates.blockCompletionEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialOrbitCoordinates.cumulativeCompletionEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.PolynomialOrbitCoordinates.Input.toCompleted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFlagConvolution.gallery_card_of_position' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.PolynomialFlagConvolution.Input.toCompleted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialWebLiterature.toWebLiterature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ModelComparisonCounterexample.row_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ModelComparisonCounterexample.named_row_and_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.ModelComparisonCounterexample.not_absoluteBoundedness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Guralnick.ModelComparisonCounterexample.named_row_and_lower_bound (T : Guralnick.Hecke.TheoryFamily)
+  (W : ∀ (m : ℕ) (hm : 2 ≤ m), Guralnick.PolynomialWebLiterature (T m hm))
+  (I : Guralnick.CoordinateLiteratureTransfer.Inputs T) (m : ℕ) (hm : 2 ≤ m) (p : ℕ) [Fact (Nat.Prime p)]
+  (hp : 2 * m + 1 < p) (hp₀ : Guralnick.LiteratureTransfer.threshold ⋯ m hm ≤ p) (hBNP : 5 * (2 * m) ≤ p) :
+  have A := fun j => Guralnick.LiteratureTransfer.familyModule ⋯ hm ⋯ ⋯ hp;
+  (∀ (j : Fin m), Guralnick.Cohomology.AbsolutelyAdmissible (A j)) ∧
+    (∀ (j : Fin m), FiniteDimensional (Guralnick.Cohomology.PrimeClosure p) ↑(Guralnick.Cohomology.H1 (A j))) ∧
+      2 * ∑ j, Guralnick.Cohomology.h1Dimension (A j) = m * (m + 1) ∧
+        ∃ j, m / 2 + 1 ≤ Guralnick.Cohomology.h1Dimension (A j)
+Guralnick.ModelComparisonCounterexample.not_absoluteBoundedness (T : Guralnick.Hecke.TheoryFamily)
+  (W : ∀ (m : ℕ) (hm : 2 ≤ m), Guralnick.PolynomialWebLiterature (T m hm))
+  (I : Guralnick.CoordinateLiteratureTransfer.Inputs T) : ¬Guralnick.Cohomology.AbsoluteBoundedness
+structure Guralnick.PolynomialWebLiterature {n : ℕ} [NeZero n] (T : Guralnick.Hecke.Theory n) : Prop
+number of parameters: 3
+fields:
+  Guralnick.PolynomialWebLiterature.refinement : Guralnick.CanonicalRefinement.StandardCompatibility T.kl
+      (Guralnick.polynomialLongest T)
+  Guralnick.PolynomialWebLiterature.full_flag : ∀ (p : ℕ) (hp : Nat.Prime p),
+      Guralnick.FullFlagHeckeConvolution.Input T.kl p hp
+constructor:
+  Guralnick.PolynomialWebLiterature.mk {n : ℕ} [NeZero n] {T : Guralnick.Hecke.Theory n}
+    (refinement : Guralnick.CanonicalRefinement.StandardCompatibility T.kl (Guralnick.polynomialLongest T))
+    (full_flag : ∀ (p : ℕ) (hp : Nat.Prime p), Guralnick.FullFlagHeckeConvolution.Input T.kl p hp) :
+    Guralnick.PolynomialWebLiterature T
+structure Guralnick.PolynomialFlagConvolution.Input {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+  (K : Guralnick.Hecke.KLRealization c)
+  (D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I)
+  (L : Guralnick.ParabolicWeb.Laws K D) : Prop
+number of parameters: 5
+fields:
+  Guralnick.PolynomialFlagConvolution.Input.specialization : ∀ (p : ℕ) (hp : Nat.Prime p)
+      {I J : Guralnick.ParabolicWeb.Index n} (path : Guralnick.CanonicalChains.Chain I J)
+      (source : Guralnick.PolynomialFlags.Flag (GaloisField p 2) n (Guralnick.LatticeFlags.retained I))
+      (target : Guralnick.PolynomialFlags.Flag (GaloisField p 2) n (Guralnick.LatticeFlags.retained J))
+      (w : Guralnick.AffinePermutation n),
+      Guralnick.PolynomialFlagConvolution.CanonicalPair source target w →
+        (Guralnick.PolynomialsFromCounts.specialize p hp)
+            ((K.standard.repr (Guralnick.CanonicalChains.Chain.raw K D L path)) w) =
+          ↑(Guralnick.PolynomialsFromCounts.primeUnit p hp ^
+                (Guralnick.CanonicalChains.Chain.weight D path - ↑(c.system.length w))) *
+            ↑(Nat.card (Guralnick.PolynomialFlags.Gallery path source target))
+constructor:
+  Guralnick.PolynomialFlagConvolution.Input.mk {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+    {K : Guralnick.Hecke.KLRealization c}
+    {D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I}
+    {L : Guralnick.ParabolicWeb.Laws K D}
+    (specialization :
+      ∀ (p : ℕ) (hp : Nat.Prime p) {I J : Guralnick.ParabolicWeb.Index n} (path : Guralnick.CanonicalChains.Chain I J)
+        (source : Guralnick.PolynomialFlags.Flag (GaloisField p 2) n (Guralnick.LatticeFlags.retained I))
+        (target : Guralnick.PolynomialFlags.Flag (GaloisField p 2) n (Guralnick.LatticeFlags.retained J))
+        (w : Guralnick.AffinePermutation n),
+        Guralnick.PolynomialFlagConvolution.CanonicalPair source target w →
+          (Guralnick.PolynomialsFromCounts.specialize p hp)
+              ((K.standard.repr (Guralnick.CanonicalChains.Chain.raw K D L path)) w) =
+            ↑(Guralnick.PolynomialsFromCounts.primeUnit p hp ^
+                  (Guralnick.CanonicalChains.Chain.weight D path - ↑(c.system.length w))) *
+              ↑(Nat.card (Guralnick.PolynomialFlags.Gallery path source target))) :
+    Guralnick.PolynomialFlagConvolution.Input K D L
+structure Guralnick.PolynomialOrbitCoordinates.Input (k : Type) [Field k] (N : ℕ) [NeZero N] : Prop
+number of parameters: 4
+fields:
+  Guralnick.PolynomialOrbitCoordinates.Input.block_dimension : ∀ (w : Guralnick.AffinePermutation N) (a b c d : ℤ),
+      a ≤ b →
+        c ≤ d →
+          Module.finrank k (Guralnick.PolynomialOrbitCoordinates.BlockQuotient k N w a b c d) =
+            Guralnick.OrbitMatrix.blockCount N w a b c d
+  Guralnick.PolynomialOrbitCoordinates.Input.cumulative_dimension : ∀ (w : Guralnick.AffinePermutation N) (a b c : ℤ),
+      a ≤ b →
+        Module.finrank k (Guralnick.PolynomialOrbitCoordinates.CumulativeQuotient k N w a b c) =
+          Guralnick.OrbitMatrix.cumulativeCount N w a b c
+  Guralnick.PolynomialOrbitCoordinates.Input.source_le_target : ∀ (w : Guralnick.AffinePermutation N) (a b : ℤ),
+      Guralnick.PolynomialOrbitCoordinates.sourceCut k N w b ≤ Guralnick.PolynomialOrbitCoordinates.targetCut k N a ↔
+        ∀ i ≤ b, w.onIntegers i ≤ a
+  Guralnick.PolynomialOrbitCoordinates.Input.target_le_source : ∀ (w : Guralnick.AffinePermutation N) (a b : ℤ),
+      Guralnick.PolynomialOrbitCoordinates.targetCut k N a ≤ Guralnick.PolynomialOrbitCoordinates.sourceCut k N w b ↔
+        ∀ i ≤ a, w.onIntegers.symm i ≤ b
+constructor:
+  Guralnick.PolynomialOrbitCoordinates.Input.mk {k : Type} [Field k] {N : ℕ} [NeZero N]
+    (block_dimension :
+      ∀ (w : Guralnick.AffinePermutation N) (a b c d : ℤ),
+        a ≤ b →
+          c ≤ d →
+            Module.finrank k (Guralnick.PolynomialOrbitCoordinates.BlockQuotient k N w a b c d) =
+              Guralnick.OrbitMatrix.blockCount N w a b c d)
+    (cumulative_dimension :
+      ∀ (w : Guralnick.AffinePermutation N) (a b c : ℤ),
+        a ≤ b →
+          Module.finrank k (Guralnick.PolynomialOrbitCoordinates.CumulativeQuotient k N w a b c) =
+            Guralnick.OrbitMatrix.cumulativeCount N w a b c)
+    (source_le_target :
+      ∀ (w : Guralnick.AffinePermutation N) (a b : ℤ),
+        Guralnick.PolynomialOrbitCoordinates.sourceCut k N w b ≤ Guralnick.PolynomialOrbitCoordinates.targetCut k N a ↔
+          ∀ i ≤ b, w.onIntegers i ≤ a)
+    (target_le_source :
+      ∀ (w : Guralnick.AffinePermutation N) (a b : ℤ),
+        Guralnick.PolynomialOrbitCoordinates.targetCut k N a ≤ Guralnick.PolynomialOrbitCoordinates.sourceCut k N w b ↔
+          ∀ i ≤ a, w.onIntegers.symm i ≤ b) :
+    Guralnick.PolynomialOrbitCoordinates.Input k N
+structure Guralnick.CoordinateLiteratureTransfer.Inputs (T : Guralnick.Hecke.TheoryFamily) : Prop
+number of parameters: 1
+fields:
+  Guralnick.CoordinateLiteratureTransfer.Inputs.existence : Guralnick.LiteratureTransfer.HighestWeightExistence
+  Guralnick.CoordinateLiteratureTransfer.Inputs.andersen : Guralnick.CoordinateLiteratureTransfer.AndersenAJS T
+  Guralnick.CoordinateLiteratureTransfer.Inputs.bnp : Guralnick.CoordinateLiteratureTransfer.BNP
+  Guralnick.CoordinateLiteratureTransfer.Inputs.steinberg : Guralnick.LiteratureTransfer.Steinberg
+  Guralnick.CoordinateLiteratureTransfer.Inputs.simple : Guralnick.LiteratureTransfer.PSLSimplicity
+constructor:
+  Guralnick.CoordinateLiteratureTransfer.Inputs.mk {T : Guralnick.Hecke.TheoryFamily}
+    (existence : Guralnick.LiteratureTransfer.HighestWeightExistence)
+    (andersen : Guralnick.CoordinateLiteratureTransfer.AndersenAJS T) (bnp : Guralnick.CoordinateLiteratureTransfer.BNP)
+    (steinberg : Guralnick.LiteratureTransfer.Steinberg) (simple : Guralnick.LiteratureTransfer.PSLSimplicity) :
+    Guralnick.CoordinateLiteratureTransfer.Inputs T
+'Guralnick.AffineLatticePosition.coordinateQuotientEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.AffineLatticePosition.coordinateLattice_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialCoordinateFlags.window_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialCoordinateFlags.target_node_module' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialCoordinateFlags.source_node_module' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SLCoordinate.standardPairEvaluation_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFlagConvolution.canonicalPair_realization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.HeckeInversion.polynomial_inversion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Hecke.Theory.inversion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ElementaryCoxeterParabolic.longestData' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ElementaryCoxeterFinite.standardFiniteLongest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ElementaryCoxeterDiagram.diagramInvariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CoordinateSubspace.quotientEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CoordinateSubspace.quotient_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialOrbitCounting.provedInput' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FiniteFlagEnumeration.provedFiniteFlagCounts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FiniteFlagEnumeration.fano_flags' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.GeneralLatticeFlagInput.proved' does not depend on any axioms
+'Guralnick.SphericalMaps.mergeOfAbsorption' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicWeb.Laws.left_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicWeb.Laws.right_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicWeb.Laws.absorption' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicWeb.Laws.merge_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FiniteDoubleCosetMaximum.exists_maximum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.Hecke.WindowCoxeter.finite_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.OrbitMatrixElementary.toThreeColumnLengthInput' depends on axioms: [propext, Classical.choice, Quot.sound]
+def Guralnick.OrbitMatrixElementary.DimensionLengthInput : {N : ℕ} →
+  [NeZero N] → Guralnick.Hecke.WindowCoxeter N → Prop :=
+fun {N} [NeZero N] c =>
+  ∀ (A : Guralnick.FiniteBlocks.Composition N),
+    ↑A.cut = 0 →
+      ∀ (w : Guralnick.AffinePermutation N),
+        Guralnick.WindowPacketMatrix.Supported w →
+          Guralnick.CanonicalSchur.DoubleMaximal c A.index (Guralnick.CanonicalChains.source ⋯) w →
+            (Guralnick.PeriodicMatrix.dimension fun i j => ↑(Guralnick.OrbitMatrix.compositionEntries A w i j)) =
+              ↑(c.system.length w) - ↑(c.system.length (Guralnick.AffinePermutation.longest N))
+'Guralnick.ElementaryCoxeterBlockLength.blockLength' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ElementaryCoxeterLongest.length_ge_of_right_descents' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.ElementaryCoxeterLongest.eq_longest_of_right_descents' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.Hecke.canonical_support_length_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicStandardSum.standard_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicCosetFactorization.length_mul_of_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicIdealInclusion.inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.ParabolicFlagStabilizer.canonical_forget_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FiniteFlagExtension.exists_full_flag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFlagExtension.lift_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFlagExtension.lift_card_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFlagExtension.full_lift_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FullFlagHeckeConvolution.forget_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FullFlagHeckeConvolution.value_symmetrizer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FullFlagHeckeConvolution.symmetrizer_square_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFullLiftCardinality.lift_card_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFullGallery.configurationEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialFullGallery.fullGallery_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FullFlagHeckeConvolution.numerator_coordinate_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.PolynomialConvolutionNormalization.scalar_specialize' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.PolynomialConvolutionNormalization.denominator_specialize' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.PolynomialConvolutionNormalization.normalized_raw_of_fullGallery_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Guralnick.PolynomialCanonicalFullFlags.forget_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.PolynomialConvolutionConstruction.fromFullFlag' depends on axioms: [propext, Classical.choice, Quot.sound]
+def Guralnick.FullFlagHeckeConvolution.OrbitClassification : (k : Type) → [Field k] → (n : ℕ) → [NeZero n] → Prop :=
+fun k [Field k] n [NeZero n] =>
+  ∀ (target source : Guralnick.PolynomialFullGallery.FullFlag k n),
+    ∃! w, Guralnick.FullFlagHeckeConvolution.RelativePosition target source w
+structure Guralnick.FullFlagHeckeConvolution.Input {n : ℕ} [NeZero n] {c : Guralnick.Hecke.WindowCoxeter n}
+  (K : Guralnick.Hecke.KLRealization c) (p : ℕ) [Fact (Nat.Prime p)] (hp : Nat.Prime p) : Prop
+number of parameters: 7
+fields:
+  Guralnick.FullFlagHeckeConvolution.Input.orbits : Guralnick.FullFlagHeckeConvolution.OrbitClassification
+      (GaloisField p 2) n
+  Guralnick.FullFlagHeckeConvolution.Input.convolution : ∀ (x y : Guralnick.Hecke.Algebra n)
+      (target source : Guralnick.PolynomialFullGallery.FullFlag (GaloisField p 2) n),
+      Guralnick.FullFlagHeckeConvolution.value K p hp ⋯ (x * y) target source =
+        ∑ᶠ (middle : Guralnick.PolynomialFullGallery.FullFlag (GaloisField p 2) n),
+          Guralnick.FullFlagHeckeConvolution.value K p hp ⋯ x target middle *
+            Guralnick.FullFlagHeckeConvolution.value K p hp ⋯ y middle source
+constructor:
+  Guralnick.FullFlagHeckeConvolution.Input.mk {n : ℕ} [NeZero n] {c : Guralnick.Hecke.WindowCoxeter n}
+    {K : Guralnick.Hecke.KLRealization c} {p : ℕ} [Fact (Nat.Prime p)] {hp : Nat.Prime p}
+    (orbits : Guralnick.FullFlagHeckeConvolution.OrbitClassification (GaloisField p 2) n)
+    (convolution :
+      ∀ (x y : Guralnick.Hecke.Algebra n)
+        (target source : Guralnick.PolynomialFullGallery.FullFlag (GaloisField p 2) n),
+        Guralnick.FullFlagHeckeConvolution.value K p hp orbits (x * y) target source =
+          ∑ᶠ (middle : Guralnick.PolynomialFullGallery.FullFlag (GaloisField p 2) n),
+            Guralnick.FullFlagHeckeConvolution.value K p hp orbits x target middle *
+              Guralnick.FullFlagHeckeConvolution.value K p hp orbits y middle source) :
+    Guralnick.FullFlagHeckeConvolution.Input K p hp
+'Guralnick.OrbitDimensionInversions.length_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.OrbitDimensionPairs.matrix_pair_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.OrbitDimensionLabels.compositionEntries_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.OrbitDimensionHistogram.dimension_histogram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.OrbitDimensionLength.dimensionLength' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.OrbitDimensionLength.threeColumnLength' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FiniteSymmetrizerEigen.left_absorption' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalSchurEigenReduction.product_cleared' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalSchurEigenReduction.toCompatibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+structure Guralnick.CanonicalSchurEigenReduction.ProductCompatibility {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+  (K : Guralnick.Hecke.KLRealization c)
+  (D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I) : Prop
+number of parameters: 4
+fields:
+  Guralnick.CanonicalSchurEigenReduction.ProductCompatibility.canonical_support : ∀
+      (I J : Guralnick.ParabolicWeb.Index n) (x : Guralnick.Hecke.Algebra n) (w : Guralnick.AffinePermutation n),
+      (K.canonical.repr
+              (Guralnick.CanonicalSchurEigenReduction.rawSum K D I * x *
+                Guralnick.CanonicalSchurEigenReduction.rawSum K D J))
+            w ≠
+          0 →
+        Guralnick.CanonicalSchur.DoubleMaximal c I J w
+constructor:
+  Guralnick.CanonicalSchurEigenReduction.ProductCompatibility.mk {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+    {K : Guralnick.Hecke.KLRealization c}
+    {D : (I : Guralnick.ParabolicWeb.Index n) → Guralnick.ParabolicWeb.LongestData c I}
+    (canonical_support :
+      ∀ (I J : Guralnick.ParabolicWeb.Index n) (x : Guralnick.Hecke.Algebra n) (w : Guralnick.AffinePermutation n),
+        (K.canonical.repr
+                (Guralnick.CanonicalSchurEigenReduction.rawSum K D I * x *
+                  Guralnick.CanonicalSchurEigenReduction.rawSum K D J))
+              w ≠
+            0 →
+          Guralnick.CanonicalSchur.DoubleMaximal c I J w) :
+    Guralnick.CanonicalSchurEigenReduction.ProductCompatibility K D
+'Guralnick.KLDerivedBar.bar_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.HeckeEigenCoordinates.eigen_top_doubleMaximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.HeckeRefinement.schurCorner_le_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.CanonicalSchurFromRefinement.toCompatibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.HighestWeight.family_restrictPrime_nontrivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+structure Guralnick.Hecke.KLRealization {n : ℕ} (c : Guralnick.Hecke.WindowCoxeter n) : Type
+number of parameters: 2
+fields:
+  Guralnick.Hecke.KLRealization.standard : Basis (Guralnick.AffinePermutation n) Guralnick.Hecke.R
+      (Guralnick.Hecke.Algebra n)
+  Guralnick.Hecke.KLRealization.standard_reduced : ∀ (l : List (Fin n)),
+      c.system.IsReduced l → self.standard (c.system.wordProd l) = Guralnick.Hecke.word l
+  Guralnick.Hecke.KLRealization.bar : Guralnick.Hecke.Algebra n ≃+* Guralnick.Hecke.Algebra n
+  Guralnick.Hecke.KLRealization.bar_scalar : ∀ (r : Guralnick.Hecke.R),
+      self.bar ((algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) r) =
+        (algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) (LaurentPolynomial.invert r)
+  Guralnick.Hecke.KLRealization.bar_generator : ∀ (i : Fin n),
+      self.bar (Guralnick.Hecke.H i) =
+        Guralnick.Hecke.H i +
+          (algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) (LaurentPolynomial.T 1 - LaurentPolynomial.T (-1))
+  Guralnick.Hecke.KLRealization.canonical : Basis (Guralnick.AffinePermutation n) Guralnick.Hecke.R
+      (Guralnick.Hecke.Algebra n)
+  Guralnick.Hecke.KLRealization.bar_canonical : ∀ (w : Guralnick.AffinePermutation n),
+      self.bar (self.canonical w) = self.canonical w
+  Guralnick.Hecke.KLRealization.canonical_diagonal : ∀ (w : Guralnick.AffinePermutation n),
+      (self.standard.repr (self.canonical w)) w = 1
+  Guralnick.Hecke.KLRealization.canonical_lower : ∀ (y w : Guralnick.AffinePermutation n),
+      y ≠ w → Guralnick.Positivity.LowerBound ((self.standard.repr (self.canonical w)) y) 1
+  Guralnick.Hecke.KLRealization.canonical_support : ∀ (y w : Guralnick.AffinePermutation n),
+      (self.standard.repr (self.canonical w)) y ≠ 0 → Guralnick.Hecke.Bruhat c y w
+  Guralnick.Hecke.KLRealization.polynomial : Guralnick.AffinePermutation n →
+      Guralnick.AffinePermutation n → Polynomial ℤ
+  Guralnick.Hecke.KLRealization.polynomial_normalization : ∀ (y w : Guralnick.AffinePermutation n),
+      (self.standard.repr (self.canonical w)) y =
+        Guralnick.normalize (↑(c.system.length w) - ↑(c.system.length y)) (self.polynomial y w)
+constructor:
+  Guralnick.Hecke.KLRealization.mk {n : ℕ} {c : Guralnick.Hecke.WindowCoxeter n}
+    (standard : Basis (Guralnick.AffinePermutation n) Guralnick.Hecke.R (Guralnick.Hecke.Algebra n))
+    (standard_reduced :
+      ∀ (l : List (Fin n)), c.system.IsReduced l → standard (c.system.wordProd l) = Guralnick.Hecke.word l)
+    (bar : Guralnick.Hecke.Algebra n ≃+* Guralnick.Hecke.Algebra n)
+    (bar_scalar :
+      ∀ (r : Guralnick.Hecke.R),
+        bar ((algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) r) =
+          (algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n)) (LaurentPolynomial.invert r))
+    (bar_generator :
+      ∀ (i : Fin n),
+        bar (Guralnick.Hecke.H i) =
+          Guralnick.Hecke.H i +
+            (algebraMap Guralnick.Hecke.R (Guralnick.Hecke.Algebra n))
+              (LaurentPolynomial.T 1 - LaurentPolynomial.T (-1)))
+    (canonical : Basis (Guralnick.AffinePermutation n) Guralnick.Hecke.R (Guralnick.Hecke.Algebra n))
+    (bar_canonical : ∀ (w : Guralnick.AffinePermutation n), bar (canonical w) = canonical w)
+    (canonical_diagonal : ∀ (w : Guralnick.AffinePermutation n), (standard.repr (canonical w)) w = 1)
+    (canonical_lower :
+      ∀ (y w : Guralnick.AffinePermutation n),
+        y ≠ w → Guralnick.Positivity.LowerBound ((standard.repr (canonical w)) y) 1)
+    (canonical_support :
+      ∀ (y w : Guralnick.AffinePermutation n), (standard.repr (canonical w)) y ≠ 0 → Guralnick.Hecke.Bruhat c y w)
+    (polynomial : Guralnick.AffinePermutation n → Guralnick.AffinePermutation n → Polynomial ℤ)
+    (polynomial_normalization :
+      ∀ (y w : Guralnick.AffinePermutation n),
+        (standard.repr (canonical w)) y =
+          Guralnick.normalize (↑(c.system.length w) - ↑(c.system.length y)) (polynomial y w)) :
+    Guralnick.Hecke.KLRealization c
+def Guralnick.LiteratureTransfer.Steinberg : Prop :=
+∀ (m : ℕ),
+  2 ≤ m →
+    ∀ (p : ℕ) (hp : Nat.Prime p) (wt : Guralnick.Weights.RootLattice (2 * m + 1))
+      (A : Guralnick.LiteratureTransfer.SimpleModule (Guralnick.Cohomology.PrimeClosure p) (2 * m + 1) wt),
+      Guralnick.DominantRestricted ↑p ↑wt →
+        Guralnick.Cohomology.Irreducible (Guralnick.HighestWeight.restrictPrime (2 * m + 1) p A.rep)
+'Guralnick.SeedWebCoordinates.raw_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedWebCoordinates.one_line_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedWebCoordinates.corrected_graph_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedWebCoordinates.reflected_one_line_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedCosets.length_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedCosets.top_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedOneLineIndex.oneLine_eq_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedRankOne.canonical_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedRankOne.canonical_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedRankOne.raw_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedRankOne.raw_inverse_convention' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedRankOneConvention.canonical_inverse_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedDecomposition.strong_multiplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedDecomposition.reflected_strong_multiplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedDecomposition.canonical_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedDecomposition.web_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.FamilyPolynomialReadout.of_source_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedPolynomials.rank_one_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedPolynomials.rank_one_mu' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedPolynomials.four_web_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedPolynomials.diagonal_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedPolynomials.diagonal_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Guralnick.SeedPolynomials.diagonal_mu' depends on axioms: [propext, Classical.choice, Quot.sound]
+Guralnick.SeedPolynomials.rank_one_polynomial (T : Guralnick.Hecke.Theory 5) (W : Guralnick.PolynomialWebLiterature T) :
+  T.kl.polynomial (Guralnick.AffinePermutation.longest 5) (Guralnick.Family.upper ⋯ ⋯ ⋯) = 1 + Polynomial.X
+Guralnick.SeedPolynomials.diagonal_polynomial (T : Guralnick.Hecke.Theory 5) (W : Guralnick.PolynomialWebLiterature T) :
+  T.kl.polynomial (Guralnick.AffinePermutation.longest 5) (Guralnick.Family.upper ⋯ ⋯ ⋯) =
+    1 + 4 * Polynomial.X + 5 * Polynomial.X ^ 2 + 4 * Polynomial.X ^ 3 + 2 * Polynomial.X ^ 4
+Guralnick.SeedPolynomials.four_web_identity (T : Guralnick.Hecke.Theory 5) (W : Guralnick.PolynomialWebLiterature T) :
+  T.kl.canonical (Guralnick.Family.upper ⋯ ⋯ ⋯) =
+    Guralnick.ParabolicWeb.Family.raw T.kl W.longest ⋯ - Guralnick.SeedRankOne.raw T -
+        Guralnick.CanonicalChains.oneLine T.kl W.longest ⋯ ⋯ 1 2 -
+      (Guralnick.ElementaryCoxeterDiagram.diagramMap T.kl (Guralnick.AffineReflection.equiv 5))
+        (Guralnick.CanonicalChains.oneLine T.kl W.longest ⋯ ⋯ 1 2)

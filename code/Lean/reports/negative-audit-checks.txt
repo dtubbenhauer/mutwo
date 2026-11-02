@@ -1,0 +1,1 @@
+PASS: unexpected axiom output and extra endpoint premise were both rejected.
