@@ -1,0 +1,41 @@
+{
+  "check": "saved record integrity and consistency only; no canonical recursion rerun",
+  "passed": true,
+  "source_hashes_checked": 25,
+  "bernstein_records": 18,
+  "complete_rows": {
+    "2": [
+      1,
+      2
+    ],
+    "3": [
+      1,
+      2,
+      3
+    ],
+    "4": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "5": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "partial_m6": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4
+  },
+  "direct_kl_m6_diagonal": 6,
+  "missing_m6": [
+    5
+  ],
+  "lean_certification": false
+}

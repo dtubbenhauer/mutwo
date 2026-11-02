@@ -1,0 +1,130 @@
+{
+  "description": "Byte-identical source copies. Hashes establish provenance, not mathematical correctness. Original paths are relative to the Guralnick research workspace.",
+  "original_files": [
+    {
+      "packaged_path": "python/bernstein_canonical.py",
+      "original_path": "RevisedWeb/code/bernstein_canonical.py",
+      "sha256": "d2bb0d2be95e17b2023f8160c0c1d6d13fde7ecc9e9db7a1a0da8147801b7587"
+    },
+    {
+      "packaged_path": "python/guralnick_candidate_kl.py",
+      "original_path": "RevisedWeb/code/guralnick_candidate_kl.py",
+      "sha256": "9220ddcb7f99e82bb325028efdeefddefc20301b89898f6c7fb61da8d5ae5332"
+    },
+    {
+      "packaged_path": "python/spherical_web.py",
+      "original_path": "RevisedWeb/code/spherical_web.py",
+      "sha256": "837be8c347500da33bad308c77c60b3528aae17e387b995c73c85bd6e203cc57"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m2j1.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m2j1.json",
+      "sha256": "363fcc01e9be21f200067981d187a8b5119be47a82a5cf0c55c282aea18a1afd"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m2j2.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m2j2.json",
+      "sha256": "6890ad6ad5d91c07c280744f3273e162ec0b0b53d5bf9b48e496d124d490c4cd"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m3j1.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m3j1.json",
+      "sha256": "b6def576d61dce93eeadedc0585c0069270a0d42ee775ea551a17ec7a2733e9c"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m3j2.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m3j2.json",
+      "sha256": "010cc3275b6b73650643a29d4c8f579f485d4e4b7ce7c5ceae18fbdb48c922d6"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m3j3.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m3j3.json",
+      "sha256": "9e8f942cfcf30f3c854ef8e66aa213a699f0d1dc387ca8b432b7bb23df228391"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m4j1.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m4j1.json",
+      "sha256": "e15673e3481ccb2b34e1445b981ac1e85f259bbfe12b351ebbd3194bb2b86177"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m4j2.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m4j2.json",
+      "sha256": "5b8b5dcdea13e594c7c3872509d2f7daacc4cb905895d89a7695ac9dc4229c32"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m4j3.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m4j3.json",
+      "sha256": "a8f1229c4e2372d8e841fc8b885978969403dfe7e86de69b64c86fd914756909"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m4j4.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m4j4.json",
+      "sha256": "41834deec678ed29ced7ad83ce7e2ca40d2413fbadcd104d9f791ca860f59c8a"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m5j1.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m5j1.json",
+      "sha256": "f23c80e6faaf3518e165f30d4351d655a51042dca5d1f2072e723d43665075c4"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m5j2.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m5j2.json",
+      "sha256": "65f3c494d0f4e5c5e1e3272fc2ae93bb95e6da4cca220156edc614057ac5b186"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m5j3.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m5j3.json",
+      "sha256": "f5bd22cf678cb5c6836224642c2feb0b59a193e94d81f906e7e209a924c1a45e"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m5j4.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m5j4.json",
+      "sha256": "ff4c678cbd6464736061de94268219da893d8eac388c9414a702a0dd07576753"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m5j5.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m5j5.json",
+      "sha256": "166effdd1ff3797a39caa75f7b432aae16da492a19b5d9af99aeb575d426d714"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m6j1.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m6j1.json",
+      "sha256": "7951ec05784d9a72d48655d7b0604f5853c6b716846e92b8f60649624da71ab8"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m6j2.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m6j2.json",
+      "sha256": "3be96f765199ae7abeb01e843de79b3b55e1e497705b4faf645e7b9b7f7b43d1"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m6j3.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m6j3.json",
+      "sha256": "49306f139fe719c38dd2a7b25a61f4b28e47ba51c0ee40d03dd925e54c39d539"
+    },
+    {
+      "packaged_path": "data/canonical-polynomial-m6j4.json",
+      "original_path": "RevisedWeb/data/canonical-polynomial-m6j4.json",
+      "sha256": "c5e687c3ac70f09c762100594c349dd2c8a81b9241614a4d7cd8fe2fc3650c66"
+    },
+    {
+      "packaged_path": "data/aggregate-mu-audit.json",
+      "original_path": "GPT/computations/aggregate-mu-audit.json",
+      "sha256": "ed64c68aea29ca01505b9e12de00b322dc018a62f0459ec0efcd339cc48e1db4"
+    },
+    {
+      "packaged_path": "data/standalone-k3-verified.json",
+      "original_path": "GPT/computations/standalone-k3-verified.json",
+      "sha256": "5b6d6756e4651540cd892d4f21443cfa62f0750ec193ff084394d397c928876e"
+    },
+    {
+      "packaged_path": "data/n12k6.json",
+      "original_path": "GPT/computations/n12k6.json",
+      "sha256": "67b42cb3c2f1567bb044cb904df4212c06a7310c1961ccfea70cb324eb5a0b98"
+    },
+    {
+      "packaged_path": "data/canonical-dot-webs.json",
+      "original_path": "RevisedWeb/data/canonical-dot-webs.json",
+      "sha256": "075d7033179f26b3d06067aa4c668be5c4bb183cf7038b5926f746897925f9a8"
+    }
+  ]
+}

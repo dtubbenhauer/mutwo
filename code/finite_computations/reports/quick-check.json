@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "saved_data_check": {
+    "check": "saved record integrity and consistency only; no canonical recursion rerun",
+    "passed": true,
+    "source_hashes_checked": 25,
+    "bernstein_records": 18,
+    "complete_rows": {
+      "2": [
+        1,
+        2
+      ],
+      "3": [
+        1,
+        2,
+        3
+      ],
+      "4": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "5": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "partial_m6": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    },
+    "direct_kl_m6_diagonal": 6,
+    "missing_m6": [
+      5
+    ],
+    "lean_certification": false
+  },
+  "freshly_recomputed_cases": [
+    {
+      "m": 2,
+      "j": 1,
+      "mu": 1,
+      "canonical_support": 5
+    },
+    {
+      "m": 2,
+      "j": 2,
+      "mu": 2,
+      "canonical_support": 38
+    },
+    {
+      "m": 3,
+      "j": 1,
+      "mu": 1,
+      "canonical_support": 10
+    },
+    {
+      "m": 3,
+      "j": 2,
+      "mu": 2,
+      "canonical_support": 160
+    },
+    {
+      "m": 3,
+      "j": 3,
+      "mu": 3,
+      "canonical_support": 368
+    }
+  ],
+  "checks": [
+    "Exact whole canonical vectors agree between packed recursion, triangular bar invariance, and separate sparse Laurent recursion for m=2,3.",
+    "Fresh Bernstein complete outputs agree with historical records, except timing metadata.",
+    "Fresh Bernstein orbit coefficients agree with historical independent monomial-inversion outputs.",
+    "Portable entrypoints execute from unrelated working directories.",
+    "Timeout exits 124 and stops the child process."
+  ],
+  "not_checked": [
+    "No fresh m>=4 canonical computation.",
+    "No independent rank-six diagonal recomputation.",
+    "No Lean certification of the Python algorithms or their output.",
+    "No cohomological transfer is proved by these Python computations."
+  ]
+}

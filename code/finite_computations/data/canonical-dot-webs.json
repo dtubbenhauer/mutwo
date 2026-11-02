@@ -1,0 +1,2935 @@
+{
+  "conventions": "SSW q=v; Q=v^-2; inverse minimal-left windows; row orbit sums count distinct monomials once",
+  "local_dot_relation_checks": {
+    "inverses": 190,
+    "bernstein": 152,
+    "dot_commutations": 380,
+    "distant_commutations": 456
+  },
+  "cases": [
+    {
+      "m": 2,
+      "j": 1,
+      "D": 3,
+      "kappa": 7,
+      "raw_support": 5,
+      "canonical_support": 5,
+      "normalized_raw_B": {
+        "-3": -1,
+        "-1": -1,
+        "1": 1,
+        "3": 1
+      },
+      "canonical_B": {
+        "1": 1,
+        "3": 1
+      },
+      "normalized_raw_is_bar_invariant": false,
+      "bar_defect_B": {
+        "-3": 1,
+        "-1": 1,
+        "1": -1,
+        "3": -1
+      },
+      "row_orbits": [
+        {
+          "left": [
+            1,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1
+          },
+          "monomials": 4
+        },
+        {
+          "left": [
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0
+          ],
+          "coefficient": {
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 1
+        }
+      ],
+      "canonical_correction": [
+        {
+          "inverse_window": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "length": 0,
+          "coefficient": {
+            "-3": -1,
+            "-1": -1
+          },
+          "B_coefficient": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "m": 2,
+      "j": 2,
+      "D": 9,
+      "kappa": 5,
+      "raw_support": 13,
+      "canonical_support": 38,
+      "normalized_raw_B": {
+        "-7": 1,
+        "-3": -2,
+        "1": 1
+      },
+      "canonical_B": {
+        "1": 2,
+        "3": 4,
+        "5": 5,
+        "7": 4,
+        "9": 1
+      },
+      "normalized_raw_is_bar_invariant": false,
+      "bar_defect_B": {
+        "-7": -1,
+        "-3": 2,
+        "1": -1
+      },
+      "row_orbits": [
+        {
+          "left": [
+            1,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            -1
+          ],
+          "coefficient": {
+            "-3": 1
+          },
+          "monomials": 4
+        },
+        {
+          "left": [
+            0,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            0
+          ],
+          "coefficient": {
+            "-1": 1
+          },
+          "monomials": 4
+        },
+        {
+          "left": [
+            1,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-3": 1
+          },
+          "monomials": 4
+        },
+        {
+          "left": [
+            1,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            -1
+          ],
+          "coefficient": {
+            "-3": 1
+          },
+          "monomials": 4
+        },
+        {
+          "left": [
+            0,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            0
+          ],
+          "coefficient": {
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 2
+        },
+        {
+          "left": [
+            1,
+            0
+          ],
+          "middle": 1,
+          "right": [
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 1
+          },
+          "monomials": 2
+        },
+        {
+          "left": [
+            0,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            0
+          ],
+          "coefficient": {
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 2
+        },
+        {
+          "left": [
+            1,
+            1
+          ],
+          "middle": -1,
+          "right": [
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 1
+          },
+          "monomials": 2
+        },
+        {
+          "left": [
+            1,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0
+          ],
+          "coefficient": {
+            "-3": 2,
+            "-1": 1
+          },
+          "monomials": 2
+        },
+        {
+          "left": [
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            -1
+          ],
+          "coefficient": {
+            "-3": 2,
+            "-1": 1
+          },
+          "monomials": 2
+        },
+        {
+          "left": [
+            0,
+            0
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 3,
+            "-1": 1
+          },
+          "monomials": 2
+        },
+        {
+          "left": [
+            1,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 3,
+            "-1": 1
+          },
+          "monomials": 2
+        },
+        {
+          "left": [
+            1,
+            1
+          ],
+          "middle": 0,
+          "right": [
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 2,
+            "-3": 1
+          },
+          "monomials": 1
+        },
+        {
+          "left": [
+            1,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 3,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 4
+        },
+        {
+          "left": [
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 2,
+            "-3": 8,
+            "-1": 6
+          },
+          "monomials": 1
+        }
+      ],
+      "canonical_correction": [
+        {
+          "inverse_window": [
+            6,
+            2,
+            3,
+            4,
+            0
+          ],
+          "length": 8,
+          "coefficient": {
+            "-1": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            6,
+            -1,
+            0,
+            7,
+            3
+          ],
+          "length": 8,
+          "coefficient": {
+            "1": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            -1,
+            6,
+            7,
+            0
+          ],
+          "length": 8,
+          "coefficient": {
+            "1": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            -1,
+            0,
+            6,
+            7
+          ],
+          "length": 6,
+          "coefficient": {
+            "1": -1,
+            "3": 1
+          },
+          "B_coefficient": {
+            "6": 1
+          }
+        },
+        {
+          "inverse_window": [
+            -1,
+            0,
+            6,
+            7,
+            3
+          ],
+          "length": 6,
+          "coefficient": {
+            "1": -1,
+            "3": 1
+          },
+          "B_coefficient": {
+            "6": 1
+          }
+        },
+        {
+          "inverse_window": [
+            6,
+            0,
+            2,
+            3,
+            4
+          ],
+          "length": 5,
+          "coefficient": {
+            "-2": -1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            4,
+            6,
+            0
+          ],
+          "length": 5,
+          "coefficient": {
+            "-2": -1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            0,
+            6,
+            4
+          ],
+          "length": 4,
+          "coefficient": {
+            "-1": 1,
+            "1": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            0,
+            6,
+            3,
+            4
+          ],
+          "length": 4,
+          "coefficient": {
+            "-1": 1,
+            "1": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1
+          }
+        },
+        {
+          "inverse_window": [
+            -1,
+            0,
+            3,
+            6,
+            7
+          ],
+          "length": 4,
+          "coefficient": {
+            "1": -1,
+            "5": -1
+          },
+          "B_coefficient": {
+            "4": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            0,
+            3,
+            6,
+            4
+          ],
+          "length": 3,
+          "coefficient": {
+            "4": 1
+          },
+          "B_coefficient": {
+            "1": 1,
+            "3": 1
+          }
+        },
+        {
+          "inverse_window": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "length": 0,
+          "coefficient": {
+            "-7": 1,
+            "-3": -2,
+            "3": -1
+          },
+          "B_coefficient": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "m": 3,
+      "j": 1,
+      "D": 5,
+      "kappa": 11,
+      "raw_support": 10,
+      "canonical_support": 10,
+      "normalized_raw_B": {
+        "-5": -1,
+        "-3": -1,
+        "-1": -1,
+        "1": 1,
+        "3": 1,
+        "5": 1
+      },
+      "canonical_B": {
+        "1": 1,
+        "3": 1,
+        "5": 1
+      },
+      "normalized_raw_is_bar_invariant": false,
+      "bar_defect_B": {
+        "-5": 1,
+        "-3": 1,
+        "-1": 1,
+        "1": -1,
+        "3": -1,
+        "5": -1
+      },
+      "row_orbits": [
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 1
+        }
+      ],
+      "canonical_correction": [
+        {
+          "inverse_window": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "length": 0,
+          "coefficient": {
+            "-5": -1,
+            "-3": -1,
+            "-1": -1
+          },
+          "B_coefficient": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "m": 3,
+      "j": 2,
+      "D": 15,
+      "kappa": 11,
+      "raw_support": 58,
+      "canonical_support": 160,
+      "normalized_raw_B": {
+        "-13": 1,
+        "-11": 2,
+        "-9": 1,
+        "-7": -2,
+        "-5": -4,
+        "-3": -2,
+        "-1": 1,
+        "1": 2,
+        "3": 1
+      },
+      "canonical_B": {
+        "1": 2,
+        "3": 5,
+        "5": 7,
+        "7": 8,
+        "9": 7,
+        "11": 6,
+        "13": 3,
+        "15": 1
+      },
+      "normalized_raw_is_bar_invariant": false,
+      "bar_defect_B": {
+        "-13": -1,
+        "-11": -2,
+        "-9": -1,
+        "-7": 2,
+        "-5": 4,
+        "-3": 2,
+        "-1": -1,
+        "1": -2,
+        "3": -1
+      },
+      "row_orbits": [
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1
+          },
+          "monomials": 36
+        },
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            0,
+            0,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            1,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            1,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 4,
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 6
+        },
+        {
+          "left": [
+            1,
+            1,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-9": 1,
+            "-7": 2,
+            "-5": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 4,
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 6
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 5,
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 5,
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 5,
+            "-5": 8,
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-7": 2,
+            "-5": 19,
+            "-3": 10,
+            "-1": 8
+          },
+          "monomials": 1
+        }
+      ],
+      "canonical_correction": [
+        {
+          "inverse_window": [
+            8,
+            3,
+            -1,
+            0,
+            9,
+            4,
+            5
+          ],
+          "length": 13,
+          "coefficient": {
+            "2": -1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 2,
+            "7": 3,
+            "9": 3,
+            "11": 2,
+            "13": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            4,
+            -1,
+            8,
+            9,
+            5,
+            0
+          ],
+          "length": 13,
+          "coefficient": {
+            "2": -1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 2,
+            "7": 3,
+            "9": 3,
+            "11": 2,
+            "13": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0
+          ],
+          "length": 12,
+          "coefficient": {
+            "-3": -1,
+            "-1": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1,
+            "6": 1,
+            "8": 1,
+            "10": 1,
+            "12": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            -1,
+            0,
+            3,
+            9,
+            4,
+            5
+          ],
+          "length": 11,
+          "coefficient": {
+            "2": -1
+          },
+          "B_coefficient": {
+            "5": 1,
+            "7": 2,
+            "9": 2,
+            "11": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            4,
+            -1,
+            5,
+            8,
+            9,
+            0
+          ],
+          "length": 11,
+          "coefficient": {
+            "2": -1
+          },
+          "B_coefficient": {
+            "5": 1,
+            "7": 2,
+            "9": 2,
+            "11": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            4,
+            -1,
+            0,
+            8,
+            9,
+            5
+          ],
+          "length": 10,
+          "coefficient": {
+            "3": 1,
+            "5": 1
+          },
+          "B_coefficient": {
+            "6": 1,
+            "8": 1,
+            "10": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            -1,
+            0,
+            8,
+            9,
+            4,
+            5
+          ],
+          "length": 10,
+          "coefficient": {
+            "3": 1,
+            "5": 1
+          },
+          "B_coefficient": {
+            "6": 1,
+            "8": 1,
+            "10": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            2,
+            3,
+            0,
+            4,
+            5,
+            6
+          ],
+          "length": 9,
+          "coefficient": {
+            "0": 1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 1,
+            "7": 1,
+            "9": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            4,
+            8,
+            5,
+            6,
+            0
+          ],
+          "length": 9,
+          "coefficient": {
+            "0": 1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 1,
+            "7": 1,
+            "9": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            2,
+            0,
+            3,
+            4,
+            5,
+            6
+          ],
+          "length": 8,
+          "coefficient": {
+            "-5": -1,
+            "-3": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            -1,
+            0,
+            4,
+            8,
+            9,
+            5
+          ],
+          "length": 8,
+          "coefficient": {
+            "3": 1,
+            "7": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            4,
+            5,
+            8,
+            6,
+            0
+          ],
+          "length": 8,
+          "coefficient": {
+            "-5": -1,
+            "-3": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            4,
+            0,
+            8,
+            5,
+            6
+          ],
+          "length": 6,
+          "coefficient": {
+            "-3": 1,
+            "-1": 1,
+            "1": -1,
+            "3": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1,
+            "6": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            0,
+            8,
+            4,
+            5,
+            6
+          ],
+          "length": 6,
+          "coefficient": {
+            "-3": 1,
+            "-1": 1,
+            "1": -1,
+            "3": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1,
+            "6": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            0,
+            4,
+            8,
+            5,
+            6
+          ],
+          "length": 5,
+          "coefficient": {
+            "2": -1,
+            "4": 1,
+            "6": 1
+          },
+          "B_coefficient": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          }
+        },
+        {
+          "inverse_window": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "length": 0,
+          "coefficient": {
+            "-13": 1,
+            "-11": 2,
+            "-9": 1,
+            "-7": -2,
+            "-5": -4,
+            "-3": -2,
+            "-1": 2,
+            "1": 2,
+            "3": -1,
+            "5": -1
+          },
+          "B_coefficient": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "m": 3,
+      "j": 3,
+      "D": 21,
+      "kappa": 7,
+      "raw_support": 45,
+      "canonical_support": 368,
+      "normalized_raw_B": {},
+      "canonical_B": {
+        "1": 3,
+        "3": 6,
+        "5": 13,
+        "7": 20,
+        "9": 27,
+        "11": 28,
+        "13": 23,
+        "15": 16,
+        "17": 9,
+        "19": 4,
+        "21": 1
+      },
+      "normalized_raw_is_bar_invariant": false,
+      "bar_defect_B": {},
+      "row_orbits": [
+        {
+          "left": [
+            1,
+            -1,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            1,
+            -1
+          ],
+          "coefficient": {
+            "-3": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            -1,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            1,
+            0
+          ],
+          "coefficient": {
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            -1,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-3": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            1,
+            -1
+          ],
+          "coefficient": {
+            "-3": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            0,
+            -1,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            1,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            0,
+            0,
+            -1
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            1,
+            0
+          ],
+          "coefficient": {
+            "-3": 1,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            1,
+            -1
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            1,
+            -1,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-3": 2,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            1,
+            -1
+          ],
+          "coefficient": {
+            "-3": 2,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 3,
+            "-1": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 3,
+            "-1": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            1,
+            1,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 2,
+            "-3": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-5": 3,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 36
+        },
+        {
+          "left": [
+            1,
+            1,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 2,
+            "-3": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            1,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 2,
+            "-3": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            -1,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 3,
+            "-1": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            1,
+            -1
+          ],
+          "coefficient": {
+            "-5": 1,
+            "-3": 3,
+            "-1": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 5,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 5,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 18
+        },
+        {
+          "left": [
+            0,
+            0,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-5": 2,
+            "-3": 8,
+            "-1": 6
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            1,
+            -1
+          ],
+          "middle": -1,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 4,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            1,
+            0
+          ],
+          "middle": 1,
+          "right": [
+            -1,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-9": 1,
+            "-7": 2,
+            "-5": 2,
+            "-3": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": 1,
+          "right": [
+            1,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 4,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            1,
+            1
+          ],
+          "middle": -1,
+          "right": [
+            0,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-9": 1,
+            "-7": 2,
+            "-5": 2,
+            "-3": 1
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            1,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 3,
+            "-5": 7,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-7": 3,
+            "-5": 7,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-9": 1,
+            "-7": 5,
+            "-5": 8,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            1,
+            1,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-9": 1,
+            "-7": 5,
+            "-5": 8,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            -1
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 7,
+            "-3": 11,
+            "-1": 6
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-7": 1,
+            "-5": 7,
+            "-3": 11,
+            "-1": 6
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            1,
+            1
+          ],
+          "middle": 0,
+          "right": [
+            -1,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-11": 1,
+            "-9": 2,
+            "-7": 3,
+            "-5": 2,
+            "-3": 1
+          },
+          "monomials": 1
+        },
+        {
+          "left": [
+            1,
+            0,
+            -1
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-7": 2,
+            "-5": 12,
+            "-3": 14,
+            "-1": 6
+          },
+          "monomials": 6
+        },
+        {
+          "left": [
+            1,
+            1,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            -1,
+            -1
+          ],
+          "coefficient": {
+            "-9": 3,
+            "-7": 8,
+            "-5": 9,
+            "-3": 4,
+            "-1": 1
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            1,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-7": 2,
+            "-5": 12,
+            "-3": 14,
+            "-1": 6
+          },
+          "monomials": 6
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": 1,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-9": 1,
+            "-7": 7,
+            "-5": 19,
+            "-3": 15,
+            "-1": 6
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": -1,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-9": 1,
+            "-7": 7,
+            "-5": 19,
+            "-3": 15,
+            "-1": 6
+          },
+          "monomials": 3
+        },
+        {
+          "left": [
+            1,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            -1
+          ],
+          "coefficient": {
+            "-9": 2,
+            "-7": 14,
+            "-5": 26,
+            "-3": 16,
+            "-1": 6
+          },
+          "monomials": 9
+        },
+        {
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "middle": 0,
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "coefficient": {
+            "-9": 2,
+            "-7": 16,
+            "-5": 51,
+            "-3": 52,
+            "-1": 29
+          },
+          "monomials": 1
+        }
+      ],
+      "canonical_correction": [
+        {
+          "inverse_window": [
+            8,
+            9,
+            3,
+            4,
+            5,
+            -1,
+            0
+          ],
+          "length": 20,
+          "coefficient": {
+            "-1": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 2,
+            "10": 2,
+            "12": 2,
+            "14": 2,
+            "16": 2,
+            "18": 1,
+            "20": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            9,
+            -2,
+            -1,
+            10,
+            4,
+            0
+          ],
+          "length": 20,
+          "coefficient": {
+            "1": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 2,
+            "8": 4,
+            "10": 5,
+            "12": 6,
+            "14": 5,
+            "16": 4,
+            "18": 2,
+            "20": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            4,
+            -2,
+            9,
+            10,
+            -1,
+            0
+          ],
+          "length": 20,
+          "coefficient": {
+            "1": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 2,
+            "8": 4,
+            "10": 5,
+            "12": 6,
+            "14": 5,
+            "16": 4,
+            "18": 2,
+            "20": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            4,
+            -2,
+            -1,
+            9,
+            10,
+            0
+          ],
+          "length": 18,
+          "coefficient": {
+            "1": -1,
+            "3": 1
+          },
+          "B_coefficient": {
+            "6": 1,
+            "8": 2,
+            "10": 3,
+            "12": 3,
+            "14": 3,
+            "16": 2,
+            "18": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            -2,
+            -1,
+            9,
+            10,
+            4,
+            0
+          ],
+          "length": 18,
+          "coefficient": {
+            "1": -1,
+            "3": 1
+          },
+          "B_coefficient": {
+            "6": 1,
+            "8": 2,
+            "10": 3,
+            "12": 3,
+            "14": 3,
+            "16": 2,
+            "18": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            9,
+            -1,
+            3,
+            4,
+            5,
+            0
+          ],
+          "length": 17,
+          "coefficient": {
+            "-2": -1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 2,
+            "7": 3,
+            "9": 3,
+            "11": 3,
+            "13": 3,
+            "15": 2,
+            "17": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            3,
+            4,
+            5,
+            9,
+            -1,
+            0
+          ],
+          "length": 17,
+          "coefficient": {
+            "-2": -1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 2,
+            "7": 3,
+            "9": 3,
+            "11": 3,
+            "13": 3,
+            "15": 2,
+            "17": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            3,
+            4,
+            -1,
+            9,
+            5,
+            0
+          ],
+          "length": 16,
+          "coefficient": {
+            "-1": 1,
+            "1": -1
+          },
+          "B_coefficient": {
+            "2": 2,
+            "4": 4,
+            "6": 6,
+            "8": 7,
+            "10": 7,
+            "12": 5,
+            "14": 3,
+            "16": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            3,
+            -1,
+            9,
+            4,
+            5,
+            0
+          ],
+          "length": 16,
+          "coefficient": {
+            "-1": 1,
+            "1": -1
+          },
+          "B_coefficient": {
+            "2": 2,
+            "4": 4,
+            "6": 6,
+            "8": 7,
+            "10": 7,
+            "12": 5,
+            "14": 3,
+            "16": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            -2,
+            -1,
+            4,
+            9,
+            10,
+            0
+          ],
+          "length": 16,
+          "coefficient": {
+            "1": -1,
+            "5": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 4,
+            "6": 7,
+            "8": 10,
+            "10": 10,
+            "12": 7,
+            "14": 4,
+            "16": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            3,
+            -1,
+            4,
+            9,
+            5,
+            0
+          ],
+          "length": 15,
+          "coefficient": {
+            "4": 1
+          },
+          "B_coefficient": {
+            "1": 2,
+            "3": 5,
+            "5": 7,
+            "7": 8,
+            "9": 7,
+            "11": 6,
+            "13": 3,
+            "15": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            -2,
+            -1,
+            0,
+            9,
+            10,
+            4
+          ],
+          "length": 15,
+          "coefficient": {
+            "2": 1,
+            "4": 1
+          },
+          "B_coefficient": {
+            "9": 1,
+            "11": 1,
+            "13": 1,
+            "15": 1
+          }
+        },
+        {
+          "inverse_window": [
+            4,
+            -2,
+            -1,
+            8,
+            9,
+            10,
+            0
+          ],
+          "length": 15,
+          "coefficient": {
+            "2": 1,
+            "4": 1
+          },
+          "B_coefficient": {
+            "9": 1,
+            "11": 1,
+            "13": 1,
+            "15": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            3,
+            -1,
+            0,
+            9,
+            4,
+            5
+          ],
+          "length": 13,
+          "coefficient": {
+            "0": -1,
+            "4": 1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 2,
+            "7": 3,
+            "9": 3,
+            "11": 2,
+            "13": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            4,
+            -1,
+            8,
+            9,
+            5,
+            0
+          ],
+          "length": 13,
+          "coefficient": {
+            "0": -1,
+            "4": 1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 2,
+            "7": 3,
+            "9": 3,
+            "11": 2,
+            "13": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0
+          ],
+          "length": 12,
+          "coefficient": {
+            "-7": 1,
+            "-3": -2,
+            "3": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1,
+            "6": 1,
+            "8": 1,
+            "10": 1,
+            "12": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            -1,
+            0,
+            9,
+            3,
+            4,
+            5
+          ],
+          "length": 12,
+          "coefficient": {
+            "1": -1
+          },
+          "B_coefficient": {
+            "8": 1,
+            "10": 1,
+            "12": 1
+          }
+        },
+        {
+          "inverse_window": [
+            4,
+            -2,
+            -1,
+            0,
+            8,
+            9,
+            10
+          ],
+          "length": 12,
+          "coefficient": {
+            "3": 1,
+            "5": -1
+          },
+          "B_coefficient": {
+            "12": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            4,
+            5,
+            -1,
+            8,
+            9,
+            0
+          ],
+          "length": 12,
+          "coefficient": {
+            "1": -1
+          },
+          "B_coefficient": {
+            "8": 1,
+            "10": 1,
+            "12": 1
+          }
+        },
+        {
+          "inverse_window": [
+            -2,
+            -1,
+            0,
+            8,
+            9,
+            10,
+            4
+          ],
+          "length": 12,
+          "coefficient": {
+            "3": 1,
+            "5": -1
+          },
+          "B_coefficient": {
+            "12": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            -1,
+            0,
+            3,
+            9,
+            4,
+            5
+          ],
+          "length": 11,
+          "coefficient": {
+            "2": 1,
+            "4": 1
+          },
+          "B_coefficient": {
+            "5": 1,
+            "7": 2,
+            "9": 2,
+            "11": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            4,
+            -1,
+            5,
+            8,
+            9,
+            0
+          ],
+          "length": 11,
+          "coefficient": {
+            "2": 1,
+            "4": 1
+          },
+          "B_coefficient": {
+            "5": 1,
+            "7": 2,
+            "9": 2,
+            "11": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            4,
+            -1,
+            0,
+            8,
+            9,
+            5
+          ],
+          "length": 10,
+          "coefficient": {
+            "3": 1,
+            "5": -1
+          },
+          "B_coefficient": {
+            "6": 1,
+            "8": 1,
+            "10": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            -1,
+            0,
+            8,
+            9,
+            4,
+            5
+          ],
+          "length": 10,
+          "coefficient": {
+            "3": 1,
+            "5": -1
+          },
+          "B_coefficient": {
+            "6": 1,
+            "8": 1,
+            "10": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            2,
+            3,
+            0,
+            4,
+            5,
+            6
+          ],
+          "length": 9,
+          "coefficient": {
+            "-4": -1,
+            "0": 1,
+            "2": -1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 1,
+            "7": 1,
+            "9": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            4,
+            8,
+            5,
+            6,
+            0
+          ],
+          "length": 9,
+          "coefficient": {
+            "-4": -1,
+            "0": 1,
+            "2": -1
+          },
+          "B_coefficient": {
+            "3": 1,
+            "5": 1,
+            "7": 1,
+            "9": 1
+          }
+        },
+        {
+          "inverse_window": [
+            -2,
+            -1,
+            0,
+            4,
+            8,
+            9,
+            10
+          ],
+          "length": 9,
+          "coefficient": {
+            "2": 1,
+            "6": 1,
+            "8": 1
+          },
+          "B_coefficient": {
+            "9": 1
+          }
+        },
+        {
+          "inverse_window": [
+            8,
+            2,
+            0,
+            3,
+            4,
+            5,
+            6
+          ],
+          "length": 8,
+          "coefficient": {
+            "-1": 1,
+            "1": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            3,
+            -1,
+            0,
+            4,
+            8,
+            9,
+            5
+          ],
+          "length": 8,
+          "coefficient": {
+            "3": -1,
+            "5": -2
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            4,
+            5,
+            8,
+            6,
+            0
+          ],
+          "length": 8,
+          "coefficient": {
+            "-1": 1,
+            "1": -1
+          },
+          "B_coefficient": {
+            "4": 1,
+            "6": 1,
+            "8": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            4,
+            0,
+            8,
+            5,
+            6
+          ],
+          "length": 6,
+          "coefficient": {
+            "-1": 1,
+            "1": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1,
+            "6": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            0,
+            8,
+            4,
+            5,
+            6
+          ],
+          "length": 6,
+          "coefficient": {
+            "-1": 1,
+            "1": -1
+          },
+          "B_coefficient": {
+            "2": 1,
+            "4": 1,
+            "6": 1
+          }
+        },
+        {
+          "inverse_window": [
+            2,
+            3,
+            0,
+            4,
+            8,
+            5,
+            6
+          ],
+          "length": 5,
+          "coefficient": {
+            "0": -1,
+            "2": 1,
+            "4": 2
+          },
+          "B_coefficient": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          }
+        },
+        {
+          "inverse_window": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "length": 0,
+          "coefficient": {
+            "-5": -1,
+            "-3": -1,
+            "-1": 3,
+            "1": -3,
+            "3": -3
+          },
+          "B_coefficient": {
+            "0": 1
+          }
+        }
+      ]
+    }
+  ]
+}
