@@ -1,0 +1,172 @@
+import Guralnick.WebEvaluation
+import Guralnick.WebTraceCore
+import Guralnick.WebBoundary
+
+/-!
+# Evaluation of checked ordered graph traces
+
+An event contains an actual successful operation on live graph ports.
+Its algebraic map is determined by that operation and by the absolute
+thin-position boundary masks. In particular, an unrelated parabolic path
+cannot be supplied in place of the graph trace. The two recuts are the
+restricted chart changes of `WebTrace.step`, not arbitrary rotations.
+-/
+noncomputable section
+namespace Guralnick.WebTraceEvaluation
+open Hecke ParabolicWeb WebTrace WebEvaluation
+
+variable {n : ℕ} (hn : 0<n)
+
+def stateIndex (s : State) : Index n := WebBoundary.index hn s.boundary
+
+/-- The elementary map direction must agree with the actual vertex type.
+A checked canonical recut preserves absolute thin-position cuts. -/
+def Compatible (op : Op) (I J : Index n) : Prop :=
+  match op with
+  | .split _ _ _ => J.val⊆I.val
+  | .merge _ => I.val⊆J.val
+  | .rotateRight => I=J
+  | .rotateLeft => I=J
+
+/-- A locally checked operation, retaining the full ordered graph state. -/
+structure Event (s t : State) where
+  op : Op
+  replay : step op s=some t
+  compatible : Compatible op (stateIndex hn s) (stateIndex hn t)
+
+/-- A checked trace, with its intermediate actual graph states retained. -/
+inductive Program : State → State → Type
+  | nil (s : State) : Program s s
+  | snoc {s t u : State} (p : Program s t) (e : Event hn t u) : Program s u
+
+namespace Program
+
+def operations : {s t : State} → Program hn s t → List Op
+  | _,_,.nil _ => []
+  | _,_,.snoc p e => operations p ++ [e.op]
+
+end Program
+
+/-- Append law for literal checked graph replay. -/
+theorem run_append (a b : List Op) (s : State) :
+    run (a++b) s=(run a s).bind (run b) := by
+  induction a generalizing s with
+  | nil => rfl
+  | cons op a ih =>
+    simp only [List.cons_append,run,Option.bind_assoc]
+    congr 1
+    funext t
+    exact ih t
+
+theorem Program.replay {s t : State} (p : Program hn s t) :
+    run (p.operations) s=some t := by
+  induction p with
+  | nil => simp [Program.operations,run]
+  | snoc p e ih =>
+    rw [Program.operations,run_append,ih]
+    simp only [Option.bind_some,run,e.replay]
+
+variable {c : WindowCoxeter n} (K : KLRealization c)
+variable (D : ∀ I : Index n, LongestData c I) (L : Laws K D)
+
+/-- Identification of two charts of the same absolute-position boundary.
+This is only used after the *actual checked* canonical recut in an Event. -/
+def reframe {I J : Index n} (h : I=J) :
+    ModuleAt K D I →ₗ[Hecke.R] ModuleAt K D J := by
+  subst J
+  exact LinearMap.id
+
+@[simp] theorem reframe_val {I J : Index n} (h : I=J) (x : ModuleAt K D I) :
+    (reframe K D h x).val=x.val := by
+  subst J
+  rfl
+
+def Event.linear {s t : State} (e : Event hn s t) :
+    ModuleAt K D (stateIndex hn s) →ₗ[Hecke.R] ModuleAt K D (stateIndex hn t) := by
+  have h:=e.compatible
+  cases hop : e.op with
+  | split i a b =>
+    rw [hop] at h
+    exact WebEvaluation.split K D L h
+  | merge i =>
+    rw [hop] at h
+    exact WebEvaluation.merge K D L h
+  | rotateRight =>
+    rw [hop] at h
+    exact reframe K D h
+  | rotateLeft =>
+    rw [hop] at h
+    exact reframe K D h
+
+theorem Event.linear_split {s t : State} (e : Event hn s t)
+    (i a b : ℕ) (hop : e.op=.split i a b) :
+    e.linear hn K D L=WebEvaluation.split K D L
+      (show (stateIndex hn t).val⊆(stateIndex hn s).val from by
+        simpa only [hop,Compatible] using e.compatible) := by
+  rcases e with ⟨op,replay,compatible⟩
+  cases hop
+  rfl
+
+theorem Event.linear_merge {s t : State} (e : Event hn s t)
+    (i : ℕ) (hop : e.op=.merge i) :
+    e.linear hn K D L=WebEvaluation.merge K D L
+      (show (stateIndex hn s).val⊆(stateIndex hn t).val from by
+        simpa only [hop,Compatible] using e.compatible) := by
+  rcases e with ⟨op,replay,compatible⟩
+  cases hop
+  rfl
+
+theorem Event.linear_rotateRight {s t : State} (e : Event hn s t)
+    (hop : e.op=.rotateRight) :
+    e.linear hn K D L=reframe K D
+      (show stateIndex hn s=stateIndex hn t from by
+        simpa only [hop,Compatible] using e.compatible) := by
+  rcases e with ⟨op,replay,compatible⟩
+  cases hop
+  rfl
+
+theorem Event.linear_rotateLeft {s t : State} (e : Event hn s t)
+    (hop : e.op=.rotateLeft) :
+    e.linear hn K D L=reframe K D
+      (show stateIndex hn s=stateIndex hn t from by
+        simpa only [hop,Compatible] using e.compatible) := by
+  rcases e with ⟨op,replay,compatible⟩
+  cases hop
+  rfl
+
+def Program.linear : {s t : State} → Program hn s t →
+    ModuleAt K D (stateIndex hn s) →ₗ[Hecke.R] ModuleAt K D (stateIndex hn t)
+  | _,_,.nil _ => LinearMap.id
+  | _,_,.snoc p e => (e.linear hn K D L).comp (linear p)
+
+def Program.raw {s t : State} (p : Program hn s t) : Hecke.Algebra n :=
+  (p.linear hn K D L (SphericalMaps.generator (symmetrizer K D (stateIndex hn s)) 1)).val
+
+/-- A program evaluation is attached to the actual graph generated by its
+operations, not merely to an endpoint mask or a coefficient name. -/
+theorem Program.graph {input : Web.Boundary} {t : State}
+    (p : Program hn (initial input) t) :
+    WebTrace.graph input p.operations=some (t.finish input) := by
+  rw [WebTrace.graph,p.replay]
+  rfl
+
+/-- A fixed cut-open graph presentation. Its full graph, not merely its
+boundary, is required to be exactly the graph obtained by the checked trace.
+This does not impose a quotient by arbitrary annular isotopies. -/
+structure PresentedGraph (g : Web.Graph) where
+  inputMass : g.input.mass=n
+  sourceCut : g.input.cut=0
+  targetCut : g.output.cut=0
+  wellFormed : g.WellFormed
+  target : State
+  program : Program hn (initial g.input) target
+  realizes : target.finish g.input=g
+
+def PresentedGraph.evaluate {g : Web.Graph} (P : PresentedGraph hn g) : Hecke.Algebra n :=
+  P.program.raw hn K D L
+
+theorem PresentedGraph.replay {g : Web.Graph} (P : PresentedGraph hn g) :
+    WebTrace.graph g.input P.program.operations=some g := by
+  rw [P.program.graph,P.realizes]
+
+end Guralnick.WebTraceEvaluation
