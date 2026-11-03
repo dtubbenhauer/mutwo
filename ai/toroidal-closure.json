@@ -1,0 +1,208 @@
+{
+  "title": "Toroidal closure of the main web graph",
+  "description": "Abstract edges and oriented face boundary walks recovered from the manuscript TikZ drawing after identifying opposite sides. This records the toroidal closure, not the full labeled annular morphism.",
+  "provenance": {
+    "source": "source.tex",
+    "source_uploaded_filename": "main(20261103-022919).tex",
+    "source_sha256": "3696b347b10a1894851e28af60692913dd8b7f22c27bc8139b234178a164f869",
+    "figure_label": "fig:heawood-moves",
+    "source_lines": [
+      6168,
+      6230
+    ],
+    "other_figure_label": "fig:toroidal-closure",
+    "pdf": "source.pdf",
+    "pdf_pages": [
+      2,
+      34
+    ],
+    "method": "Vertex letters are those assigned to coordinates in Figure 7 TikZ. Straight/curved paths are traced between joint vertices; paired cut endpoints are joined. Face letters follow the fills. The remaining face walk is obtained from the unused directed edges.",
+    "status": "Companion transcription from the authors source, not an independently proved graph theorem."
+  },
+  "vertices": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N"
+  ],
+  "edges": [
+    [
+      "E",
+      "F"
+    ],
+    [
+      "E",
+      "C"
+    ],
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "C"
+    ],
+    [
+      "C",
+      "D"
+    ],
+    [
+      "A",
+      "G"
+    ],
+    [
+      "B",
+      "I"
+    ],
+    [
+      "D",
+      "J"
+    ],
+    [
+      "G",
+      "H"
+    ],
+    [
+      "H",
+      "I"
+    ],
+    [
+      "I",
+      "J"
+    ],
+    [
+      "K",
+      "L"
+    ],
+    [
+      "M",
+      "N"
+    ],
+    [
+      "A",
+      "E"
+    ],
+    [
+      "F",
+      "D"
+    ],
+    [
+      "G",
+      "K"
+    ],
+    [
+      "J",
+      "K"
+    ],
+    [
+      "L",
+      "M"
+    ],
+    [
+      "H",
+      "M"
+    ],
+    [
+      "L",
+      "N"
+    ],
+    [
+      "F",
+      "N"
+    ]
+  ],
+  "oriented_face_boundary_walks": {
+    "a": [
+      "A",
+      "E",
+      "C",
+      "B"
+    ],
+    "b": [
+      "E",
+      "F",
+      "D",
+      "C"
+    ],
+    "c": [
+      "A",
+      "B",
+      "I",
+      "H",
+      "G"
+    ],
+    "d": [
+      "B",
+      "C",
+      "D",
+      "J",
+      "I"
+    ],
+    "e": [
+      "G",
+      "H",
+      "M",
+      "N",
+      "L",
+      "K"
+    ],
+    "f": [
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M"
+    ],
+    "g": [
+      "A",
+      "G",
+      "K",
+      "J",
+      "D",
+      "F",
+      "N",
+      "M",
+      "L",
+      "N",
+      "F",
+      "E"
+    ]
+  },
+  "face_boundary_walk_convention": "Each list is cyclic; append its first vertex to close it. Repeated vertices and repeated undirected edges are intentional. Each directed edge occurs once over all listed walks.",
+  "counts": {
+    "vertices": 14,
+    "edges": 21,
+    "faces": 7,
+    "euler_characteristic": 0
+  },
+  "face_lengths": {
+    "a": 4,
+    "b": 4,
+    "c": 5,
+    "d": 5,
+    "e": 6,
+    "f": 6,
+    "g": 12
+  },
+  "checks": {
+    "all_vertices_degree_three": true,
+    "each_directed_edge_used_once_in_face_walks": true
+  },
+  "limitations": [
+    "No edge thicknesses, open input/output boundary, or six-map presentation are encoded.",
+    "The same abstract graph without its face walks would not specify the embedding.",
+    "Face g repeats vertices F and N and traverses edge FN in both directions.",
+    "These data do not identify the graph with the Heawood graph or assert a web-calculus equality."
+  ]
+}

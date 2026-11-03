@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "For mathematical results, cite the paper using the preferred citation below. For software, the repository README supplies a separate code citation."
+type: software
+title: "Code and more for the paper Annular webs and Guralnick's conjecture"
+url: "https://github.com/dtubbenhauer/mutwo"
+repository-code: "https://github.com/dtubbenhauer/mutwo"
+authors:
+  - family-names: Goertzen
+    given-names: Tom
+    orcid: "https://orcid.org/0009-0003-3399-3416"
+  - family-names: Lacabanne
+    given-names: Abel
+    orcid: "https://orcid.org/0000-0001-8691-3270"
+  - family-names: Tubbenhauer
+    given-names: Daniel
+    orcid: "https://orcid.org/0000-0001-7265-5047"
+  - family-names: Vaz
+    given-names: Pedro
+    orcid: "https://orcid.org/0000-0001-9422-4707"
+preferred-citation:
+  type: unpublished
+  title: "Annular webs and Guralnick's conjecture"
+  authors:
+    - family-names: Goertzen
+      given-names: Tom
+      orcid: "https://orcid.org/0009-0003-3399-3416"
+    - family-names: Lacabanne
+      given-names: Abel
+      orcid: "https://orcid.org/0000-0001-8691-3270"
+    - family-names: Tubbenhauer
+      given-names: Daniel
+      orcid: "https://orcid.org/0000-0001-7265-5047"
+    - family-names: Vaz
+      given-names: Pedro
+      orcid: "https://orcid.org/0000-0001-9422-4707"
+  year: 2026
+  url: "https://github.com/dtubbenhauer/mutwo/blob/main/ai/source.pdf"
+  notes: "Manuscript. The AI companion identifies the exact source snapshot."
+keywords:
+  - annular webs
+  - Kazhdan-Lusztig polynomials
+  - affine Hecke algebras
+  - canonical bases
+  - first cohomology
+  - Guralnick's conjecture

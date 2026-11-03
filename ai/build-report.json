@@ -1,0 +1,350 @@
+{
+  "snapshot_date": "2026-11-03",
+  "section_files": [
+    {
+      "section": "1",
+      "file": "ai/sections/01-introduction.md"
+    },
+    {
+      "section": "2",
+      "file": "ai/sections/02-annular-webs-and-kl-coefficients.md"
+    },
+    {
+      "section": "3",
+      "file": "ai/sections/03-the-main-web.md"
+    },
+    {
+      "section": "4",
+      "file": "ai/sections/04-the-base-change-main-calculation.md"
+    },
+    {
+      "section": "5",
+      "file": "ai/sections/05-the-first-example-in-pictures.md"
+    },
+    {
+      "section": "6",
+      "file": "ai/sections/06-application-to-guralnick-s-conjecture.md"
+    },
+    {
+      "section": "7",
+      "file": "ai/sections/07-methods-and-ai-assistance.md"
+    }
+  ],
+  "statement_page_checks": [
+    {
+      "statement": "remark 1A.1",
+      "compiled_page": 1,
+      "supplied_pdf_page": 1
+    },
+    {
+      "statement": "remark 1A.2",
+      "compiled_page": 1,
+      "supplied_pdf_page": 1
+    },
+    {
+      "statement": "corollary 1A.3",
+      "compiled_page": 2,
+      "supplied_pdf_page": 2
+    },
+    {
+      "statement": "remark 1A.4",
+      "compiled_page": 2,
+      "supplied_pdf_page": 2
+    },
+    {
+      "statement": "theorem 1C.1",
+      "compiled_page": 3,
+      "supplied_pdf_page": 3
+    },
+    {
+      "statement": "remark 1E.1",
+      "compiled_page": 6,
+      "supplied_pdf_page": 7
+    },
+    {
+      "statement": "remark 1F.1",
+      "compiled_page": 7,
+      "supplied_pdf_page": 7
+    },
+    {
+      "statement": "definition 2B.1",
+      "compiled_page": 9,
+      "supplied_pdf_page": 9
+    },
+    {
+      "statement": "remark 2B.3",
+      "compiled_page": 9,
+      "supplied_pdf_page": 9
+    },
+    {
+      "statement": "lemma 2B.4",
+      "compiled_page": 9,
+      "supplied_pdf_page": 9
+    },
+    {
+      "statement": "lemma 2B.6",
+      "compiled_page": 10,
+      "supplied_pdf_page": 10
+    },
+    {
+      "statement": "definition 2C.1",
+      "compiled_page": 10,
+      "supplied_pdf_page": 10
+    },
+    {
+      "statement": "lemma 2C.3",
+      "compiled_page": 10,
+      "supplied_pdf_page": 10
+    },
+    {
+      "statement": "lemma 2C.5",
+      "compiled_page": 10,
+      "supplied_pdf_page": 10
+    },
+    {
+      "statement": "definition 2C.6",
+      "compiled_page": 11,
+      "supplied_pdf_page": 11
+    },
+    {
+      "statement": "lemma 2C.8",
+      "compiled_page": 11,
+      "supplied_pdf_page": 11
+    },
+    {
+      "statement": "remark 2C.10",
+      "compiled_page": 11,
+      "supplied_pdf_page": 11
+    },
+    {
+      "statement": "definition 2D.1",
+      "compiled_page": 12,
+      "supplied_pdf_page": 12
+    },
+    {
+      "statement": "definition 2D.2",
+      "compiled_page": 12,
+      "supplied_pdf_page": 12
+    },
+    {
+      "statement": "definition 2D.3",
+      "compiled_page": 12,
+      "supplied_pdf_page": 12
+    },
+    {
+      "statement": "lemma 2D.4",
+      "compiled_page": 12,
+      "supplied_pdf_page": 12
+    },
+    {
+      "statement": "definition 2E.1",
+      "compiled_page": 13,
+      "supplied_pdf_page": 13
+    },
+    {
+      "statement": "definition 2E.2",
+      "compiled_page": 13,
+      "supplied_pdf_page": 13
+    },
+    {
+      "statement": "lemma 2E.3",
+      "compiled_page": 13,
+      "supplied_pdf_page": 13
+    },
+    {
+      "statement": "remark 2E.5",
+      "compiled_page": 14,
+      "supplied_pdf_page": 14
+    },
+    {
+      "statement": "example 2E.6",
+      "compiled_page": 14,
+      "supplied_pdf_page": 14
+    },
+    {
+      "statement": "definition 2E.7",
+      "compiled_page": 14,
+      "supplied_pdf_page": 14
+    },
+    {
+      "statement": "lemma 2E.8",
+      "compiled_page": 14,
+      "supplied_pdf_page": 14
+    },
+    {
+      "statement": "proposition 2E.10",
+      "compiled_page": 15,
+      "supplied_pdf_page": 15
+    },
+    {
+      "statement": "lemma 3B.1",
+      "compiled_page": 16,
+      "supplied_pdf_page": 16
+    },
+    {
+      "statement": "remark 3B.3",
+      "compiled_page": 17,
+      "supplied_pdf_page": 17
+    },
+    {
+      "statement": "definition 3C.1",
+      "compiled_page": 17,
+      "supplied_pdf_page": 17
+    },
+    {
+      "statement": "lemma 3C.3",
+      "compiled_page": 17,
+      "supplied_pdf_page": 17
+    },
+    {
+      "statement": "proposition 3C.4",
+      "compiled_page": 18,
+      "supplied_pdf_page": 18
+    },
+    {
+      "statement": "definition 4A.1",
+      "compiled_page": 19,
+      "supplied_pdf_page": 19
+    },
+    {
+      "statement": "lemma 4A.2",
+      "compiled_page": 19,
+      "supplied_pdf_page": 19
+    },
+    {
+      "statement": "lemma 4B.1",
+      "compiled_page": 19,
+      "supplied_pdf_page": 19
+    },
+    {
+      "statement": "definition 4C.1",
+      "compiled_page": 20,
+      "supplied_pdf_page": 20
+    },
+    {
+      "statement": "lemma 4C.2",
+      "compiled_page": 20,
+      "supplied_pdf_page": 20
+    },
+    {
+      "statement": "lemma 4D.1",
+      "compiled_page": 21,
+      "supplied_pdf_page": 21
+    },
+    {
+      "statement": "definition 4E.1",
+      "compiled_page": 21,
+      "supplied_pdf_page": 21
+    },
+    {
+      "statement": "lemma 4E.2",
+      "compiled_page": 22,
+      "supplied_pdf_page": 22
+    },
+    {
+      "statement": "lemma 4E.4",
+      "compiled_page": 22,
+      "supplied_pdf_page": 22
+    },
+    {
+      "statement": "definition 4F.1",
+      "compiled_page": 24,
+      "supplied_pdf_page": 24
+    },
+    {
+      "statement": "lemma 4F.2",
+      "compiled_page": 24,
+      "supplied_pdf_page": 24
+    },
+    {
+      "statement": "lemma 4H.1",
+      "compiled_page": 25,
+      "supplied_pdf_page": 25
+    },
+    {
+      "statement": "lemma 4I.1",
+      "compiled_page": 26,
+      "supplied_pdf_page": 26
+    },
+    {
+      "statement": "lemma 4J.1",
+      "compiled_page": 26,
+      "supplied_pdf_page": 26
+    },
+    {
+      "statement": "lemma 4J.2",
+      "compiled_page": 27,
+      "supplied_pdf_page": 27
+    },
+    {
+      "statement": "lemma 4K.1",
+      "compiled_page": 27,
+      "supplied_pdf_page": 27
+    },
+    {
+      "statement": "theorem 4L.1",
+      "compiled_page": 28,
+      "supplied_pdf_page": 28
+    },
+    {
+      "statement": "lemma 5A.1",
+      "compiled_page": 29,
+      "supplied_pdf_page": 29
+    },
+    {
+      "statement": "lemma 6A.2",
+      "compiled_page": 31,
+      "supplied_pdf_page": 31
+    },
+    {
+      "statement": "lemma 6B.1",
+      "compiled_page": 31,
+      "supplied_pdf_page": 31
+    },
+    {
+      "statement": "lemma 6C.1",
+      "compiled_page": 32,
+      "supplied_pdf_page": 32
+    },
+    {
+      "statement": "corollary 6C.2",
+      "compiled_page": 32,
+      "supplied_pdf_page": 32
+    },
+    {
+      "statement": "remark 7C.1",
+      "compiled_page": 34,
+      "supplied_pdf_page": 34
+    },
+    {
+      "statement": "remark 7C.2",
+      "compiled_page": 34,
+      "supplied_pdf_page": 34
+    }
+  ],
+  "counts": {
+    "sections": 7,
+    "subsections": 36,
+    "statements": 58,
+    "proofs": 30,
+    "labels": 89,
+    "bibliography_entries": 64,
+    "diagram_occurrences": 190,
+    "math_spans": 1307
+  },
+  "checks": [
+    "Every numbered statement has its original number and exact source slice.",
+    "Every original label has a reading-edition anchor.",
+    "Every cited bibliography key resolves.",
+    "Every diagram occurrence has a source record and a reading-edition marker.",
+    "All proof environments are represented.",
+    "Every protected math/citation/reference token survives the prose conversion.",
+    "All statement page links are checked against visible statement numbers in the supplied PDF.",
+    "Math spans are protected from Pandoc and retain TeX, with documented macro/drawing substitutions."
+  ],
+  "limits": [
+    "These are conversion checks, not a mathematical proof audit.",
+    "Handwritten reading guide and diagram explanations need review when the manuscript changes.",
+    "Compilation page pointers must be compared with the supplied PDF after revisions."
+  ]
+}

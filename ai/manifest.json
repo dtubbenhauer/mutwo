@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "title": "Annular webs and Guralnick's conjecture — AI reading companion",
+  "authors_of_paper": [
+    "Tom Goertzen",
+    "Abel Lacabanne",
+    "Daniel Tubbenhauer",
+    "Pedro Vaz"
+  ],
+  "snapshot_date": "2026-11-03",
+  "repository": "https://github.com/dtubbenhauer/mutwo",
+  "entry_point": "AI_README.md",
+  "source": {
+    "tex": "ai/source.tex",
+    "tex_sha256": "3696b347b10a1894851e28af60692913dd8b7f22c27bc8139b234178a164f869",
+    "pdf": "ai/source.pdf",
+    "pdf_sha256": "33bcabf73ed4b77afc34c3674e7de171161a727e4d1f9e1c1a8185fb66979498",
+    "initial_supplied_tex_filename": "main(20261103-022919).tex",
+    "initial_supplied_pdf_filename": "Affine_mu(9).pdf",
+    "authority": "The supplied manuscript source and PDF determine the mathematical statements. The companion provides reading and retrieval aids."
+  },
+  "repository_inspection": {
+    "date": "2026-11-03",
+    "default_branch": "main",
+    "observed_commit": "5d196bcd502c93b0ae9a54d510228edf0668102a",
+    "observed_commit_time_utc": "2026-11-02T21:53:34Z",
+    "observed_paper_tex_path": "paper/main.tex",
+    "observed_paper_tex_sha256": "1cde49a28dff0602af99cbab38a7580781d7203d85846b678f245e4c1e8d0af2",
+    "note": "The observed repository manuscript differs from the supplied snapshot. New companion files do not exist at this old commit. Lean files and reports retain their own provenance."
+  },
+  "editorial_review": {
+    "date": "2026-11-03",
+    "source_tex_sha256": "3696b347b10a1894851e28af60692913dd8b7f22c27bc8139b234178a164f869",
+    "source_pdf_sha256": "33bcabf73ed4b77afc34c3674e7de171161a727e4d1f9e1c1a8185fb66979498",
+    "scope": "Reading guide and diagram descriptions checked for consistency with the supplied manuscript. This is not a mathematical proof audit or a fresh Lean build."
+  },
+  "needs_editorial_review": false,
+  "hand_maintained_files": [
+    "AI_README.md",
+    "llms.txt",
+    "CITATION.cff",
+    "ai/diagrams.md",
+    "ai/toroidal-closure.json",
+    "ai/UPLOAD.md"
+  ],
+  "generated_text": "ai/paper.md",
+  "section_files": [
+    {
+      "section": "1",
+      "file": "ai/sections/01-introduction.md"
+    },
+    {
+      "section": "2",
+      "file": "ai/sections/02-annular-webs-and-kl-coefficients.md"
+    },
+    {
+      "section": "3",
+      "file": "ai/sections/03-the-main-web.md"
+    },
+    {
+      "section": "4",
+      "file": "ai/sections/04-the-base-change-main-calculation.md"
+    },
+    {
+      "section": "5",
+      "file": "ai/sections/05-the-first-example-in-pictures.md"
+    },
+    {
+      "section": "6",
+      "file": "ai/sections/06-application-to-guralnick-s-conjecture.md"
+    },
+    {
+      "section": "7",
+      "file": "ai/sections/07-methods-and-ai-assistance.md"
+    }
+  ],
+  "conversion_counts": {
+    "sections": 7,
+    "subsections": 36,
+    "statements": 58,
+    "proofs": 30,
+    "labels": 89,
+    "bibliography_entries": 64,
+    "diagram_occurrences": 190,
+    "math_spans": 1307
+  },
+  "conversion_checks": [
+    "Every numbered statement has its original number and exact source slice.",
+    "Every original label has a reading-edition anchor.",
+    "Every cited bibliography key resolves.",
+    "Every diagram occurrence has a source record and a reading-edition marker.",
+    "All proof environments are represented.",
+    "Every protected math/citation/reference token survives the prose conversion.",
+    "All statement page links are checked against visible statement numbers in the supplied PDF.",
+    "Math spans are protected from Pandoc and retain TeX, with documented macro/drawing substitutions."
+  ],
+  "conversion_notes": [
+    "Source files are byte-for-byte copies of the supplied originals in this initial package.",
+    "Displayed mathematics is literal LaTeX; common mathematical macros are expanded from their definitions.",
+    "Drawing occurrences are represented by D001... markers. Exact snippets and direct macro definitions are indexed; all dependencies remain in the source.",
+    "Section files are generated from the same text and are not independently edited.",
+    "Statement numbers come from compilation. Statement page numbers are checked against visible headings in the supplied PDF.",
+    "The bibliography is transcribed from the manuscript; this task does not independently certify every bibliographic entry.",
+    "Hashes identify files; they are not proof certificates. No Lean build is claimed by this package.",
+    "No new license is assigned to the manuscript, and publication identifiers are not invented."
+  ],
+  "files": [
+    {
+      "path": "AI_README.md",
+      "bytes": 14258,
+      "sha256": "b460c8b0efadb79346b9eb14676897018a11b2b95416a26cd780c94508f79112"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 1624,
+      "sha256": "f92b1957bd1e6654b20bf46add0f07f7f502de21a2e8262597c3391dedf0ab9f"
+    },
+    {
+      "path": "ai/UPLOAD.md",
+      "bytes": 5873,
+      "sha256": "867863286a1cc0b476a0b033a95f8f6ec5f5f355fe8b98d00b9e369cdc1bdfe4"
+    },
+    {
+      "path": "ai/build-report.json",
+      "bytes": 7925,
+      "sha256": "968d38cf109b4395cabdffd21f429ffaf6e02283258af6e36d5a675ce55d60fd"
+    },
+    {
+      "path": "ai/diagram-index.md",
+      "bytes": 32869,
+      "sha256": "b918fd6694897924eb872788785b69b54426fdb452eb092969df94aaeaa967ba"
+    },
+    {
+      "path": "ai/diagrams.md",
+      "bytes": 14382,
+      "sha256": "8bca72e1f89b61eac29ae8051e4eb4b0ce950bea7f92d52528633a0bf91ce71b"
+    },
+    {
+      "path": "ai/index.json",
+      "bytes": 292777,
+      "sha256": "df86587a5c97baa957d84fb08e75f70f6c52b55f3261563aa80cd23fbde58bc9"
+    },
+    {
+      "path": "ai/paper.md",
+      "bytes": 151969,
+      "sha256": "fcaa0ef0901f1dd95f52a6f1de21959db1587f9089724d6c1e022f7f13dd41a8"
+    },
+    {
+      "path": "ai/sections/01-introduction.md",
+      "bytes": 25294,
+      "sha256": "14ea7c6bd1886f2ef08f3c4f0f5b52960f25b328c8c4a7aece9f8da23cd3955b"
+    },
+    {
+      "path": "ai/sections/02-annular-webs-and-kl-coefficients.md",
+      "bytes": 30922,
+      "sha256": "319f3237eeb9ceb91fdde4c15b834cbb5c54a78a2634fabfeb9a01bd8f13dcc0"
+    },
+    {
+      "path": "ai/sections/03-the-main-web.md",
+      "bytes": 12962,
+      "sha256": "c6d2115d2cc83342bec059202ed428d9364e95f27651ddae7922669552fc8a67"
+    },
+    {
+      "path": "ai/sections/04-the-base-change-main-calculation.md",
+      "bytes": 37737,
+      "sha256": "27e636b889ddfba4c477fa056afa74e9f4dbf8f6207ba5f914fde90f70019db6"
+    },
+    {
+      "path": "ai/sections/05-the-first-example-in-pictures.md",
+      "bytes": 5861,
+      "sha256": "367543b507cf30e413109658552352d7b904e0fbad829af9086e7d947b56a154"
+    },
+    {
+      "path": "ai/sections/06-application-to-guralnick-s-conjecture.md",
+      "bytes": 8566,
+      "sha256": "f6f5d7e2b1db23cf65b8b4d151138bc6df4555db35bdbf472949037a2326ae8e"
+    },
+    {
+      "path": "ai/sections/07-methods-and-ai-assistance.md",
+      "bytes": 8218,
+      "sha256": "d9dc0b0f457d1bba4ac3501c69556c2c382713b013728f39f2d3b81abacca7b7"
+    },
+    {
+      "path": "ai/sections/08-references.md",
+      "bytes": 25521,
+      "sha256": "bd321b29aef4c6d13ef716c23888fbda4352e29a2538e20d2d33d2a65b5744bc"
+    },
+    {
+      "path": "ai/sections/README.md",
+      "bytes": 857,
+      "sha256": "b5a0bce4d7c788b50c44bb4352f3b1445750adfee8499518c0f8683055503f22"
+    },
+    {
+      "path": "ai/source.pdf",
+      "bytes": 767654,
+      "sha256": "33bcabf73ed4b77afc34c3674e7de171161a727e4d1f9e1c1a8185fb66979498"
+    },
+    {
+      "path": "ai/source.tex",
+      "bytes": 278214,
+      "sha256": "3696b347b10a1894851e28af60692913dd8b7f22c27bc8139b234178a164f869"
+    },
+    {
+      "path": "ai/tools/build_companion.py",
+      "bytes": 31327,
+      "sha256": "67939150a8362202f97fc7b7c95bac6da648aa7ad6937e50160671f9dafa77ed"
+    },
+    {
+      "path": "ai/tools/update_manifest.py",
+      "bytes": 5126,
+      "sha256": "4baf047d15990d1e1fe41d278bcbbac54e861b5a875beb921bf7e1d3d3a94b43"
+    },
+    {
+      "path": "ai/toroidal-closure.json",
+      "bytes": 3492,
+      "sha256": "f652c13e6aa3ea9ad734e811bb4a0dbd58777182272bef48118e2cc338c44cd4"
+    },
+    {
+      "path": "llms.txt",
+      "bytes": 4350,
+      "sha256": "26712c72f6c877c37810b05e07e1e3620cf665e1ad702a0ee5a17928b615fc0c"
+    }
+  ]
+}

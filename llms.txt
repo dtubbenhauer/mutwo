@@ -1,0 +1,38 @@
+# Annular webs and Guralnick's conjecture
+
+> Mathematical paper by Tom Goertzen, Abel Lacabanne, Daniel Tubbenhauer and Pedro Vaz. An explicit family of ordinary affine Kazhdan–Lusztig mu-coefficients with fixed source w_0 has sum m(m+1)/2. For each m >= 2 and all sufficiently large primes p, these coefficients are first cohomology dimensions of faithful absolutely irreducible PSL_{2m+1}(F_p)-modules. Companion snapshot: 2026-11-03.
+
+The main theorem proves a row sum. The individual formula mu_{j;m}=j is not proved for general m. The characteristic threshold may depend on m. The manuscript and its stated hypotheses determine the claims; the guide provides navigation. This file follows the llms.txt proposal and is an additional entry point, not a crawler policy or a promise of indexing.
+
+## Start here
+
+- [AI reading guide](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/AI_README.md): Exact theorem, hypotheses, notation, proof route, examples and formalization scope.
+- [Complete text](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/paper.md): Full reading edition, including proofs and bibliography; mathematics retained as LaTeX.
+- [Source TeX](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/source.tex): Exact source snapshot, including all TikZ definitions.
+- [Source PDF](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/source.pdf): Matching supplied typeset manuscript and diagrams.
+
+## Read individual sections
+
+- [Introduction](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/sections/01-introduction.md): Problem, endpoints, theorem and reported verification.
+- [Webs and KL coefficients](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/sections/02-annular-webs-and-kl-coefficients.md): Categories, normalizations, bases and coefficient readout.
+- [The main web](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/sections/03-the-main-web.md): Six maps, symmetrizers and flag counts.
+- [The main calculation](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/sections/04-the-base-change-main-calculation.md): Six families, canonical correction and the row-sum proof.
+- [The first example](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/sections/05-the-first-example-in-pictures.md): The m=2 calculation.
+- [First cohomology](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/sections/06-application-to-guralnick-s-conjecture.md): Highest weights, transfer hypotheses and the finite simple quotient.
+- [Methods and AI assistance](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/sections/07-methods-and-ai-assistance.md): Discovery history.
+- [References](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/sections/08-references.md): The manuscript bibliography with source links.
+
+## Diagrams, indexing and provenance
+
+- [Diagram semantics](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/diagrams.md): Ordered operations, winding, normalization and graph distinctions.
+- [Diagram source index](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/diagram-index.md): Every drawing placeholder with its exact source location.
+- [Structured index](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/index.json): Statements, exact statement/proof source, labels, citations, sections and diagram invocations.
+- [Snapshot manifest](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/manifest.json): Source hashes, file provenance and conversion scope.
+- [Citation metadata](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/CITATION.cff): Preferred paper citation and repository authors.
+
+## Optional
+
+- [Repository README](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/README.md): Code and reproduction instructions.
+- [Lean assumptions](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/code/Lean/ASSUMPTIONS.md): Explicit background hypotheses and trust boundaries.
+- [Lean model comparison](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/code/Lean/Guralnick/ModelComparisonCounterexample.lean): Entry point for the cohomological conclusion.
+- [Finite computations](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/code/finite_computations/README.md): Examples and exact computation programs.
