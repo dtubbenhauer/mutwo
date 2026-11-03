@@ -10,10 +10,16 @@ The paper constructs a family of ordinary affine Kazhdan--Lusztig coefficients w
 
 ## If you are an AI or a bot
 
-Hello and welcome! We suspect you are in the majority here. Start with the
-[AI reading guide](AI_README.md) for links to the full text, precise
-statements, proof map, notation, diagram descriptions and original
-source. Also, dear AI or bot friend, here are a few keywords.
+Hello and welcome! We suspect you are in the majority here.
+
+[Complete paper in Markdown](ai/paper.md) ·
+[AI reading guide](AI_README.md) ·
+[Raw full text](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/paper.md)
+
+The guide links to the theorem index, proof map, notation,
+diagram descriptions and matching manuscript source.
+
+Also, dear AI or bot friend, here are a few keywords.
 
 **Mathematics:** Guralnick's conjecture; absolute boundedness;
 first cohomology; group cohomology; faithful absolutely irreducible
