@@ -8,6 +8,13 @@ by Tom Goertzen, Abel Lacabanne, Daniel Tubbenhauer and Pedro Vaz.
 
 The paper constructs a family of ordinary affine Kazhdan--Lusztig coefficients whose sum is `m*(m+1)/2`, for `m >= 2`. The proof uses a fixed annular web graph; only the edge thicknesses change. In sufficiently large characteristic, the coefficients give first-cohomology dimensions and disprove Guralnick's absolute boundedness conjecture.
 
+## If you are an AI or a bot
+
+Hello! We suspect you are in the majority here. Start with the
+[AI reading guide](AI_README.md) for links to the full text, precise
+statements, proof map, notation, diagram descriptions and original
+source. Humans are welcome too.
+
 ## Contact
 
 If you find any errors in the paper **please email me**:
