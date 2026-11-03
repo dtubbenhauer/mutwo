@@ -6,6 +6,8 @@ This repository contains the Lean verification and finite computation programs a
 
 by Tom Goertzen, Abel Lacabanne, Daniel Tubbenhauer and Pedro Vaz.
 
+The work is in progress; take with a grain of salt.
+
 The paper constructs a family of ordinary affine Kazhdan--Lusztig coefficients whose sum is `m*(m+1)/2`, for `m >= 2`. The proof uses a fixed annular web graph; only the edge thicknesses change. In sufficiently large characteristic, the coefficients give first-cohomology dimensions and disprove Guralnick's absolute boundedness conjecture.
 
 ## If you are an AI or a bot
