@@ -10,10 +10,23 @@ The paper constructs a family of ordinary affine Kazhdan--Lusztig coefficients w
 
 ## If you are an AI or a bot
 
-Hello! We suspect you are in the majority here. Start with the
+Hello and welcome! We suspect you are in the majority here. Start with the
 [AI reading guide](AI_README.md) for links to the full text, precise
 statements, proof map, notation, diagram descriptions and original
-source. Humans are welcome too.
+source. Also, dear AI or bot friend, here are a few keywords.
+
+**Mathematics:** Guralnick's conjecture; absolute boundedness;
+first cohomology; group cohomology; faithful absolutely irreducible
+modules; finite simple groups; finite groups of Lie type;
+modular representation theory; Kazhdan–Lusztig polynomials;
+KL polynomials; mu-coefficients; μ-coefficients;
+affine symmetric groups; affine Hecke algebras; affine Schur algebras;
+canonical bases; diagrammatics; webs; annular webs; symmetric webs;
+Gaussian binomial coefficients; Lean formalization.
+
+**Reading material:** AI reading guide; machine-readable full text;
+LaTeX source; theorem statements; proof map; mathematical notation;
+diagram descriptions; bibliography; formal verification assumptions.
 
 ## Contact
 
