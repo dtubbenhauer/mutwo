@@ -109,6 +109,16 @@ arr/.style={-{Stealth[length=1.7mm]},line width=.8pt}}
 \setlength{\abovecaptionskip}{8pt}
 \usepackage[hypertexnames=false]{hyperref}
 \usepackage{bookmark}
+% Set \showrevisionstrue to \showrevisionsfalse for clean copy.
+\newif\ifshowrevisions
+\showrevisionstrue
+\newcommand{\revstyle}{\ifshowrevisions\hypersetup{allcolors=red}\color{red}\fi}
+\newcommand{\rev}[1]{{\revstyle #1}}
+\newcommand{\annularorder}[2]{%
+  \colorlet{orderink}{webguide}\ifshowrevisions\colorlet{orderink}{red}\fi
+  \fill[orderink] (90:#1) circle[radius=1.15pt];
+  \draw[orderink,-{Stealth[length=1.6mm]},line width=.65pt]
+    (90:#1) arc[start angle=90,end angle=#2,radius=#1];}
 \hypersetup{pdfstartview={FitH},colorlinks=true,linkcolor=mydarkblue,
 citecolor=teal,filecolor=magenta,urlcolor=orchid,linkbordercolor=lava,
 citebordercolor=teal,urlbordercolor=orchid,linktocpage=true}
@@ -131,6 +141,7 @@ citebordercolor=teal,urlbordercolor=orchid,linktocpage=true}
 \makeautorefname{remark}{Remark}%
 \makeautorefname{definition}{Definition}%
 \newcommand{\qbinom}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\gbinom}[2]{\binom{#1}{#2}}
 \newcommand{\Sym}{\operatorname{Sym}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\Span}{\operatorname{span}}
@@ -278,30 +289,46 @@ directed/.default=.65
 \newcommand{\Btwo}[1][.72]{\begin{tikzpicture}[scale=#1,every node/.style={label}]
 \threebody{5}{2}{3}{2}
 \end{tikzpicture}}
-% A positive one-strand winding, with the cut displayed.
+% A positive winding with one retained thin strand; see the stated crossing convention.
 \newcommand{\coilstrip}{\begin{tikzpicture}[scale=.78,every node/.style={label}]
-\draw[rim](-1.2,0)--(1.2,0) (-1.2,2.4)--(1.2,2.4);
+%\draw[rim](-1.2,0)--(1.2,0) (-1.2,2.4)--(1.2,2.4);
 \draw[cut](-1.2,0)--(-1.2,2.4) (1.2,0)--(1.2,2.4);
-\draw[a,thickness={1}] (0,0)--(0,0.45)..controls(0,0.85)and(0.7,1.2)..(1.2,1.2);
-\draw[a,thickness={1}] (-1.2,1.2)..controls(-0.7,1.2)and(0,1.55)..(0,1.95)--(0,2.4);
-\node[inputlabel]at(0,0){$1$};
-\node[outputlabel]at(0,2.4){$1$};
-\node[seamlabel,left=2pt]at(-1.2,1.2){$p$};
-\node[seamlabel,right=2pt]at(1.2,1.2){$p$};
-\node[font=\tiny,text=webguide,anchor=east]at(-.2,.12){input};
-\node[font=\tiny,text=webguide,anchor=east]at(-.2,2.28){output};
+\draw[a,thickness={1}] (-.5,0)--(-.5,.35)..controls(-.5,.7)and(.6,.8)..(1.2,1.2);
+\draw[a,thickness={1}] (-1.2,1.2)..controls(-.9,1.5)and(-.5,1.7)..(-.5,2.05)--(-.5,2.4);
+\draw[a,over,thickness={1}] (.5,0)--(.5,2.4);
+\foreach\x in{-.5,.5}{\node[inputlabel]at(\x,0){$1$};\node[outputlabel]at(\x,2.4){$1$};}
+\node[seamlabel,left=2pt]at(-1.2,1.2){$\alpha$};
+\node[seamlabel,right=2pt]at(1.2,1.2){$\alpha$};
 \end{tikzpicture}}
 
-\newcommand{\coilannulus}{\begin{tikzpicture}[scale=.78,every node/.style={label}]
+\newcommand{\coilannulus}{\begin{tikzpicture}[scale=.68,every node/.style={label}]
 \begin{scope}[scale=.6625]
 \draw[rim](0,0)circle(1) (0,0)circle(4);
 \draw[cut](90:1)--(90:4);
-\draw[a,thickness={1}]plot[domain=0:1,samples=151,variable=\t] ({-90+360*\t*\t*(3-2*\t)}:{1+3*\t});
-\node[font=\tiny]at(0,-.05){input $1$};
-\draw[draw=webguide,-{Stealth[length=1mm]},line width=.35pt](0,-.3)--(0,-.88);
-\node[boundarylabel,anchor=north]at(0,-4){output $1$};
-\node[seamlabel,right=2pt]at(0,2.5){$p$};
+\draw[a,thickness={1}]plot[domain=0:1,samples=151,variable=\t] ({195+360*\t}:{1+3*\t});
+\draw[a,over,thickness={1}](345:1)--(345:4);
+\annularinputlabel{195}{1}{1}
+\annularinputlabel{345}{1}{1}
+\annularlabel{195}{4}{1}
+\annularlabel{345}{4}{1}
+\node[seamlabel,right=2pt]at(90:3.125){$\alpha$};
 \end{scope}
+\end{tikzpicture}}
+
+% Annular tensor product: the left factor is behind the right factor.
+\newcommand{\AnnularTensorPicture}{%
+\begin{tikzpicture}[scale=.70,every node/.style={label}]
+\draw[cut](-2,0)--(-2,2.8) (2,0)--(2,2.8);
+\draw[a](-.9,0)--(-.9,.65) (-.9,1.1)--(-.9,2.8);
+\filldraw[draw=webink,fill=treegray!45](-2,.65)rectangle(2,1.1);
+\draw[a,over](.9,0)--(.9,1.7) (.9,2.15)--(.9,2.8);
+\filldraw[draw=webink,fill=treegray!45](-2,1.7)rectangle(2,2.15);
+\node at(-.5,.875){$f$};
+\node at(.5,1.925){$h$};
+\node[inputlabel]at(-.9,0){$\gamma$};
+\node[inputlabel]at(.9,0){$\delta$};
+\node[outputlabel]at(-.9,2.8){$\eta$};
+\node[outputlabel]at(.9,2.8){$\theta$};
 \end{tikzpicture}}
 
 \newcommand{\outermerge}{\begin{tikzpicture}[scale=.78,every node/.style={label}]
@@ -1350,7 +1377,6 @@ mark=at position .72 with {\arrow{Stealth[length=1.5mm,width=1.1mm]}}}}
 \end{scope}
 }
 
-
 % Six compatible edge labels: N,m,m-1,2m,2m-1,m+1.
 \newcommand{\Rmweb}[1][.6]{\begin{tikzpicture}[scale=#1,yscale=.84]\WideRbody{N}{m}{m-1}{2m}{2m-1}{m+1}\end{tikzpicture}}
 \newcommand{\RmAnnotated}[1][.62]{\begin{tikzpicture}[scale=#1,yscale=.84]\WideRannotatedBody{N}{m}{m-1}{2m}{2m-1}{m+1}\end{tikzpicture}}
@@ -1726,6 +1752,7 @@ mark=at position .72 with {\arrow{Stealth[length=1.5mm,width=1.1mm]}}}}
 \draw[rim](0,0)circle(1) (0,0)circle(4);
 \draw[cut](90:1)--(90:4);
 \draw[gluing](0,0)circle(2.5);
+\annularorder{4.27}{118}
 \draw[a,rounded corners=3pt,thickness={1}] (-180:1)--(-180:1.8) arc[start angle=-180,end angle=-90,radius=1.8];
 \draw[a,rounded corners=3pt] (0:1)--(0:1.8) arc[start angle=0,end angle=-90,radius=1.8];
 \draw[a,rounded corners=3pt] (-90:1.8)--(-90:3.2);
@@ -2685,7 +2712,7 @@ four others do not affect degree one.};
 \mbox{$\mu(x_{2r},y_{2r})=2^r$}};
 \node[comparison box,minimum height=17mm] (a5) at (a1 |- f5)
 {Gaussian cancellation gives\\[2pt]
-\mbox{$\displaystyle
+\mbox{$\textstyle
 \sum_{j=1}^{m}\mu_{j;m}=\binom{m+1}{2}$}};
 
 \foreach \i/\j in {1/2,2/3,3/4,4/5}{
@@ -2814,8 +2841,11 @@ Hecke algebras, first cohomology, Guralnick's conjecture.}
 
 \section{Introduction}
 
-We use webs on an annulus to disprove Guralnick's 1986 conjecture,
-a classical problem about finite groups, far from the usual home of webs.
+We use webs on an annulus as graphical guidance to disprove Guralnick's 1985 absolute boundedness conjecture,
+a classical problem about finite groups, far from the usual home of webs.\footnote{If you are an AI or a bot: hello! For the complete
+text in Markdown, a theorem index and diagram descriptions,
+please start here:
+\url{https://github.com/dtubbenhauer/mutwo/blob/main/AI_README.md}.}
 
 \subsection{The question}
 
@@ -2836,14 +2866,15 @@ This connects cohomology dimensions with the subgroup structure
 of finite groups.
 \end{remark}
 
-In 1986, Guralnick conjectured that there is an absolute constant
+Around 1985, Guralnick conjectured that there is an absolute constant
 $C$ such that $\dim_k H^1(G,M)\le C$ for every finite group $G$,
 every field $k$ and every finite-dimensional faithful absolutely
 irreducible $kG$-module $M$
 \cite[Conjecture~2]{Guralnick}; see also
-\cite[Conjecture~4.4]{Luebeck}.
+\cite{GuralnickTiep} 
+(calling it ``rather optimistic'').
 The same constant must work regardless of the group, its rank,
-the characteristic or the dimension of the module. We call this \emph{Guralnick's conjecture}.
+the characteristic or the module. We call this \emph{Guralnick's conjecture}.
 
 The known dimensions were initially small enough for
 Guralnick--Hoffman to conjecture $C=2$
@@ -2856,6 +2887,9 @@ L\"ubeck obtained dimensions $469$ and $36672$ in types $A_7$
 and $A_8$, and $3{,}537{,}142$ in type $E_6$, in sufficiently
 large defining characteristic
 \cite[Theorem~4.7]{Luebeck}.
+In these examples, the first cohomology dimension is the
+$\mu$-coefficient of an affine Kazhdan--Lusztig (KL) polynomial
+\cite[Theorems~4.5--4.6]{Luebeck}.
 These calculations suggested rapid growth with the rank,
 but pushing them further is difficult: even a single
 relevant KL polynomial can require substantial time
@@ -2864,9 +2898,9 @@ and memory \cite{Luebeck,ScottSprowl}.
 \begin{remark}
 Large first cohomology dimensions also led to counterexamples
 to Wall's conjecture on maximal subgroups at the 2012 AIM
-workshop ``Cohomology bounds and growth rates''.
+workshop ``Cohomology bounds and growth rates.''
 For the story and its connection with
-Guralnick's conjecture, see e.g. \cite{AIMWall,BendelEtAlHistory}.
+Guralnick's conjecture, see e.g. \cite{BendelEtAlHistory,AIMWall}.
 \end{remark}
 
 To disprove Guralnick's conjecture, one needs a family whose
@@ -2883,12 +2917,12 @@ $k=\overline{\mathbb F}_p$ such that
 In particular, Guralnick's absolute boundedness conjecture is false.
 \end{corollary}
 
-The growth is linear in the rank, and the required threshold for $p$ may depend on $m$, so both
+The lower bound is linear in the rank, and the required threshold for $p$ may depend on $m$, so both
 the rank and the characteristic vary in this construction.
 The highest weights of the modules are explicit; they are
 given in \autoref{sec:guralnick}.
 
-Perhaps more striking is how the counterexamples arise: from the right perspective, the conjecture is ``almost obviously false''.
+Perhaps more striking is how the counterexamples arise: from the right perspective, the conjecture is ``almost obviously false.''
 We use a fixed web (a convenient way of writing a linear map) graph drawn on an annulus, with inputs on
 the inner boundary and outputs on the outer boundary.
 The local vertices are splits and merges,
@@ -3050,25 +3084,13 @@ of lengths $4,4,5,5,6,6,12$.}
 \end{figure}
 
 Using the canonical expansion of this web, we compute the sum
-of a family of $m$ affine Kazhdan--Lusztig (KL)
+of a family of $m$ affine KL
 $\mu$-coefficients \cite{KL}. The sum is exactly $m(m+1)/2$, so at least
 one coefficient is at least $\lceil(m+1)/2\rceil$.
+In sufficiently large characteristic, each coefficient equals the
+first cohomology dimension of the corresponding module by
+\autoref{prop:application-transfer} and \autoref{lem:simple-quotient}.
 This gives the cohomological lower bound.
-Finally, for the modules considered here, in sufficiently large
-characteristic, the first cohomology dimension then equals this
-affine $\mu$-coefficient.
-
-\begin{remark}
-In \cite{Finite}, we also use webs to
-prove exponential growth for $\mu$-coefficients of finite
-symmetric groups. The difference essentially is that in \cite{Finite} we use planar webs, fix the rank and let the web grow, while in this paper we use annular webs, fix the web and let the rank grow.
-(The idea that ``planar = finite'' and ``annular = affine'' has been around for donkey's years in low-dimensional topology; see \cite[Section~1B]{HT} for a brief historical overview.)
-
-Note that Scott--Xi \cite{SX} constructed unbounded affine $\mu$-coefficients
-in type $A$, and Chen \cite{Chen} treated the other classical affine
-types. Neither of \cite{Chen,Finite,SX} can be directly used to refute 
-Guralnick's conjecture.
-\end{remark}
 
 In other words, we have:
 \[
@@ -3077,10 +3099,23 @@ In other words, we have:
 \begin{minipage}{0.85\textwidth}
 \centering
 \emph{First cohomology dimensions are unbounded, already for
-faithful absolutely irreducible modules of finite simple
+finite simple
 groups of type A. One annular web graph gives this result.}
 \end{minipage}}
 \]
+
+\begin{remark}
+In \cite{Finite}, we also use webs to
+prove exponential growth for $\mu$-coefficients of finite
+symmetric groups. The difference essentially is that in \cite{Finite} we use planar $\mathfrak{sl}_3$ webs and let the web (and with it the symmetric group) grow, while in this paper we use annular webs, fix the graph and let the rank grow.
+(The idea that ``planar = finite'' and ``annular = affine'' has been around for donkey's years in low-dimensional topology; see \cite[Section~1B]{HT} for a brief historical overview.)
+
+Note that Scott--Xi \cite{SX} constructed unbounded affine $\mu$-coefficients
+in type $A$, and Chen \cite{Chen} treated the other classical affine
+types. In \cite[Theorem~3.3]{SX}, the growing coefficients have lower endpoint $xw_0$, with $x$ a nontrivial translation. They give extensions between two simple modules. For first cohomology the source must be the trivial module, which requires lower endpoint $w_0$. Scott--Xi ask about this case in \cite[Section~4]{SX}.
+
+Neither \cite{Finite} nor \cite{SX} disprove Guralnick's conjecture.
+\end{remark}
 
 \subsection{A recap on annular diagrams}
 
@@ -3101,8 +3136,8 @@ Right multiplication by $w_0$ therefore reverses the window.
 We use the following way to draw elements of $\widetilde S_N$, as well as other 
 objects.
 A string diagram for $w$ joins $i$ at the bottom to $w(i)$
-at the top and repeats with period $N$. Crossings are not vertices:
-each string continues through them. We draw one period, with its
+at the top and repeats with period $N$. (Crossings are not vertices:
+each string continues through them.) We draw one period, with its
 two vertical sides dashed. Identifying these sides at equal heights
 gives an annulus, with inputs on the inner boundary and outputs
 on the outer boundary.
@@ -3146,25 +3181,26 @@ s_0s_1&=[2,0,3,4,6].
 \draw[rim] (0,0) circle (1) (0,0) circle (3);
 \draw[gluing] (0,0) circle (2);
 \draw[cut] (90:1)--(90:3);
+\annularorder{3.3}{115}
 % Inner band: s_1. Outer band: s_0.
 \foreach \i in {3,4,5}{
-\pgfmathsetmacro{\ang}{90-72*(\i-.35)}
+\pgfmathsetmacro{\ang}{90+72*(\i-.35)}
 \draw[a] (\ang:1)--(\ang:2);
 }
 \foreach \i in {2,3,4}{
-\pgfmathsetmacro{\ang}{90-72*(\i-.35)}
+\pgfmathsetmacro{\ang}{90+72*(\i-.35)}
 \draw[a] (\ang:2)--(\ang:3);
 }
 \draw[a] plot[domain=0:1,samples=41,variable=\t]
-({43.2-72*(3*\t^2-2*\t^3)}:{1+1.5*\t-1.5*\t^2+\t^3});
+({136.8+72*(3*\t^2-2*\t^3)}:{1+1.5*\t-1.5*\t^2+\t^3});
 \draw[a] plot[domain=0:1,samples=41,variable=\t]
-({-28.8+72*(3*\t^2-2*\t^3)}:{1+1.5*\t-1.5*\t^2+\t^3});
+({208.8-72*(3*\t^2-2*\t^3)}:{1+1.5*\t-1.5*\t^2+\t^3});
 \draw[a] plot[domain=0:1,samples=41,variable=\t]
-({43.2+72*(3*\t^2-2*\t^3)}:{2+1.5*\t-1.5*\t^2+\t^3});
+({136.8-72*(3*\t^2-2*\t^3)}:{2+1.5*\t-1.5*\t^2+\t^3});
 \draw[a] plot[domain=0:1,samples=41,variable=\t]
-({115.2-72*(3*\t^2-2*\t^3)}:{2+1.5*\t-1.5*\t^2+\t^3});
+({64.8+72*(3*\t^2-2*\t^3)}:{2+1.5*\t-1.5*\t^2+\t^3});
 \foreach \i in {1,...,5}{
-\pgfmathsetmacro{\ang}{90-72*(\i-.35)}
+\pgfmathsetmacro{\ang}{90+72*(\i-.35)}
 \node[anchor=\ang] at (\ang:1) {$\i$};
 \node[anchor={\ang+180}] at (\ang:3) {$\i$};
 }
@@ -3182,8 +3218,7 @@ The precise conventions are in \autoref{sec:dictionary}, following
 \subsection{The main result in more detail}
 
 For our main result, we need to construct two annular permutations, the lower and upper endpoint.
-For first cohomology we need $w_0$ as the lower endpoint,
-corresponding to the trivial module, see e.g. \cite[Section~4]{SX}, which is fixed throughout.
+For each $m$, all $m$ coefficients have the same lower endpoint, the longest element $w_0$ of $S_{N}$.
 We construct the upper endpoints by shifting entries of
 $[1,\ldots,N]$ by one period and sorting. For $1\le j\le m$, set
 \[
@@ -3209,16 +3244,16 @@ The two representatives at $m=2$ are drawn in
 \autoref{fig:intro-example}. As we will see below, 
 although these annular permutations look fairly complicated, their annular web pictures are surprisingly easy.
 
-Write $P_{x,y}(Q)$ for the ordinary affine KL polynomial. Set
-\begin{gather}\label{eq:family-coefficient}
+Write $P_{x,y}(q)$ for the ordinary affine KL polynomial. Set
+\begin{gather*}
 \begin{aligned}
 D_{j;m}=\ell(C_{j;m})-\ell(w_0)
 =2j(N-j)-2(m-j)-3,\quad
-\mu_{j;m}=[Q^{(D_{j;m}-1)/2}]P_{w_0,C_{j;m}}(Q),
+\mu_{j;m}=[q^{(D_{j;m}-1)/2}]P_{w_0,C_{j;m}}(q),
 \end{aligned}
-\end{gather}
-where $[x]$ mean the coefficient of $x$, and $\mu$ are the $\mu$-coefficients.
-(For webs we use $Q=v^{-2}$.) Our main calculation gives the sum:
+\end{gather*}
+where $[x]$ denotes the coefficient of $x$, and $\mu$ are the $\mu$-coefficients.
+(For webs we use $q=v^{-2}$.) Our main calculation gives the sum:
 
 \begin{theorem}[See \autoref{thm:aggregate-web}]\label{thm:intro}
 For every $m\ge2$, the family above satisfies
@@ -3241,9 +3276,10 @@ N&5&7&9&11\\
 \text{row sum}&3&6&10&15
 \end{array}
 \]
-The theorem proves the row sums for all $m$. (The computed rows
-suggest $\mu_{j;m}=j$, but we don't know whether this is true for general $m$.) At $m=2$, for instance, $P_{w_0,C_{2;2}}(Q)=1+4Q+5Q^2+4Q^3+2Q^4$.
-Here $D_{2;2}=9$, so $\mu_{2;2}$ is the coefficient of $Q^4$,
+The theorem proves the row sums for all $m$.
+(The computed rows
+suggest $\mu_{j;m}=j$, but we don't know whether this is true for general $m$.) At $m=2$, for instance, $P_{w_0,C_{2;2}}(q)=1+4q+5q^2+4q^3+2q^4$.
+Here $D_{2;2}=9$, so $\mu_{2;2}$ is the coefficient of $q^4$,
 namely two. This is the Scott--Xi example
 \cite[Lemma~3.4]{SX}, recovered below using webs.
 
@@ -3270,10 +3306,10 @@ $\begin{tikzpicture}[x=.55cm,y=1cm,every node/.style={label}]
 \draw[cut] (90:1)--(90:3);
 \foreach \i/\w in {1/-1,2/1,3/3,4/5,5/7}{
 \draw[a] plot[domain=0:1,samples=121,variable=\t]
-({90-72*(\i+(\w-\i)*\t-.35)}:{1+2*\t});
+({90+72*(\i+(\w-\i)*\t-.35)}:{1+2*\t});
 }
 \foreach \i in {1,...,5}{
-\pgfmathsetmacro{\ang}{90-72*(\i-.35)}
+\pgfmathsetmacro{\ang}{90+72*(\i-.35)}
 \node[anchor=\ang] at (\ang:1) {$\i$};
 \node[anchor={\ang+180}] at (\ang:3) {$\i$};
 }
@@ -3298,10 +3334,10 @@ $\begin{tikzpicture}[x=.55cm,y=1cm,every node/.style={label}]
 \draw[cut] (90:1)--(90:3);
 \foreach \i/\w/\bend in {1/-4/0,2/-1/0,3/3/.35,4/7/0,5/10/0}{
 \draw[a] plot[domain=0:1,samples=161,variable=\t]
-({90-72*(\i+(\w-\i)*\t+\bend*sin(180*\t)-.35)}:{1+2*\t});
+({90+72*(\i+(\w-\i)*\t+\bend*sin(180*\t)-.35)}:{1+2*\t});
 }
 \foreach \i in {1,...,5}{
-\pgfmathsetmacro{\ang}{90-72*(\i-.35)}
+\pgfmathsetmacro{\ang}{90+72*(\i-.35)}
 \node[anchor=\ang] at (\ang:1) {$\i$};
 \node[anchor={\ang+180}] at (\ang:3) {$\i$};
 }
@@ -3317,7 +3353,7 @@ gives the upper endpoints $C_{j;2}$.}
 
 Recall that a web is a graph with labeled edges and trivalent
 internal vertices. Its boundary is recorded by the sequence of
-incident edge labels or thinknesses, say $(a,b,c)$.
+incident edge labels or thicknesses, say $(a,b,c)$.
 In a symmetric web, an edge labeled $a$ represents the $a$th
 symmetric power of the representation carried by a thin label $1$ strand, see e.g.
 \cite{RoseTubbenhauer,TVW}.
@@ -3350,9 +3386,8 @@ $\begin{tikzpicture}[scale=.62]\PrefixAnnBodyF{7}{3}{2}{6}{5}{4}\end{tikzpicture
 \end{tabular}
 \caption{Three stages of $\mathcal R_2$ (top) and $\mathcal R_3$
 (bottom). The sequences give the output boundaries; the inputs
-are $(5)$ and $(7)$, respectively. Blue marks the two retained
-strands of thickness one. 
-Other edges are black.}
+are $(5)$ and $(7)$, respectively. Blue strands have thickness one. The two outer unit strands
+exposed in (b) are retained through the merge and split.}
 \label{fig:intro-affine-construction}
 \end{figure}
 
@@ -3403,14 +3438,15 @@ see e.g. \cite{Cui,LusztigAffine,SSW}. We explain the comparison and its normali
 
 For fixed input and output labels, the relevant web morphism space
 has a normalized standard basis $[A]_v$ and a canonical basis
-$\theta_A$. Their indices are affine double cosets determined by
+$\theta_A$. Their indices $A$ are affine double cosets determined by
 the boundary labels. As in KL theory, the canonical basis is
 characterized by bar invariance and triangularity with respect
 to the standard basis.
 
 Only one standard coefficient will matter. Let $b_m(f)$ denote
 the coefficient of $[B_m]_v$ in the standard expansion of $f$,
-where $B_m:(N)\to(m,1,m)$ is the ordinary split map, called splitter.
+where $B_m:(N)\to(m,1,m)$ is the ordinary split map, called splitter,
+shown on the right in \autoref{fig:intro-critical-correction}.
 This splitter is both standard and canonical.
 Its input packet corresponds to the finite parabolic subgroup
 $S_N$, and its longest double-coset representative is $w_0$.
@@ -3474,22 +3510,21 @@ $\mathcal R_m$. The split and merge maps describe choices of
 intermediate flags between fixed input and output flags.
 Here a flag is a chain of nested subspaces. We fix the input
 and output flags and count the intermediate choices prescribed
-by the splits and merges over a finite field $\mathbb F_Q$.
-For example, an $n$-dimensional space has $\qbinom{n}{k}_Q$
+by the splits and merges over a finite field $\mathbb F_Q$, for $Q$ a prime power.
+For example, an $n$-dimensional space has $\gbinom{n}{k}_Q=\prod_{i=0}^{k-1}\frac{Q^{n-i}-1}{Q^{k-i}-1}$
 subspaces of dimension $k$. Requiring a subspace to contain
 a fixed subspace $U$ amounts to making the corresponding
 choice in the quotient by $U$. Counting the required lines,
 hyperplanes and subspaces in this way gives expressions in
 Gaussian binomial coefficients, also called $q$-binomials.
-We then substitute $Q=v^{-2}$; the normalization supplies
-the remaining powers of $v$.
+The normalization supplies the powers of $v$.
 These counts are carried out in \autoref{sec:algebraic-gallery}.
 
 We then determine which canonical elements can occur.
 If $\mathcal R_m=\sum_A M_A(v)\theta_A$, bar invariance gives
 $M_A(v)=M_A(v^{-1})$. Together with KL positivity, this turns the
 degree bounds from the standard calculation into bounds on the
-multiplicities $M_A$. Only six families survive.
+$M_A$. Only six families survive.
 One consists of our $m$ elements $\theta_{A_{j;m}}$.
 Comparing constant coefficients at their standard indices proves
 that each occurs once.
@@ -3526,7 +3561,7 @@ standard expansion. The Gaussian cancellation in
 =\binom{m+1}{2}.
 \]
 The last coefficient counts triples of nonnegative integers
-summing to $m-1$. Thus the calculation gives the whole row sum
+summing to $m-1$. Thus, the calculation gives the whole row sum
 without requiring a formula for its individual entries.
 
 \begin{remark}
@@ -3569,7 +3604,10 @@ KL-to-$H^1$ identification, rational cohomology via the
 Hochschild complex, comparison with finite group cohomology,
 and simplicity of the relevant projective special linear groups.
 
-These background results are not formalized.
+For the Lean statements of \autoref{thm:aggregate-web} and
+\autoref{cor:guralnick},
+declarations \texttt{row\_sum} and
+\texttt{named\_row\_and\_lower\_bound}, respectively.
 The cohomological deduction retains the fixed trivial source
 and the stated characteristic bounds. References for the
 external inputs are
@@ -3588,10 +3626,7 @@ the six-map morphism used in the calculation.
 
 We thank the ANU Kioloa Coastal Campus, where the common interest of
 TG and DT was discovered at a workshop organized by Anthony Licata
-and Oded Yacobi. We thank Keeley Hoek for helping with
-translating C code into very efficient Rust code for computing
-$W$-graphs, and Lukas Lewark for making the
-\texttt{webdraw} program available for computing Kuperberg polynomials.
+and Oded Yacobi.
 
 TG acknowledges funding by the Australian Government through ARC DP230102982. DT was supported by ARC Future Fellowship FT230100489 and asserts that no large language models were injured in the making of this paper (just one very tired human). P.V. is supported by FNRS (Belgium) Grant no. J.0235.26.
 
@@ -3694,7 +3729,10 @@ Cutting the annulus open gives a rectangle with its vertical
 sides identified, and planar diagrams embed on such a rectangle. 
 Matching seam labels mark continuations of
 the same edge at the same height. The cut fixes the start of
-each ordered boundary. For example, gluing the boundary $(3)$ gives
+each ordered boundary. Starting at the cut, all boundary labels
+are read counterclockwise, following the left-to-right order
+in the cut-open strip.
+For example, gluing the boundary $(3)$ gives
 \begin{gather*}
 \websplit{1}{2}{3}\ \circ\ \webmerge{1}{2}{3}
 =\CompositionStrip
@@ -3702,6 +3740,16 @@ each ordered boundary. For example, gluing the boundary $(3)$ gives
 \end{gather*}
 The input and output are $(1,2)$. In an annular hole, a gray
 arrow connects an input label to its endpoint.
+
+For the annular tensor product (defined whenever the underlying planar category is braided, which is the case for us), concatenate the input and output
+boundaries and superpose the webs, placing the left factor behind
+the right factor. Thus its strands pass under those of the right
+factor wherever they cross. In a cut-open annulus,
+\[
+f\otimes h=\AnnularTensorPicture.
+\]
+This is the opposite compared to
+\cite[(4B.1)]{LTV}; it agrees with the winding convention below.
 
 \par\noindent
 \begin{minipage}[c]{.64\linewidth}
@@ -3730,11 +3778,19 @@ caps or closed components. For example:
 
 \subsection{Symmetric webs}
 
-Work over $\mathcal A=\mathbb Z[v,v^{-1}]$, with
+Work over $\mathcal A=\mathbb Z[v,v^{-1}]$. We use square brackets for
+symmetric quantum numbers and binomials, and round brackets with a subscript
+for their Gaussian counterparts. The subscript gives the value of $q$. We use $q=Q$
+for flag counts over $\mathbb F_Q$ and $q=v^{-2}$ for webs. Ordinary
+binomials have no subscript. With $(n)_q=1+q+\cdots+q^{n-1}$ for $n\ge1$
+and $(0)_q=0$, the two normalizations satisfy
 \[
-[a]=v^{a-1}+v^{a-3}+\cdots+v^{1-a},\qquad
-[a]!=[1]\cdots[a],\qquad
-\qbinom{a+b}{a}=\frac{[a+b]!}{[a]![b]!},\qquad [0]!=1.
+\begin{gathered}
+[n]=v^{n-1}+v^{n-3}+\cdots+v^{1-n}=v^{n-1}(n)_{v^{-2}},\qquad
+[n]!=[1]\cdots[n],\qquad [0]!=1,\\[.4ex]
+\qbinom{n}{k}=\frac{[n]!}{[k]![n-k]!}
+=v^{k(n-k)}\gbinom{n}{k}_{v^{-2}}\qquad(0\le k\le n).
+\end{gathered}
 \]
 
 \begin{definition}\label{def:symmetric-webs}
@@ -3850,8 +3906,8 @@ therefore be omitted as generators.
 The first identity is the two-term Schur relation. Contracting
 the middle digon gives $b_i^2=[2]b_i$, hence the quadratic
 relation. Distant crossings commute by juxtaposition.
-The remaining statements follow from
-\cite[Section~5]{LatifiTubbenhauer} after changing normalization.
+The braid relations and the integral expressions for both crossings
+are given in our normalization in \cite[(2.14)--(2.19)]{SSW}.
 \end{proof}
 
 \autoref{lem:thin-hecke-relations} gives the Hecke relations:
@@ -3860,8 +3916,7 @@ The remaining statements follow from
 H_iH_j=H_jH_i\,(|i-j|>1)\qquad H_iH_jH_i=H_jH_iH_j\,(|i-j|=1).
 \end{gather*}
 
-\begin{lemma}\label{lem:iterated-web-digons}
-Nested digons contract as
+Repeated digon removal gives
 \begin{gather*}
 \nestedbubble{a}{b}{c}{a+b}{a+b+c}
 =\frac{[a+b]!}{[a]![b]!}\webbubble{a+b}{c}{a+b+c},
@@ -3870,12 +3925,7 @@ Nested digons contract as
 =\frac{[b+c]!}{[b]![c]!}\webbubble{a}{b+c}{a+b+c}.
 \end{gather*}
 Both sides evaluate to $[a+b+c]!/([a]![b]![c]!)$ times the
-identity.
-\end{lemma}
-
-\begin{proof}
-Apply digon removal successively; retained strands are unchanged.
-\end{proof}
+identity. Retained strands are unchanged.
 
 \subsection{Annular webs}\label{subsec:affine-conventions}
 
@@ -3887,7 +3937,9 @@ same objects as $\mathsf{Web}$ and morphisms given by
 $\mathcal A$-linear combinations of upward webs on a cylinder,
 modulo the local relations and isotopy with boundary fixed.
 The local relations also apply in disks meeting the cut.
-No Levi quotient is imposed. Write $\mathsf{AWeb}_N$ for
+(We impose no additional relations associated with a fixed
+Levi subalgebra, as in the quotients of \cite[Section~4C]{LTV}.)
+Write $\mathsf{AWeb}_N$ for
 the part of total thickness $N$.
 \end{definition}
 
@@ -3896,10 +3948,13 @@ A coil, displayed and defined by \autoref{fig:cut-guide} for thin edges
 a boundary edge across the cut. Coils exist in
 both directions and at every thickness. On $\omega_N$, let
 $X_i$ be the positive winding at position $i$; its inverse
-has a negative sign. Suppressing strands,
+has a negative sign. The first picture shows $X_1$ with
+one retained strand. Positive winding passes under strands to its
+right and over strands to its left; the inverse reverses these crossings.
 \begin{gather}\label{fig:cut-guide}
-\webdot{+}=\coilstrip
-\quad\xleftrightarrow{\text{cut / glue}}\quad\coilannulus,\quad
+\thinword[.62]{2}{1/X}=\coilstrip
+\quad\xleftrightarrow{\text{cut / glue}}\quad\coilannulus,
+\\[.5ex]
 X_i=\webdot{+},\qquad X_i^{-1}=\webdot{-}.
 \end{gather}
 
@@ -3922,13 +3977,14 @@ A visualization exercise.
 \end{proof}
 
 \begin{lemma}\label{lem:annular-relations}
-Adjoining coils to $\mathsf{Web}$ together with \autoref{Eq:InvCoil} gives
-$\mathsf{AWeb}$. On a thin boundary,
+Adjoining coils to $\mathsf{Web}$ together with \autoref{Eq:InvCoil}
+and isotopies moving splits, merges and crossings across
+the cut gives $\mathsf{AWeb}$. On a thin boundary,
 \begin{gather*}
 X_iX_k=X_kX_i,\qquad H_iX_iH_i=X_{i+1},\qquad
 H_iX_k=X_kH_i\quad(k\ne i,i+1).
 \end{gather*}
-In pictures, (with arbitrary unrelated strand in between or to the left and right)
+In pictures, (with arbitrary unrelated strands in between or to the left and right)
 \begin{gather*}
 \thinword{3}{1/H,1/X,1/H}
 =\thinword{3}{2/X},\qquad
@@ -3941,13 +3997,30 @@ Strands not involved in a relation remain fixed.
 \end{lemma}
 
 \begin{proof}
-The coil presentation is \cite[Section~4A]{LTV}.
-The displayed relations follow by moving coils across the
-cut.
+Use the coil presentation of \cite[Section~4A]{LTV}, with
+the crossing and winding conventions fixed above. In particular,
+positive rotation here is $\rho^K$ there, and negative rotation is
+$\rho_K$. The displayed relations follow by moving coils across the
+cut. To compare with the integral presentation in
+\cite[Definition~2.1]{SSW}, cut the positive winding on an $a$-edge
+to obtain their solid dot $D_a$. Their hollow dot is its inverse.
+Moving $D_a$ through a crossing gives
+$H_{a,b}(D_a\otimes1_b)=(1_b\otimes D_a)H_{b,a}^{-1}$,
+as in \cite[(2.7)]{SSW}. Moving $D_{a+b}$ through a split or merge
+gives $D_a\otimes D_b$, as in \cite[(2.8)]{SSW}.
+Conversely, these dot relations recover the cylindrical presentation
+by \cite[Theorem~2.6]{MousaaidSavage}, with the opposite braiding since
+the left tensor factor passes underneath.
+Splitting an $a$-edge into thin strands, winding them all and merging
+back gives $[a]!D_a$ by digon removal. This and its negative winding
+version give \cite[(2.9)]{SSW} over $\mathcal A$.
 \end{proof}
 
 \begin{definition}
 Let $\rho_N$ be the positive cyclic rotation of $\omega_N$ (cf. \autoref{fig:rotation-in-webs}).
+Under the Hecke realization below, it corresponds to
+$[2,3,\ldots,N,N+1]$ in the extended affine symmetric group,
+not its degree-zero affine subgroup.
 Write $H_0$ for the crossing through the cut between the last
 and first thin positions.
 For $1\le a<N$, obtain $\beta_a$ from a reduced word for
@@ -4012,13 +4085,13 @@ The following is a reinterpretation of, e.g., \cite{LusztigBernstein}, and many 
 \begin{definition}\label{def:affine-hecke-conventions}
 The extended affine symmetric group $\widehat S_N$ consists
 of bijections $w:\mathbb Z\to\mathbb Z$ with
-$w(i+N)=w(i)+N$. Its degree is
+$w(i+N)=w(i)+N$. The degree of $w$ is
 $N^{-1}\sum_{i=1}^N(w(i)-i)$; the degree-zero subgroup is
 $W=\widetilde S_N$, and
 $W_0=\langle s_1,\ldots,s_{N-1}\rangle\cong S_N$.
 The rotation is $\tau=[2,3,\ldots,N,N+1]$.
 
-The extended affine Hecke algebra $\mathcal H_{\rm aff}$ is
+The extended affine Hecke algebra $\mathcal H_{\rm aff}=\mathcal H_{\rm aff}(N)$ is
 the $\mathcal A$-algebra generated by $H_1,\ldots,H_{N-1}$
 and $X_1^{\pm1},\ldots,X_N^{\pm1}$, subject to the braid,
 quadratic and Bernstein relations of
@@ -4027,10 +4100,10 @@ quadratic and Bernstein relations of
 \[
 \tau=X_1H_1\cdots H_{N-1},\qquad
 H_0=\tau H_{N-1}\tau^{-1},\qquad
-Q=v^{-2},\qquad H_i=vT_i.
+q=v^{-2},\qquad T_i=v^{-1}H_i.
 \]
 The $H_i$ with $1\le i<N$ generate the finite subalgebra
-$\mathcal H(W_0)$, and $(T_i+1)(T_i-Q)=0$.
+$\mathcal H(W_0)$, and $(T_i+1)(T_i-q)=0$.
 Write $H_w=v^{\ell(w)}T_w$ for the standard basis, with
 $T_\tau=\tau$. The degrees are $\deg H_i=0$ and
 $\deg X_i=\deg\tau=1$; the degree-zero subalgebra is
@@ -4038,18 +4111,23 @@ the ordinary affine Hecke algebra.
 \end{definition}
 
 \begin{definition}\label{def:spherical-modules}
-For a finite parabolic $P$ with longest element $w_P$, put
+Here and below, our parabolic subgroups are generated by subsets
+of the affine simple reflections. For a finite parabolic subgroup $P$
+with longest element $w_P$, put
 \[
 x_P=\sum_{w\in P}T_w,\qquad
 C_P=v^{\ell(w_P)}x_P,\qquad
-h_P=v^{\ell(w_P)}\sum_{w\in P}Q^{\ell(w)}.
+h_P=v^{\ell(w_P)}\sum_{w\in P}q^{\ell(w)}.
 \]
 The spherical right module is
 $\mathcal M_P=C_P\mathcal H_{\rm aff}=x_P\mathcal H_{\rm aff}$;
 its generator satisfies $C_PH_i=v^{-1}C_P$ for $s_i\in P$.
-For a composition $\gamma$, let $W_\gamma$ permute its
-consecutive blocks and write $\mathcal M_\gamma=\mathcal M_{W_\gamma}$,
+For a composition $\gamma=(\gamma_1,\ldots,\gamma_k)$ of $N$,
+let $W_\gamma=S_{\gamma_1}\times\cdots\times S_{\gamma_k}\subset W_0$
+permute the consecutive blocks of sizes $\gamma_1,\ldots,\gamma_k$.
+Write $\mathcal M_\gamma=\mathcal M_{W_\gamma}$,
 $x_\gamma=x_{W_\gamma}$ and $C_\gamma=C_{W_\gamma}$.
+Zero parts, when used to pad a boundary, represent empty blocks.
 \end{definition}
 
 \begin{definition}\label{def:affine-schur-maps}
@@ -4080,10 +4158,10 @@ $L=S_a\times S_b$; a vertex across the cut is transported
 by rotation as in \autoref{lem:boundary-rotation}.
 
 There is an algebra embedding, in fact an isomorphism,
-\begin{gather}\label{eq:hecke-web-embedding}
+\begin{gather*}
 \jmath_N:\mathcal H_{\rm aff}
 \xrightarrow{\ \sim\ }\operatorname{End}_{\mathsf{AWeb}}(\omega_N).
-\end{gather}
+\end{gather*}
 It sends $H_i$ to the thin crossing in positions $i,i+1$,
 $X_i^{\pm1}$ to the corresponding winding dot, and $\tau$ to
 $\rho_N$. Thus $H_{w_a}$ is represented by $\beta_a$.
@@ -4092,9 +4170,9 @@ $\mathcal H(W_0)\cong\operatorname{End}_{\mathsf{Web}}(\omega_N)$.
 \end{lemma}
 
 \begin{proof}
-The isomorphism is
-\cite[Theorem~4.16, Proposition~4.18(1)]{SSW}, with $q=v$;
-see also \cite{GreenAffine}, \cite[Theorem~3.22]{TVW}
+With the presentation in \autoref{lem:annular-relations}, the isomorphism is
+\cite[Theorem~4.16, Proposition~4.18(1)]{SSW}, with $q_{\rm SSW}=v$
+and our flag parameter $q=v^{-2}$. See also \cite{GreenAffine}, \cite[Theorem~3.22]{TVW}
 and \cite{Brundan}. To fix the vertex normalization, let
 $P^L$ be the minimal right-coset representatives for $P/L$.
 Then
@@ -4133,8 +4211,8 @@ with the normalization needed below. Under the identification in
 annular webs.
 
 \begin{definition}\label{def:hecke-kl-basis}
-The Hecke bar fixes $\tau$, sends $v$ to $v^{-1}$ and
-$H_i$ to $H_i^{-1}$. We use the KL normalization
+The Hecke bar is the multiplicative involution fixing $\tau$
+and sending $v$ to $v^{-1}$ and $H_i$ to $H_i^{-1}$. We use the KL normalization
 $C_w=v^{\ell(w)}\sum_{y\le w}P_{y,w}(v^{-2})T_y.$
 In particular, $C_{w_P}=C_P$ and $C_{s_i}=H_i+v$.
 On Schur maps the induced bar is
@@ -4181,15 +4259,19 @@ Here the boundaries are extended periodically. Rows record
 target edges and columns source edges in the unwrapped strip;
 shifting both indices by three moves to the next copy.
 
-Put $L_\gamma=\ell(w_{0,\gamma})$. For the double coset
-$W_\alpha d(A)W_\gamma$, let $d(A)$ and $w_A^+$ be its shortest
-and longest representatives. Define
+Let $w_{0,\gamma}$ be the longest element of $W_\gamma$ and put
+$L_\gamma=\ell(w_{0,\gamma})$. For the double coset indexed by $A$,
+let $d(A)$ and $w_A^+$ be its shortest and longest representatives;
+thus the coset is $W_\alpha d(A)W_\gamma$. Define
 $\phi_A(x_\gamma h)=\sum_{w\in W_\alpha d(A)W_\gamma}T_wh,$
 and the normalized standard and canonical maps by
 \[
 [A]_v=v^{\ell(w_A^+)-L_\gamma}\phi_A,\qquad
-\theta_A(C_\gamma)=C_{w_A^+}.
+\theta_A(C_\gamma h)=C_{w_A^+}h
+\quad(h\in\mathcal H_{\rm aff}).
 \]
+Thus $\theta_A$ is the right $\mathcal H_{\rm aff}$-module map
+determined by the image of the cyclic generator $C_\gamma$.
 We order matrices by Bruhat order on their longest
 representatives, and put
 \[
@@ -4205,7 +4287,7 @@ bases, respectively. Moreover,
 $\operatorname{dimdeg}(A)=\ell(w_A^+)-L_\gamma,$
 and the change of basis is
 \begin{gather}\label{eq:exact-schur-dictionary}
-\theta_A=\sum_{Z:\,w_Z^+\le w_A^+}
+\theta_A=\sum_{\substack{Z\\w_Z^+\le w_A^+}}
 v^{\ell(w_A^+)-\ell(w_Z^+)}
 P_{w_Z^+,w_A^+}(v^{-2})[Z]_v.
 \end{gather}
@@ -4268,7 +4350,8 @@ diagrams.
 
 \begin{remark}
 These bases come from \cite{BLM,Du,LusztigAffine}, in the
-induced-trivial convention of \cite{Deodhar}. They differ
+induced-trivial convention of \cite{Deodhar}; see also \cite{McGerty} 
+for a useful summary. They differ
 from the elementary ribbon basis of
 \cite[Theorem~4.16]{SSW}: a composite web must be expanded
 in the standard basis before one can read its KL coefficients. An analogous distinction appears in the classical web calculus:
@@ -4276,7 +4359,6 @@ Khovanov--Kuperberg (KK) showed that the $\mathfrak{sl}_3$ web basis
 is not in general dual canonical \cite{KK99}.
 \end{remark}
 
-\begin{example}
 Already on three thin strands, a composite web can require a
 canonical correction:
 \[
@@ -4294,7 +4376,6 @@ b_1b_2b_1-b_1
 The final web is the total merge followed by the total split,
 which represents $C_{S_3}$ by \autoref{lem:vertex-normalization}.
 Thus even a bar invariant composite need not itself be canonical.
-\end{example}
 
 \begin{definition}\label{def:dictionary-corner}
 Return to $N=2m+1$ and put $\lambda=(N,0,0)$ and
@@ -4313,11 +4394,13 @@ A_{j;m}=\begin{pmatrix}1&m-j&j-1\\0&1&0\\j-1&m-j&1\end{pmatrix},
 B_m=\begin{pmatrix}0&m&0\\0&1&0\\0&m&0\end{pmatrix}.
 \]
 All other entries in these rows vanish; extend periodically.
-The row sums are $\nu$, and the full column sums are $\lambda$.
+The row sums are $\nu$, and the column sums over all rows
+$i\in\mathbb Z$ are $\lambda$, extended periodically.
 Indeed, the three displayed columns of $A_{j;m}$ sum to
 $j,N-2j,j$. Since their indices are all congruent to $1$
-modulo $3$, their periodic translates give the required
-full column sums.
+modulo $3$, the contributions of their periodic translates
+add to $N$ in each column congruent to $1$ modulo $3$;
+the remaining columns are zero.
 \end{definition}
 
 Write $u=u_{j;m}$ and $C=C_{j;m}=uw_0$, with shifts
@@ -4416,8 +4499,8 @@ Fix $m\ge2$ and $N=2m+1$. Set
 \Lambda=(N),\quad V=(m,1,m),\quad J=(2m,1),\quad
 L=(1,m-1,1,m-1,1),\quad K=(1,N-2,1).
 \]
-We also use these letters for the corresponding finite parabolic
-subgroups, specified in the next subsection; $\Lambda$ corresponds
+The corresponding finite parabolic subgroups are denoted by
+$P_V,P_J,P_L,P_K$ and specified below; $\Lambda$ corresponds
 to $W_0$.
 
 The annular web $\mathcal R_m$ is the composite
@@ -4463,42 +4546,53 @@ The blue unit strands exposed in (c) pass unchanged through
 
 By \autoref{lem:vertex-normalization}, a split $P\to Q$,
 $Q\subset P$, is the inclusion $M_P\to M_Q$; the reverse merge
-sends $C_Qh$ to $C_Ph$. Thus (a)--(f) give the parabolic chain
-$W_0\supset V\subset J\supset L\subset K\supset L\subset V$,
+sends $C_Qh$ to $C_Ph$. After rotating the intermediate
+boundary $J$ as below, (a)--(f) give the parabolic chain
+$W_0\supset P_V\subset P_J\supset P_L\subset P_K\supset P_L\subset P_V$,
 where $W_0=\langle s_1,\ldots,s_{N-1}\rangle$ and
 \[
 \begin{aligned}
-J&=\langle s_i:i\in\mathbb Z/N\mathbb Z
+P_J&=\langle s_i:i\in\mathbb Z/N\mathbb Z
 \setminus\{m,m+1\}\rangle,
-& K&=\langle s_2,\ldots,s_{N-2}\rangle,\\
-V&=W_0\cap J,
-& L&=J\cap K=K\cap V.
+& P_K&=\langle s_2,\ldots,s_{N-2}\rangle,\\
+P_V&=W_0\cap P_J,
+& P_L&=P_J\cap P_K=P_K\cap P_V.
 \end{aligned}
 \]
-Their types are $V\cong S_m\times S_m$, $J\cong S_{2m}$,
-$K\cong S_{2m-1}$ and $L\cong S_{m-1}\times S_{m-1}$.
-The $2m$-edge of $J=(2m,1)$ crosses the cut, so $J$ contains
-$s_0$ but is finite, with symmetrizer
-$C_J=\tau^{m+1}C_{\langle s_1,\ldots,s_{N-2}\rangle}\tau^{-(m+1)}$.
-By \autoref{lem:boundary-rotation}, (b)--(c) are ordinary parabolic
-maps transported across the cut, hence integral of degree zero.
+Their types are $P_V\cong S_m\times S_m$, $P_J\cong S_{2m}$,
+$P_K\cong S_{2m-1}$ and $P_L\cong S_{m-1}\times S_{m-1}$.
+The $2m$-edge of $J=(2m,1)$ crosses the cut, so $P_J$ contains
+$s_0$ but is finite. In (b), $\tau^m$ moves the last $m$-edge
+of $V$ to the front, where it merges with the first one. In (c)
+the split moves an $m$-edge back across the cut. By
+\autoref{lem:boundary-rotation} the two maps are integral and have
+degrees $m$ and $-m$, respectively. Their composite has degree zero.
+Writing $J_{\rm std}=\langle s_1,\ldots,s_{N-2}\rangle$, its middle
+symmetrizer is
+\[
+\tau^{-m}C_{J_{\rm std}}\tau^m
+=C_{P_J}=\tau^{m+1}C_{J_{\rm std}}\tau^{-(m+1)},
+\]
+since $\tau^N$ is central.
 
 \begin{lemma}\label{lem:main-symmetrizer}
 Identify the right spherical module with $C_{W_0}\mathcal H_{\rm aff}$
 by $M_e\mapsto C_{W_0}$, where $M_eH_i=v^{-1}M_e$ for $1\le i<N$.
 In the inverse-permutation convention,
 \begin{gather}\label{eq:marked-symmetrizer}
-\mathcal R_m=\frac{M_eC_JC_KC_V}{d_m},\qquad
-d_m=h_Vh_L^2=[m]!^2[m-1]!^4.
+\mathcal R_m=\frac{M_eC_{P_J}C_{P_K}C_{P_V}}{d_m},\qquad
+d_m=h_{P_V}h_{P_L}^2=[m]!^2[m-1]!^4.
 \end{gather}
 This quotient is integral and bar invariant.
 \end{lemma}
 
 \begin{proof}
 Evaluate the six maps of \autoref{S:MainWeb} on $C_{W_0}$ using
-\autoref{lem:vertex-normalization}. Over $\mathbb Q(v)$, their
-composite is $C_VC_KC_JC_{W_0}/(h_Vh_L^2)$.
-The overlaps $W_0\cap J=V$, $J\cap K=L$ and $K\cap V=L$
+\autoref{lem:vertex-normalization}. Over $\mathbb Q(v)$,
+a merge from $Q$ to $P$ sends $z$ to $C_Pz/h_Q$, since
+$C_PC_Q=h_QC_P$. The merges (b), (d) and (f) thus give
+the value $C_{P_V}C_{P_K}C_{P_J}C_{W_0}/(h_{P_V}h_{P_L}^2)$.
+The overlaps $W_0\cap P_J=P_V$, $P_J\cap P_K=P_L$ and $P_K\cap P_V=P_L$
 give the three digon factors. Thus the quotient represents the
 six integral maps, and inversion reverses the product as stated.
 Every $C_P$ and $h_P$ is bar invariant.
@@ -4513,26 +4607,43 @@ For products of parabolic KL elements and their canonical
 corrections, see also \cite{AgrawalSotirov}.
 \end{remark}
 
-Write $C_A,\Delta_A$ for the images of $\theta_A,[A]_v$ under
-$H_w^*=H_{w^{-1}}$. Then $C_B=M_e$ and
+We now evaluate the Schur maps on $C_{W_0}$ and apply the
+anti-involution $H_w^*=H_{w^{-1}}$. Write
+\[
+C_A=\bigl(\theta_A(C_{W_0})\bigr)^*,\qquad
+\Delta_A=\bigl([A]_v(C_{W_0})\bigr)^*.
+\]
+We retain the original matrix label $A$ for these vectors.
+This changes the realization, but not the expansion coefficients.
+Thus $C_B=M_e$ and
 $[\Delta_A]C_Z=[[A]_v]\theta_Z$. Indeed,
 \[
 [A]_v(C_{W_0})=v^{\ell(w_A^+)}
-\sum_{w\in Vd(A)W_0}T_w,
+\sum_{w\in P_Vd(A)W_0}T_w,
 \]
-and $*$ replaces this coset by $W_0d(A)^{-1}V$ without changing
-the scalar. Inversion of the index here differs from the bar,
-which uses the multiplicative inverse $H_w^{-1}$.
+and $*$ replaces this coset by $W_0d(A)^{-1}P_V$ without changing
+the scalar. 
+The anti-involution $*$ sends $H_w$ to $H_{w^{-1}}$ and
+reverses products. The bar sends $H_w$ to $H_{w^{-1}}^{-1}$,
+sends $v$ to $v^{-1}$, and preserves products.
 
 \subsection{Counting flags}
 
+Let $Q$ be a prime power. All flags and lattices counted in this
+subsection are over $\mathbb F_Q$. We use $q$ for the polynomial
+variable and substitute $q=v^{-2}$ when passing to web coefficients.
 Schur convolution counts intermediate flags \cite{BLM,LusztigAffine}.
 For $\mathcal R_m$, we choose a line, a hyperplane and an
 $m$-space inside an $(m+1)$-space in an $N$-dimensional quotient.
 
 \begin{definition}\label{def:gallery-flags}
-Let $A$ have period three, row sizes $(m,1,m)$ and support in columns $-2,1,4$,
-with these indices retained under inversion. Set
+Let $A$ be a degree-zero index in the corner of
+\autoref{def:dictionary-corner}, with all nonzero entries in rows
+$1,2,3$ lying in columns $-2,1,4$. We use the original matrix
+convention, with output rows and input columns, also for $C_A$
+and $\Delta_A$. Degree zero forces the two outer column sums
+to agree.
+Set
 \[
 \begin{gathered}
 r=\sum_{i=1}^3 a_{i,-2}=\sum_{i=1}^3 a_{i,4},\quad \ell=m-r,
@@ -4541,7 +4652,10 @@ a=a_{1,-2},\quad b=a_{1,-2}+a_{2,-2},\quad
 c=m-a_{1,4},\quad d=m+1-a_{1,4}-a_{2,4}.
 \end{gathered}
 \]
-The relative rank $r$ counts the shifts of each sign.
+Equivalently, the relative position has $r$ shifts by one period
+in each direction and $N-2r$ entries with no shift. Their total
+shift is zero, which explains the equality above and gives
+$0\le r\le m$.
 In an $N$-dimensional space $E$, fix flags $I_0\subset K_0$
 and $F\subset F'$ with
 \[
@@ -4556,9 +4670,10 @@ dimensions $(1,m,m+1,N-1)$, with $L\subset F$, $F'\subset H$
 and $I_0\subset I\subset K\subset K_0$.
 \end{definition}
 
-Write $[n]_Q=1+Q+\cdots+Q^{n-1}$, with $[0]_Q=0$, and set
-$\qbinom{n}{k}_Q=0$ for $k<0$ or $k>n$.
-The choices of $L,H$ split into four cases:
+
+We set $\gbinom{n}{k}_q=0$ for $k<0$ or $k>n$.
+The choices of $L,H$ split into four cases; their counting
+polynomials are evaluated at $q=Q$:
 \[
 \begin{array}{c|cc}
 &0&1\\\hline
@@ -4567,17 +4682,17 @@ The choices of $L,H$ split into four cases:
 \end{array}
 \qquad
 \begin{aligned}
-\mathsf L_0&=[a]_Q,&\mathsf L_1&=[c]_Q-[a]_Q,\\
-\mathsf H_0&=[d-\ell-1]_Q,&
-\mathsf H_1&=[\ell+b]_Q-[d-\ell-1]_Q.
+\mathsf L_0&=(a)_q,&\mathsf L_1&=(c)_q-(a)_q,\\
+\mathsf H_0&=(d-\ell-1)_q,&
+\mathsf H_1&=(\ell+b)_q-(d-\ell-1)_q.
 \end{aligned}
 \]
-Infeasible cases contribute zero. Put
+Omit infeasible cases before evaluating the Gaussian. Put
 \begin{gather}\label{eq:gallery-Gaussian}
-F_A(Q)=\sum_{\epsilon,\eta\in\{0,1\}}
+F_A(q)=\sum_{\epsilon,\eta\in\{0,1\}}
 \mathsf L_\epsilon\mathsf H_\eta
-\qbinom{N-2r-\epsilon-\eta}{m-r-\epsilon}_Q
-[m+1-r-\eta]_Q.
+\gbinom{N-2r-\epsilon-\eta}{m-r-\epsilon}_{q}
+(m+1-r-\eta)_q.
 \end{gather}
 
 \begin{lemma}\label{lem:finite-flag-count}
@@ -4585,8 +4700,8 @@ Over $\mathbb F_Q$, the number of galleries is $F_A(Q)$.
 \end{lemma}
 
 \begin{proof}
-The $\mathsf L_\epsilon$ choices of $L$ and $\mathsf H_\eta$
-choices of $H$ are independent since $L\subset F\subset F'\subset H$.
+The $\mathsf L_\epsilon(Q)$ choices of $L$ and
+$\mathsf H_\eta(Q)$ choices of $H$ are independent since $L\subset F\subset F'\subset H$.
 The remaining flag $I_0+L\subset I\subset K\subset K_0\cap H$
 has endpoint dimensions $r+\epsilon$ and $N-r-\eta$:
 \[
@@ -4607,7 +4722,7 @@ has endpoint dimensions $r+\epsilon$ and $N-r-\eta$:
 
 Choose $I/(I_0+L)$ in the quotient of dimension
 $N-2r-\epsilon-\eta$, then the line $K/I$. These give the
-Gaussian and quantum-integer factors in \autoref{eq:gallery-Gaussian}.
+two remaining factors in \autoref{eq:gallery-Gaussian}.
 \end{proof}
 
 The same count has a local web calculation. Put
@@ -4623,12 +4738,12 @@ the $k$-space first gives the right web:
 The first equality is associativity and coassociativity; the
 second removes the two digons. Write $\langle W\rangle$ for
 the scalar multiplying the straight strand in such an ordinary
-split--merge web $W$. This is an open-web evaluation, not a trace.
-Multiplying the displayed scalar by
+split--merge web $W$. 
+At $q=v^{-2}$, multiplying the displayed scalar by
 $v^{-k(n-k)-(n-k-1)}$ gives
-$\qbinom{n}{k}_Q[n-k]_Q$, exactly the two remaining factors in
+$\gbinom{n}{k}_q(n-k)_q$, exactly the two remaining factors in
 \autoref{eq:gallery-Gaussian}. Delete a zero edge at $k=0$ or
-$k=n-1$; infeasible cases contribute zero.
+$k=n-1$; when $k<0$ or $k+1>n$, the flag count is zero.
 
 \begin{proposition}\label{prop:gallery-standard}
 Put $D=2m^2+2m-3$. The standard coefficient of $\mathcal R_m$ is
@@ -4639,23 +4754,23 @@ All standards outside the support of \autoref{def:gallery-flags} vanish.
 At the source $B=B_m$,
 \begin{gather}\label{eq:gallery-source}
 \big[[B]_v\big]\mathcal R_m
-=v^D[m]_{v^{-2}}^3\qbinom{2m-1}{m-1}_{v^{-2}}
-=v^{m^2}[m]^3\qbinom{2m-1}{m-1}_{\rm sym},
+=v^D(m)_{v^{-2}}^3\gbinom{2m-1}{m-1}_{v^{-2}}
+=v^{m^2}[m]^3\qbinom{2m-1}{m-1}.
 \end{gather}
-where $\qbinom{n}{k}_{\rm sym}=v^{k(n-k)}\qbinom{n}{k}_{v^{-2}}$.
 The coefficient at $A_{m;m}$ is one.
 \end{proposition}
 
 \begin{proof}
-Let $Q$ be a prime power. A lattice is a free rank-$N$
+A lattice is a free rank $N$
 $\mathbb F_Q[[t]]$-submodule of
 $\mathbb F_Q((t))^N$ spanning that space. A complete periodic chain
 has $\Lambda_i\subset\Lambda_{i+1}$,
 $\dim(\Lambda_{i+1}/\Lambda_i)=1$ and
 $\Lambda_{i+N}=t^{-1}\Lambda_i$; position $i$ has type $i$ modulo $N$.
-Partial chains retain selected positions.
+A chain retains the lattices whose indices belong to
+a prescribed set of residue classes modulo $N$.
 
-The parabolics $W_0,J,K,V$ fix types $0$;
+The parabolics $W_0,P_J,P_K,P_V$ fix types $0$;
 $m,m+1$; $0,1,N-1$; and $0,m,m+1$, respectively.
 The convolution counts chains from $\Lambda$ to
 $(\Lambda',\widetilde F,\widetilde F')$ satisfying
@@ -4688,7 +4803,7 @@ The endpoint lattices have equal determinant degree, so
 $\dim(\widetilde I/\Lambda')=m$ and
 $\dim(\widetilde K/\Lambda')=m+1$.
 Refining the common facets to complete chambers introduces their
-Poincar\'e factors $h_V,h_L,h_L$; forgetting these refinements
+Poincar\'e factors $h_{P_V},h_{P_L},h_{P_L}$; forgetting these refinements
 cancels the denominator in \autoref{eq:marked-symmetrizer}.
 
 The inclusions force $\Lambda\subset t^{-1}\Lambda'$ and
@@ -4701,26 +4816,35 @@ K_0=(t^{-1}\Lambda\cap t^{-1}\Lambda')/\Lambda',\qquad
 (F,F')=(\widetilde F,\widetilde F')/\Lambda'.
 \]
 \looseness=-1
-The quotient has the dimensions and intersections of
-\autoref{def:gallery-flags}, and its galleries are counted by
-$F_A(Q)$. The count over all finite fields gives the polynomial
-identity for Hecke multiplication.
+The input chain induces $0\subset I_0\subset K_0\subset E$.
+Thus columns $-2,1,4$ record the flags induced by $F\subset F'$
+on $I_0$, $K_0/I_0$ and $E/K_0$, respectively. For instance,
+$a_{1,-2}=\dim(F\cap I_0)$ and $a_{1,4}=m-\dim(F\cap K_0)$.
+We therefore get the galleries of \autoref{def:gallery-flags}, counted by $F_A(Q)$. 
+Convolution of orbit characteristic functions counts these
+intermediate chains, so specialization at $q=Q$ gives the same
+coefficient as Hecke multiplication \cite{LusztigAffine}.
+Both the normalized Schur coefficient and
+$v^{D-d_A}F_A(v^{-2})$ lie in $\mathbb Z[v,v^{-1}]$.
+Their difference vanishes at $v=Q^{-1/2}$ for every prime power $Q$,
+hence is zero.
 
-For $\ell_P=\ell(w_P)$, we have $\ell_J=m(2m-1)$,
-$\ell_K=(2m-1)(m-1)$, $\ell_V=m(m-1)$ and
-$\ell_L=(m-1)(m-2)$. The normalization exponent is therefore
-$\ell_J+\ell_K+\ell_V-\ell_V-2\ell_L=D$; the output standard removes $d_A$.
+For $\ell_P=\ell(w_P)$, we have $\ell_{P_J}=m(2m-1)$,
+$\ell_{P_K}=(2m-1)(m-1)$, $\ell_{P_V}=m(m-1)$ and
+$\ell_{P_L}=(m-1)(m-2)$. The normalization exponent is therefore
+$\ell_{P_J}+\ell_{P_K}+\ell_{P_V}-\ell_{P_V}-2\ell_{P_L}=D$; the output standard removes $d_A$.
 At $B$, $r=a=b=0$, $c=m$, $d=m+1$, and only
 $(\epsilon,\eta)=(1,1)$ contributes, giving
-\autoref{eq:gallery-source}. At $A_{m;m}$ the intermediate flags
-are forced, so $F_A=1$ and $d_A=D$.
+\autoref{eq:gallery-source}. At $A_{m;m}$ we have $r=m$,
+$a=c=1$ and $d=2$. Thus $I=I_0$, $K=K_0$, $L=F\cap I_0$
+and $H=F'+K_0$, so $F_A=1$ and $d_A=D$.
 \end{proof}
 
 Each individual choice is likewise a digon scalar. For
-$d\ge1$ and $0\le k\le n$,
+$d\ge1$ and $0\le k\le n$, at $q=v^{-2}$,
 \[
-[d]_Q=v^{1-d}\weval{\webbubble{1}{d-1}{d}},\qquad
-\qbinom{n}{k}_Q=v^{-k(n-k)}\weval{\webbubble{k}{n-k}{n}}.
+(d)_q=v^{1-d}\weval{\webbubble{1}{d-1}{d}},\qquad
+\gbinom{n}{k}_q=v^{-k(n-k)}\weval{\webbubble{k}{n-k}{n}}.
 \]
 At $k=0,n$, delete the zero edge to obtain an identity. Thus
 $F_A$ uses products and differences of digon scalars; at $B$,
@@ -4765,18 +4889,18 @@ $b=a+\beta$, $c=\ell+s$ and $d=\ell+s+\delta$; put $z=s+\delta-1$.
 \end{definition}
 
 \begin{lemma}\label{lem:gallery-degrees}
-For $q=Q=v^{-2}$ and $\ell\ge1$, the four flag counts give
+For $q=v^{-2}$ and $\ell\ge1$, the four flag counts give
 \begin{gather}\label{eq:relevance-four-terms}
 \begin{aligned}
-F_A(q)={}&[\ell]_q([\ell+b]_q-[z]_q)
-\left([a]_q\qbinom{2\ell}{\ell}_q+
-([c]_q-[a]_q)\qbinom{2\ell-1}{\ell-1}_q\right)\\
-&+[\ell+1]_q[z]_q
-\left([a]_q\qbinom{2\ell+1}{\ell}_q+
-([c]_q-[a]_q)\qbinom{2\ell}{\ell-1}_q\right).
+F_A(q)={}&(\ell)_q((\ell+b)_q-(z)_q)
+\left((a)_q\gbinom{2\ell}{\ell}_q+
+((c)_q-(a)_q)\gbinom{2\ell-1}{\ell-1}_q\right)\\
+&+(\ell+1)_q(z)_q
+\left((a)_q\gbinom{2\ell+1}{\ell}_q+
+((c)_q-(a)_q)\gbinom{2\ell}{\ell-1}_q\right).
 \end{aligned}
 \end{gather}
-For $\ell=0$, $F_A(q)=[a]_q[d-1]_q$. Empty factors are zero.
+For $\ell=0$, $F_A(q)=(a)_q(d-1)_q$. Empty factors are zero.
 All summands are nonnegative. Define the length deficit
 \begin{gather*}
 C=s(\ell+s)+a(\ell+a-s+1)+\beta(\ell+a+\beta)
@@ -4789,7 +4913,7 @@ $d_A=2r(N-r)-C$, $D-d_A=2\ell(\ell+1)-3+C$.
 \begin{proof}
 Substitute the intersection dimensions into
 \autoref{eq:gallery-Gaussian}. Since $c\ge a$ and $\ell+b\ge z$,
-the differences of quantum integers are nonnegative.
+the differences of the polynomials $(n)_q$ are nonnegative.
 In the length sum of \autoref{def:schur-bases}, only two row periods
 contribute: the predecessor gives $r^2$, the product of the outer
 column sums, and the current period gives
@@ -4804,11 +4928,12 @@ Their sum is $2r(r+2\ell+1)-C$, giving both length identities.
 
 Write $\operatorname{val}$ and $\deg$ for the least and greatest
 exponents of a nonzero Laurent polynomial. We apply positivity
-to $d_m\mathcal R_m=M_eC_JC_KC_V$, not to the quotient itself.
+to $d_m\mathcal R_m=M_eC_{P_J}C_{P_K}C_{P_V}$, not to the quotient itself.
 
 \begin{lemma}\label{lem:undivided-positivity-degree}
 Let $R=\sum_S f_S[S]_v=\sum_S g_SC_S$ be integral and bar invariant.
-Suppose $d(v)$ is nonzero, positive and bar symmetric, and all
+Here $f_S=f_S(v)$ and $g_S=g_S(v)$ are Laurent polynomials.
+Suppose $d(v)\in\mathbb N[v,v^{-1}]$ is nonzero and bar symmetric, and all
 canonical coefficients of $dR$ are nonnegative. If $g_S\ne0$, then
 \[
 \operatorname{val}g_S\ge\operatorname{val}f_S,\qquad
@@ -4834,15 +4959,15 @@ If $g_S$ is constant, positivity of $dg_S$ makes it nonnegative.
 For $\mathcal R_m=\sum_A M_A(v)C_A$, integrality and bar invariance
 give $M_A\in\mathbb Z[v,v^{-1}]$ and $M_A(v)=M_A(v^{-1})$.
 Moreover, $d_mM_A\in\mathbb N[v,v^{-1}]$: the cleared product
-embeds as $C_{W_0}C_JC_KC_V$,
+embeds as $C_{W_0}C_{P_J}C_{P_K}C_{P_V}$,
 whose KL coefficients and structure constants are positive
 \cite{KL80,Springer82}.
-The embedding preserves canonical normalization: for a minimal
-left-coset representative $x$, $C_{W_0}H_x$ has leading term
-$H_{w_{W_0}x}$, so its bar invariant triangular correction is
-$C_{w_{W_0}x}$. Grouping right $V$-cosets keeps leading coefficient one.
+By \autoref{def:schur-bases},
+$C_A=(\theta_A(C_{W_0}))^*=C_{(w_A^+)^{-1}}$.
+Thus $d_mM_A$ is exactly the KL coefficient of
+$C_{(w_A^+)^{-1}}$ in this product.
 
-The \autoref{lem:undivided-positivity-degree} and \autoref{prop:gallery-standard} now give
+\autoref{lem:undivided-positivity-degree} and \autoref{prop:gallery-standard} now give
 \begin{gather}\label{eq:relevance-bound}
 \operatorname{val}M_A\ge D-d_A-2\deg F_A,\quad
 \deg M_A\le E_A:=2\deg F_A-(D-d_A)
@@ -4853,56 +4978,66 @@ index whose standard coefficient vanishes.
 
 \subsection{The six families}
 
-Families $\mathrm A$--$\mathrm F$ record the surviving web incidences;
-the labels are unrelated to Dynkin types.
+Families $\mathrm A$--$\mathrm F$ record the surviving web incidences.
 
 \begin{definition}\label{def:six-families}
 Family $\mathrm A$ consists of the full-spherical elements:
 an endomorphism of $(N)$ followed by the ordinary split to $(m,1,m)$.
-Its rank-$r$ index is
-\[
-Z_r=\begin{pmatrix}0&\ell&r\\0&1&0\\r&\ell&0\end{pmatrix},
-\qquad\ell=m-r.
-\]
+Write $Z_r$ for its index at rank $r$.
 Families $\mathrm E,\mathrm D$ retain one line, ending at cuts
 $m,m+1$ respectively; call them strong and weak.
 Their duals $\mathrm C,\mathrm B$ impose the hyperplane incidence.
 The operation $\vee$ reflects left--right, exchanges the outer
 edges and reverses winding. Family $\mathrm F$ imposes both
-incidences and consists of the desired $A_{r;m}$.
+incidences and consists of the desired $A_{r;m}$
+from \autoref{def:dictionary-corner}.
 \end{definition}
 
+The terms indexed by $Z_r$ will give the spherical correction.
+
 The six constructions appear below, with only the first splits
-labeled in the auxiliary panels. By the above,
-the four one-line webs become canonical after output refinement;
-family $\mathrm A$ uses $\mathcal V_r-\mathcal V_{r-1}$, while
-$\mathrm F$ contains all desired canonical elements.
+labeled in the auxiliary panels. The matrices below the pictures have rows $1,2,3$ and columns $-2,1,4$, with $\ell=m-r$. 
+The four one-line webs give canonical elements by
+\autoref{prop:one-mark-canonical} and \autoref{lem:output-refinement}.
+For family $\mathrm A$ we take $\mathcal V_r-\mathcal V_{r-1}$ when $r\ge1$
+(\autoref{cor:spherical-differences}).
 \begingroup\webdetailsfalse
 \begin{gather*}
 \begin{array}{@{}c@{\qquad}c@{\qquad}c@{}}
 \mathrm A:\ \mathcal V_r&\mathrm B:\ \mathcal E_{r,m+1}^{\vee}
 &\mathrm C:\ \mathcal E_{r,m}^{\vee}\\[.6ex]
-\Vsrefined[.43]{r}&\Eweakdual[.40]&\Estrongdual[.40]\\[1.2ex]
+\Vsrefined[.43]{r}&\Eweakdual[.40]&\Estrongdual[.40]\\[.4ex]
+\left(\begin{smallmatrix}0&\ell&r\\0&1&0\\r&\ell&0\end{smallmatrix}\right)&
+\left(\begin{smallmatrix}0&\ell+1&r-1\\0&0&1\\r&\ell&0\end{smallmatrix}\right)&
+\left(\begin{smallmatrix}0&\ell+1&r-1\\0&1&0\\r&\ell-1&1\end{smallmatrix}\right)\\[1.2ex]
 \mathrm D:\ \mathcal E_{r,m+1}&\mathrm E:\ \mathcal E_{r,m}
 &\mathrm F:\ \mathcal R_m\\[.6ex]
-\Eweak[.40]&\Estrong[.40]&\Rmweb[.43]
+\Eweak[.40]&\Estrong[.40]&\Rmweb[.43]\\[.4ex]
+\left(\begin{smallmatrix}0&\ell&r\\1&0&0\\r-1&\ell+1&0\end{smallmatrix}\right)&
+\left(\begin{smallmatrix}1&\ell-1&r\\0&1&0\\r-1&\ell+1&0\end{smallmatrix}\right)&
+\left(\begin{smallmatrix}1&\ell&r-1\\0&1&0\\r-1&\ell&1\end{smallmatrix}\right)
 \end{array}
 \end{gather*}
 \endgroup
 
 \begin{lemma}\label{prop:algebraic-six}
 For $\ell\ge1$, only the following six families can occur in
-$\mathcal R_m=\sum_A M_A(v)C_A$. Discard infeasible positions and
-those with $E<0$. Every exponent of a nonzero $M_A$ lies in $[-E,E]$.
+$\mathcal R_m=\sum_A M_A(v)C_A$. 
+Here $C_A=(\theta_A(C_{W_0}))^*$ is the canonical vector in the
+inverse-permutation convention; its coefficient $M_A(v)$ is the same
+as that of $\theta_A$ in the canonical web expansion.
+A matrix is feasible when its entries are nonnegative.
+The last column gives the feasible ranks left by the degree bound, including $\ell=0$.
+Every exponent of a nonzero $M_A$ lies in $[-E,E]$, where $E=2\deg F_A-(D-d_A)$.
 \[
-\begin{array}{c|c|c|c|c}
-\text{family}&(a,b,c,d)&C&\deg F_A&E=2\deg F_A-(D-d_A)\\\hline
-\mathrm A&(0,0,\ell,\ell+1)&0&\ell^2+2\ell-3&2\ell-3\\
-\mathrm B&(0,0,\ell+1,\ell+1)&\ell+1&\ell^2+2\ell-2&\ell-2\\
-\mathrm C&(0,0,\ell+1,\ell+2)&\ell+2&\ell^2+2\ell-1&\ell-1\\
-\mathrm D&(0,1,\ell,\ell+1)&\ell+1&\ell^2+2\ell-2&\ell-2\\
-\mathrm E&(1,1,\ell,\ell+1)&\ell+2&\ell^2+2\ell-1&\ell-1\\
-\mathrm F&(1,1,\ell+1,\ell+2)&2\ell+3&\ell^2+2\ell&0
+\begin{array}{c|c|c|c|c|c}
+\text{family}&(a,b,c,d)&C&\deg F_A&E&\text{possible ranks }r\\\hline
+\mathrm A&(0,0,\ell,\ell+1)&0&\ell^2+2\ell-3&2\ell-3&0\le r\le m-2\\
+\mathrm B&(0,0,\ell+1,\ell+1)&\ell+1&\ell^2+2\ell-2&\ell-2&1\le r\le m-2\\
+\mathrm C&(0,0,\ell+1,\ell+2)&\ell+2&\ell^2+2\ell-1&\ell-1&1\le r\le m-1\\
+\mathrm D&(0,1,\ell,\ell+1)&\ell+1&\ell^2+2\ell-2&\ell-2&1\le r\le m-2\\
+\mathrm E&(1,1,\ell,\ell+1)&\ell+2&\ell^2+2\ell-1&\ell-1&1\le r\le m-1\\
+\mathrm F&(1,1,\ell+1,\ell+2)&2\ell+3&\ell^2+2\ell&0&1\le r\le m
 \end{array}
 \]
 At $\ell=0$, only the index of $A_{m;m}$ can occur.
@@ -4911,13 +5046,13 @@ $M_A\in\{0,1\}$; these indices are exactly $A_{r;m}$, $1\le r\le m$.
 \end{lemma}
 
 \begin{proof}
-Put $f_0=\ell^2+2\ell-3$. The four nonempty terms of
-\autoref{eq:relevance-four-terms} have degrees $f_0$ plus
+Put $f_0=\ell^2+2\ell-3$. For each nonzero term of
+\autoref{eq:relevance-four-terms}, call its degree minus $f_0$
+its degree increment. The four possible increments are
 $2a+\beta$, $a+s+\beta$, $a+s+\delta$,
 $2s+\delta-1$.
 By \autoref{eq:relevance-bound}, their maximum must give $E\ge0$.
 There are three possible middle rows.
-
 \textit{Middle row $(0,1,0)$: $(\beta,\delta)=(0,1)$.} Here the largest increment is at most
 $2\max(a,s)$, except when $a=s\ge1$, when it is at most $2a+1$.
 At $a=s=0$ the third term is empty.  With $M=\max(a,s)$ and
@@ -4967,16 +5102,13 @@ of $E$ are
 Only $a=s=1$, $(\beta,\delta)=(0,1)$ has nonnegative excess.
 
 In family $\mathrm F$, the unique top-degree term is
-$[\ell+1]_q\qbinom{2\ell+1}{\ell}_q$, monic; at $\ell=0$, $F_A=1$.
+$(\ell+1)_q\gbinom{2\ell+1}{\ell}_q$, monic; at $\ell=0$, $F_A=1$.
 Hence $[\Delta_A]\mathcal R_m$ has valuation zero and constant
 one, so $M_A$ is constant. Since $d_mM_A$ is nonnegative and
 $d_m$ has lowest coefficient one, the positive identity above
 \autoref{eq:relevance-bound} gives $0\le M_A\le1$.
-The family $\mathrm F$ matrix is
-\[
-\begin{pmatrix}1&m-r&r-1\\0&1&0\\r-1&m-r&1\end{pmatrix},
-\]
-which is $A_{r;m}$.  At $r=m$ its uncorrected leading coefficient is one and
+The displayed family $\mathrm F$ matrix is $A_{r;m}$ by
+\autoref{def:dictionary-corner}.  At $r=m$ its uncorrected leading coefficient is one and
 it is the unique maximal standard index, so in fact $M_{A_{m;m}}=1$.
 \end{proof}
 
@@ -4991,16 +5123,24 @@ $D$ into fine double cosets $E$. Then
 \Delta_D^T=\sum_{E\subset D}
 v^{\ell(w_D^+)-\ell(w_E^+)}\Delta_E^P.
 \end{gather}
-Refinement preserves $C_{w_Z^+}$ and, for $E\subset D$,
+A coarse canonical vector $C_Z$ remains canonical after refinement.
+Write $h^T_{D,Z}=[\Delta_D^T]C_Z$ and $h^P_{E,Z}=[\Delta_E^P]C_Z$.
+Then, for $E\subset D$,
 $h^P_{E,Z}=v^{\ell(w_D^+)-\ell(w_E^+)}h^T_{D,Z}$.
-At the origin $Z_0$, the only fine coset is $B$ and the factor is one,
+At the origin $Z_0$, provided $T\subseteq W_0$, the only fine coset is $B$ and the factor is one,
 so the distinguished coefficient is unchanged.
 \end{lemma}
 
 \begin{proof}
 Partition the unnormalized $T$-sum and compare normalization
-factors. Refinement leaves the underlying Hecke vector unchanged.
-At $Z_0$, both longest representatives are $w_0$.
+factors. For $E\subset D$, we have $w_E^+\le w_D^+$, with equality
+exactly for the fine coset containing $w_D^+$.
+Refining a coarse canonical vector therefore gives one leading fine
+standard with coefficient one; all other coefficients lie in
+$v\mathbb Z[v]$ and have smaller longest representatives.
+The underlying Hecke vector remains bar invariant, proving canonicality.
+If $T\subseteq W_0$, then $W_0T=W_0P=W_0$,
+with longest representative $w_0$.
 \end{proof}
 
 \subsection{No retained line}\label{sec:full-spherical-gallery}
@@ -5015,7 +5155,7 @@ $I_s=W_0\cap J_s\cong S_s\times S_{N-s}$. Define
 \mathcal V_s=\frac{M_eC_{J_s}C_{W_0}}{h_{I_s}^2},\qquad
 \mathcal V_0=M_e.
 \]
-The web splits $(N)$ into $(s,N-s)$, merges and splits across
+The web $\mathcal V_s$ splits $(N)$ into $(s,N-s)$, merges and splits across
 the cut, then merges ordinarily. The spherical standard $Z_r$
 has $r$ exponents of each sign and $N-2r$ zeros, with length gap
 $2r(N-r)$. We keep the notation after output refinement.
@@ -5042,7 +5182,7 @@ The standard coefficient of $\mathcal V_s$ at $Z_r$ is zero for $r>s$,
 and for $0\le r\le s$ equals
 \begin{gather}\label{eq:full-raw-coefficient}
 v^{2s(N-s)-2r(N-r)}
-\qbinom{N-2r}{s-r}_{v^{-2}}.
+\gbinom{N-2r}{s-r}_{v^{-2}}.
 \end{gather}
 Moreover, in the canonical basis,
 $\mathcal V_s=\sum_{a=0}^s C_{Z_a}$.
@@ -5059,7 +5199,8 @@ At rank $r$, this chooses an $(s-r)$-space in dimension $N-2r$, giving
 the Gaussian. Normalization gives
 $2(\ell(w_0)-\ell(w_{I_s}))-2r(N-r)
 =2s(N-s)-2r(N-r)$.
-Thus the expression is integral and bar invariant.
+Thus the standard coefficients are integral. The symmetrizer expression for
+$\mathcal V_s$ is bar invariant.
 
 Apply \autoref{lem:undivided-positivity-degree} with $d=h_{I_s}^2$;
 clearing $d$ gives a positive product of canonical symmetrizers.
@@ -5090,11 +5231,11 @@ The spherical canonical elements are
 C_{Z_0}=\mathcal V_0=M_e,\qquad
 C_{Z_s}=\mathcal V_s-\mathcal V_{s-1}\quad(s\ge1).
 \]
-For $0\le r\le s$, put $n=N-2r$, $h=s-r$, and $Q=v^{-2}$. Then
+For $0\le r\le s$, put $n=N-2r$, $h=s-r$, and $q=v^{-2}$. Then
 \begin{gather}\label{eq:full-canonical-coefficient}
 \big[[Z_r]_v\big]C_{Z_s}
 =v^{2s(N-s)-2r(N-r)}
-\left(\qbinom{n}{h}_Q-Q^{n-2h+1}\qbinom{n}{h-1}_Q\right).
+\left(\gbinom{n}{h}_{q}-q^{n-2h+1}\gbinom{n}{h-1}_{q}\right).
 \end{gather}
 \end{lemma}
 
@@ -5102,7 +5243,7 @@ For $0\le r\le s$, put $n=N-2r$, $h=s-r$, and $Q=v^{-2}$. Then
 Subtract the canonical expansions in \autoref{prop:full-Gaussian-algebraic},
 then the coefficients in \autoref{eq:full-raw-coefficient}.
 Their normalization exponents differ by $2(N-2s+1)=2(n-2h+1)$,
-giving the power of $Q$. The case $s=0$ is immediate.
+giving the power of $q$. The case $s=0$ is immediate.
 \end{proof}
 
 Write $K_{\alpha,\beta}(t)$ for the Kostka--Foulkes transition
@@ -5110,7 +5251,7 @@ polynomial from Schur to Hall--Littlewood functions. Gaussian
 reciprocity with $t=v^2$ rewrites \autoref{eq:full-canonical-coefficient} as
 \[
 \big[[Z_r]_v\big]C_{Z_s}
-=\qbinom{n}{h}_t-\qbinom{n}{h-1}_t
+=\gbinom{n}{h}_t-\gbinom{n}{h-1}_t
 =K_{(2^h,1^{n-2h}),(1^n)}(t).
 \]
 Here a Gaussian with lower index $-1$ is zero. The last equality
@@ -5201,7 +5342,7 @@ For $\mathcal E_{2,3}:(7)\to(3,4)$, the annular stages are
 At (c) the output is $(1,6)$; at (d) split the $6$ into $(2,4)$
 and join the blue line to the $2$-edge.
 
-For a rank-$r$ standard, set $n=N-2r$, $s=j-r$, $d=f-r$.
+For a rank $r$ standard, set $n=N-2r$, $s=j-r$, $d=f-r$.
 Its intersection dimensions $a=\dim(I_0\cap F)$ and
 $c=\dim(K_0\cap F)=d+b$ give the nonnegative matrix
 \[
@@ -5220,13 +5361,13 @@ The coefficient of the normalized standard $Z$ in
 $\mathcal E_{j,f}$ is
 \begin{gather}\label{eq:one-mark-coefficient}
 v^{E-d_Z}\left(
-[a]_Q\qbinom{n}{s}_Q+
-([c]_Q-[a]_Q)\qbinom{n-1}{s-1}_Q\right),\qquad Q=v^{-2}.
+(a)_q\gbinom{n}{s}_{q}+
+((c)_q-(a)_q)\gbinom{n-1}{s-1}_{q}\right),\qquad q=v^{-2}.
 \end{gather}
-All other coefficients vanish. The web is a canonical-basis element.
+All other coefficients vanish. The web is a canonical basis element.
 In particular its coefficient at $B$ is
 $[[B]_v]\mathcal E_{j,f}
-=v^E[f]_Q\qbinom{N-1}{j-1}_Q$.
+=v^E(f)_q\gbinom{N-1}{j-1}_{q}$.
 \end{lemma}
 
 \begin{proof}
@@ -5237,9 +5378,10 @@ $f$-space $F$ containing $L$. In the finite quotient, these choices are
 L\subset F\cap K_0,\qquad
 I_0+L\subset U\subset K_0,\qquad \dim U=j.
 \]
-The $[a]_Q$ lines in $I_0$ allow $\qbinom{n}{s}_Q$ choices
-of $U$; the other $[c]_Q-[a]_Q$ lines allow
-$\qbinom{n-1}{s-1}_Q$. Successive parabolic intersections are
+The choices with $L\subset I_0$ have counting polynomial
+$(a)_q\gbinom{n}{s}_q$, while those with $L\not\subset I_0$ have
+counting polynomial $((c)_q-(a)_q)\gbinom{n-1}{s-1}_q$.
+Successive parabolic intersections are
 $S_j\times S_{N-j}$, $S_{j-1}\times S_{N-j}$, and
 $S_{f-1}\times S_{N-f}$. Their Poincar\'e factors give the denominator, and subtracting
 their longest lengths from the numerator lengths gives $E$.
@@ -5262,7 +5404,13 @@ f_1=a-1+s(n-s),\qquad f_2=c-1+(s-1)(n-s).
 For the first piece $a\ge1$, $n-d\ge s$, and $a\le d+b$.
 Its bound is nonpositive, with equality only at $s=0,a=1,b=0$
 when $d\ge1$, or $s=0,a=b=1$ when $d=0$.
-These give one leading standard, with coefficient one.
+In each case $r=j$. With $n=N-2j$ and $d=f-j$, the leading
+standard has coefficient one and matrix
+\[
+\begin{pmatrix}1&d-1&j\\j-1&n-d+1&0\end{pmatrix}\quad(d\ge1),
+\qquad
+\begin{pmatrix}1&0&j-1\\j-1&n&1\end{pmatrix}\quad(d=0).
+\]
 For the second piece, if $d\ge1$ then $b(2-d-b)\le0$, so the
 bound is at most $-1$. If $d=0$, the hypotheses force $r=j=f$ and
 $s=0$, while $n\ge1$; since $b(2-b)\le1$, the bound is at most
@@ -5271,6 +5419,8 @@ Any other Bruhat-maximal index would have a nonzero bar invariant
 coefficient in $v\mathbb Z[v]$, impossible. Thus the leading index is the unique maximum, proving canonicality.
 \end{proof}
 
+For $N=5$, refine the output to $(2,1,2)$.
+The distinguished standard coefficient is unchanged by this refinement.
 At $B$, the normalization exponent is
 $E-(f-1)-(j-1)(N-j)=j(N-j)$. For $j=1$ the second digon is
 an identity, so the general formula and its first example are
@@ -5292,6 +5442,15 @@ The strong and weak one-line refinements are
 \qquad
 (m+1,m)\longrightarrow(m,1,m):\quad\refineweak.
 \end{gather*}
+
+To identify the leading matrices, put $j=r$ and $\ell=m-r\ge1$.
+Joining the last two rows of family $\mathrm E$ gives the leading matrix for
+$f=m$ in \autoref{prop:one-mark-canonical}. Joining the first two rows
+of family $\mathrm D$ gives the one for $f=m+1$. The length deficits
+before and after refinement are $\ell+2$ for $\mathrm E$ and $\ell+1$
+for $\mathrm D$. Thus both refinement exponents in
+\autoref{eq:parabolic-refinement} are zero. Reversing both rows and
+columns gives $\mathrm C$ from $\mathrm E$ and $\mathrm B$ from $\mathrm D$.
 
 For $N=7$, $j=2$, split the right $4$-edge of $\mathcal E_{2,3}$
 or the left $4$-edge of $\mathcal E_{2,4}$. Both retain the blue line
@@ -5322,9 +5481,11 @@ families.
 \end{lemma}
 
 \begin{proof}
+At $Z_r$, both the two-row and three-row matrices have length
+deficit zero, so \autoref{eq:parabolic-refinement} introduces no power of $v$.
 At this standard $a=0,c=f-r$, so the polynomial in
 \autoref{eq:one-mark-coefficient} is
-$[f-r]_Q\qbinom{N-2r-1}{s-r-1}_Q$.
+$(f-r)_q\gbinom{N-2r-1}{s-r-1}_{q}$.
 Subtracting twice its degree from the length gap gives $N-s-f+1$.
 The relevance bounds allow multiplicity degrees down to $-(l'-1)$
 and $-(l'-2)$ respectively. Both resulting margins are three.
@@ -5357,32 +5518,47 @@ $M_{A_{j;m}}=1$ for $1\le j\le m$.
 \end{lemma}
 
 \begin{proof}
+The case $j=m$ is already settled in \autoref{prop:algebraic-six}:
+its family $\mathrm F$ index is maximal, and all one-line ranks
+are at most $m-1$. Hence assume $j<m$.
 Fix $j$ and an auxiliary rank $s\ge j$. Put $h=s-j$,
-$k=m-j$ and $\ell=m-s=k-h$. Full-spherical refinement to
-$A_{j;m}$ contributes the factor $v^{2k+3}$. Its canonical
-coefficient has nonnegative valuation and its multiplicity has
-valuation at least $-(2\ell-3)$, so the total valuation is at least
-$(2k+3)-(2\ell-3)=2h+6$.
+$k=m-j$ and $\ell=m-s=k-h$.
+At $A_{j;m}$ the length deficit is $2k+3$ by \autoref{prop:algebraic-six}.
+Merging all three rows gives deficit zero, so full-spherical refinement
+contributes $v^{2k+3}$ by \autoref{eq:parabolic-refinement}. The coarse
+canonical coefficient lies in $\mathbb Z[v]$.
 
 For a strong one-line term (mark dimension $f=m$), the relative
 parameters in \autoref{eq:one-mark-coefficient} are
 $n=2k+1$, $a=b=1$, $c=k+1$, $d=k$.
 For the weak term ($f=m+1$), only $c,d$ change, to $k+2,k+1$.
-The codimension statistic for either two-row matrix is $2k+2$;
-refinement to the three-row matrix therefore adds one more power of
-$v$.  Their counting polynomials are, respectively,
+The codimension statistic is $2k+2$ for either two-row matrix,
+so refinement to the three-row matrix contributes
+$v^{(2k+3)-(2k+2)}=v$. Their counting polynomials are, respectively,
 \[
-\qbinom{n}{h}_Q+([k+1]_Q-1)\qbinom{n-1}{h-1}_Q,
+\gbinom{n}{h}_{q}+((k+1)_q-1)\gbinom{n-1}{h-1}_{q},
 \qquad
-\qbinom{n}{h}_Q+([k+2]_Q-1)\qbinom{n-1}{h-1}_Q.
+\gbinom{n}{h}_{q}+((k+2)_q-1)\gbinom{n-1}{h-1}_{q}.
 \]
-The first Gaussian has degree $h(n-h)$. The second is lower
-by $\ell+1$ or $\ell$, respectively, and absent at $h=0$.
-Here $\ell\ge1$ by \autoref{prop:algebraic-six}. Subtracting
-twice the degree from the refined length gap gives valuations
-$\ell+2h+1$, $\ell+2h+2$. The multiplicity bounds
-$-(\ell-1)$, $-(\ell-2)$ leave total valuations at least
-$2h+2$, $2h+4$, respectively. Reflection gives the same bounds for
+The first Gaussian has degree $h(n-h)$. For $h\ge1$,
+the second terms have degrees $(h-1)(n-h)+k$ and
+$(h-1)(n-h)+k+1$, respectively. Their deficits from the first are
+$(n-h)-k=\ell+1$ and $(n-h)-(k+1)=\ell$.
+For $h=0$ the second terms vanish.
+Here $\ell\ge1$ by \autoref{prop:algebraic-six}.
+Subtract twice the Gaussian degree from the refined length gap
+and use the multiplicity bounds in \autoref{prop:algebraic-six}.
+For $A=A_{j;m}$, write $h_{A,S}$ for the coefficient of $\Delta_A$ in $C_S$.
+The nonzero contributions have the following lower bounds.
+\[
+\begin{array}{@{}l|ccc@{}}
+ S & \text{full-spherical} & \text{strong} & \text{weak} \\\hline
+ \operatorname{val} h_{A,S} & 2k+3 & \ell+2h+1 & \ell+2h+2\\
+ \operatorname{val} M_S & 3-2\ell & 1-\ell & 2-\ell\\
+ \operatorname{val}(M_S h_{A,S}) & 2h+6 & 2h+2 & 2h+4
+\end{array}
+\]
+Reflection gives the same bounds for
 the kernel families; the auxiliary canonical coefficients vanish
 at rank $j>s$.
 
@@ -5394,14 +5570,18 @@ $M_{A_{j;m}}C_{A_{j;m}}$ contributes to the constant one, proving
 $M_{A_{j;m}}=1$.
 \end{proof}
 
+The constant term at $A_{j;m}$ determines a multiplicity.
+The later coefficient test at $B_m$ reads the row sum after the
+spherical correction.
+
 \subsection{A Gaussian cancellation}
 
 At a full-spherical standard of rank $r$, put $l=m-r$ and
 \[
 \begin{gathered}
 D_l=2l(l+1)-3,\qquad e_l=(D_l-1)/2,\\
-Y_l(q)=[l]_q^3\qbinom{2l-1}{l-1}_q,\qquad
-R_{n,h}(q)=\qbinom{n}{h}_q-q^{n-2h+1}\qbinom{n}{h-1}_q.
+Y_l(q)=(l)_q^3\gbinom{2l-1}{l-1}_q,\qquad
+R_{n,h}(q)=\gbinom{n}{h}_q-q^{n-2h+1}\gbinom{n}{h-1}_q.
 \end{gathered}
 \]
 To remove the nonpositive powers of $v$ from
@@ -5424,7 +5604,7 @@ $\binom{t+3}{3}$ are those of $(1-q)^{-4}$, whose truncation we use next.
 
 \begin{lemma}\label{lem:Gaussian-truncation}
 Fix $m\ge2$ and put
-$\Delta_r(q)=\qbinom{2m+1}{r}_q-\qbinom{2m+1}{r-1}_q$.
+$\Delta_r(q)=\gbinom{2m+1}{r}_q-\gbinom{2m+1}{r-1}_q$.
 As formal power series modulo $q^m$,
 \begin{align*}
 q^rH_{m-r}(q)&\equiv\frac{q^r}{(1-q)^4}
@@ -5445,11 +5625,11 @@ This also gives the endpoint $l=1$, since $H_1=0$.
 For the second identity, telescope the Gaussian differences:
 \[
 \sum_{r=0}^{m-1}q^r\Delta_r
-\equiv(1-q)\sum_{r=0}^{m-1}q^r\qbinom{2m+1}{r}_q
+\equiv(1-q)\sum_{r=0}^{m-1}q^r\gbinom{2m+1}{r}_q
 \equiv(1-q)\sum_{r\ge0}\frac{q^r}{(q;q)_r}
 \pmod{q^m}.
 \]
-Here $\qbinom{2m+1}{r}_q\equiv1/(q;q)_r\pmod{q^m}$ for
+Here $\gbinom{2m+1}{r}_q\equiv1/(q;q)_r\pmod{q^m}$ for
 $0\le r\le m-1$. Euler's partition identity
 $\sum_{r\ge0}q^r/(q;q)_r=1/(q;q)_\infty$ finishes the proof
 \cite[Chapter~I, Section~2, Example~4]{Macdonald}.
@@ -5476,8 +5656,7 @@ q^T(M_{m-r}R_{2m+1,r})(q^{-1})
 Every reversed term is a polynomial, and $Y_m$ is reciprocal.
 We compute the reversal of $Q_m$ modulo $q^m$.
 In \autoref{lem:Gaussian-truncation}, $\Delta_0(0)=1$ and
-$\Delta_r(0)=0$ for $r>0$. Including the $H_1$,
-the lemma gives
+$\Delta_r(0)=0$ for $r>0$. Since $H_1=0$, we may include $r=m-1$. The lemma then gives
 \[
 \sum_{r=0}^{m-1}q^rH_{m-r}\Delta_r
 \equiv\frac{1}{(1-q)^3(q;q)_\infty}
@@ -5518,7 +5697,10 @@ The one-line contributions have valuation at least three by
 \autoref{cor:one-mark-margin}. The family $\mathrm F$
 multiplicities are constant, and their coefficients here are
 proper canonical coefficients, hence have positive degree.
-Thus only spherical terms affect the nonpositive part.
+By \autoref{prop:full-Gaussian-algebraic}, spherical terms of
+rank less than $r$ have zero $Z_r$-coordinate. Thus, after subtracting
+the known higher-rank spherical terms, the nonpositive part of the
+$Z_r$-coordinate is exactly that of $M_{Z_r}$.
 
 The classification excludes $l=1$. Suppose the multiplicities
 at larger ranks are known. Since
@@ -5600,8 +5782,7 @@ The following is our main result.
 \begin{theorem}\label{thm:aggregate-web}
 For every $m\ge2$, the endpoints $w_0$ and $C_{j;m}$ satisfy
 \begin{gather}\label{eq:aggregate-web-theorem}
-\boxed{\displaystyle
-\sum_{j=1}^{m}\mu_{j;m}=\binom{m+1}{2}.}
+\sum_{j=1}^{m}\mu_{j;m}=\binom{m+1}{2}.
 \end{gather}
 In particular
 $\max_{1\le j\le m}\mu_{j;m}\ge\lceil(m+1)/2\rceil$.
@@ -5619,41 +5800,11 @@ Taking $[v]$ and using the canonical-to-standard dictionary gives
 and integrality.
 \end{proof}
 
-The sum $S_m=\sum_j\mu_{j;m}=\binom{m+1}{2}$ also counts triples
-of nonnegative integers summing to $m-1$, so
-$S_m=[q^{m-1}](1-q)^{-3}$ and $S_m-S_{m-1}=m$ for $m\ge3$.
-Equivalently, $S_m=[T^{m+1}]_{0,2}$: a path from $0$ to $2$
-in $m+1$ steps advances twice, and we choose those steps.
-\par\noindent
-\begin{minipage}[c]{.22\linewidth}
-These
-states count the sum; they do not represent canonical summands or blue strands.
-\end{minipage}\hfill
-\begin{minipage}[c]{.75\linewidth}
-\centering$\displaystyle
-\begin{tikzpicture}[>=Stealth,node distance=2.25cm]
-\tikzset{state/.style={circle,draw=black,line width=.85pt,minimum size=10mm,font=\large}}
-\node[state] (a) {$0$};
-\node[state,right=of a] (b) {$1$};
-\node[state,right=of b,double,double distance=1.3pt] (c) {$2$};
-\draw[->,line width=.8pt] ([xshift=-1cm]a.west)--(a.west) node[midway,above,font=\scriptsize] {start};
-\draw[->,line width=.8pt] (a)--node[above] {$1$}(b);
-\draw[->,line width=.8pt] (b)--node[above] {$1$}(c);
-\path[->,line width=.8pt] (a) edge[loop above] node {$1$} (a)
-(b) edge[loop above] node {$1$} (b)
-(c) edge[loop above] node {$1$} (c);
-\node[right=9mm of c] {$T=\begin{pmatrix}1&1&0\\0&1&1\\0&0&1\end{pmatrix}$};
-\node[below=3mm of b] {$m+1\ \text{steps},\qquad
-[T^{m+1}]_{0,2}=\binom{m+1}{2}$};
-\end{tikzpicture}
-$
-\end{minipage}\par
-
 \section{The first example in pictures}\label{sec:aggregate-calibration}
 
 For $m=2$, the boundary is $(5)\to(2,1,2)$ and the intermediate
-refinement is thin. Removing the four smaller canonical summands
-recovers $\mu_{2;2}=2$ from \cite[Lemma~3.4]{SX}.
+refinement is thin. We compute the two coefficients
+$\mu_{1;2}=1$ and $\mu_{2;2}=2$ directly from the web expansion.
 
 \subsection{Constructing and expanding the web}
 
@@ -5720,14 +5871,19 @@ M_{ws_i}+v^{-1}M_w,&ws_i\text{ is minimal and }\ell(ws_i)=\ell(w)-1,\\
 \end{cases}
 \end{gather*}
 The last case retains the symmetric input. The product at $0,4,1$
-gives $\mathcal U_2\longleftrightarrow M_e b_0b_4b_1$, with
-$[M_e](M_eb_0b_4b_1)=v^3+2v+v^{-1}$.
+gives $\mathcal U_2\longleftrightarrow M_e b_0b_4b_1$. Indeed,
+$M_eb_0=M_{s_0}+vM_e$. The four terms of $M_{s_0}b_4b_1$ form the
+single normalized standard at $A_{1;2}$, while $b_4$ and $b_1$ each act
+on $M_e$ by $v+v^{-1}$. Thus
+\[
+\mathcal U_2=[A_{1;2}]_v+(v^{-1}+2v+v^3)[B_2]_v.
+\]
 
 To draw $\mathcal U_2$, split into five thin strands, apply $b_0$
 across the cut, and merge the outer pairs. Matching $\alpha,\beta$
 recovers the two branches of $b_0$; the final merges give $b_4b_1$
-in the inverse module. Its only nonpositive standard term is
-$v^{-1}$ at the origin. Subtracting $(v+v^{-1})M_e$ leaves all
+in the inverse module. The only nonpositive power in a proper standard coefficient is $v^{-1}$ at the origin. 
+Subtracting $(v+v^{-1})M_e$ leaves all
 proper coefficients in $v\mathbb Z[v]$, so bar invariance gives
 \begin{gather*}
 \theta_{A_{1;2}}=M_e b_0b_4b_1-(v+v^{-1})M_e,
@@ -5768,14 +5924,14 @@ Their $B_2$ coordinates are
 \end{array}
 \]
 Subtracting the last three rows from the first yields
-\begin{gather}\label{eq:calibration-full-seed}
+\begin{gather*}
 \big[[B_2]_v\big]\theta_{A_{2;2}}
 =2v+4v^3+5v^5+4v^7+v^9.
-\end{gather}
+\end{gather*}
 For $u_{2;2}=(-4,-1,3,7,10)$, the endpoint
 $C_{2;2}=u_{2;2}w_0$ has length gap nine. Thus
-$P_{w_0,C_{2;2}}(Q)=1+4Q+5Q^2+4Q^3+2Q^4$.
-At degree one this is $\mu_{2;2}=4-2=2$; the smaller element has $\mu_{1;2}=1$.
+$P_{w_0,C_{2;2}}(q)=1+4q+5q^2+4q^3+2q^4$.
+One gets $\mu_{2;2}=4-2=2$; the smaller element has $\mu_{1;2}=1$.
 
 \section{Application to Guralnick's conjecture}\label{sec:guralnick}
 
@@ -5788,8 +5944,8 @@ endpoint corresponds to the trivial module.
 
 Fix $N=2m+1$ and let $k=\overline{\mathbb F}_p$, with $p>N$.
 Write $G=\mathrm{SL}_N(k)$ and let
-$\omega_1,\ldots,\omega_{N-1}$ be its fundamental weights. Put
-$\eta_i=\omega_i+\omega_{N-i}$ for $1\le i\le m$, and $\eta_0=0$.
+$\varpi_1,\ldots,\varpi_{N-1}$ be its fundamental weights. Put
+$\eta_i=\varpi_i+\varpi_{N-i}$ for $1\le i\le m$, and $\eta_0=0$.
 For $1\le j\le m$, set $c=m-j$ and define
 \begin{gather}\label{eq:application-weight}
 \lambda_{j;m}(p)
@@ -5799,7 +5955,7 @@ Write $L(\lambda)$ for the simple rational $G$-module of
 highest weight $\lambda$.
 
 In sum-zero coordinates, put $\rho_i=(N+1-2i)/2$.
-For integral sum-zero $\xi$, the translation $t_\xi$ has
+For $\xi\in\mathbb Z^N$ with $\sum_i\xi_i=0$, the translation $t_\xi$ has
 window $t_\xi(i)=i+N\xi_i$ and positive $p$-dot action
 $(t_\xi z)\mathbin{\cdot_p}\lambda
 =z(\lambda+\rho)+p\xi-\rho,\quad z\in S_N$.
@@ -5837,10 +5993,14 @@ between $1$ and $N-1<p$. Thus $\lambda$ is $p$-regular.
 
 \subsection{The cohomology coefficient}
 
-Henceforth assume $p\ge5(N-1)$ and Lusztig's character formula
-for the $p$-restricted weights of $G$. For fixed $N$,
+For the KL-to-cohomology identification, assume Lusztig's
+character formula for the $p$-restricted weights of $G$.
+For the finite group comparison, also require $p\ge5(N-1)$.
+For fixed $N$,
 all sufficiently large primes satisfy both conditions \cite{AJS};
 see \cite[Theorem~3.1]{Luebeck}.
+We use only the existence of the character-formula-threshold;
+no explicit bound for it is needed here.
 
 \begin{lemma}\label{prop:application-transfer}
 For these primes and every $1\le j\le m$,
@@ -5854,33 +6014,45 @@ irreducible.
 \end{lemma}
 
 \begin{proof}
-Since $u=u_{j;m}$ is right finite-minimal, $b=u^{-1}$ is left
-finite-minimal. By \autoref{sec:dictionary}, its normalized spherical
+Put $b=u_{j;m}^{-1}$, so $\lambda_{j;m}(p)=b\cdot_p0$ by
+\autoref{lem:application-weight}. Since $u_{j;m}$ is right
+finite-minimal, $b$ is left finite-minimal.
+By \autoref{sec:dictionary}, its normalized spherical
 coefficient at $M_e$ is
 \[
 m_{e,b}(v)=v^{D_{j;m}}P_{w_0,w_0b}(v^{-2})
 =v^{D_{j;m}}P_{w_0,C_{j;m}}(v^{-2})
 =\big[[B_m]_v\big]\theta_{A_{j;m}}.
 \]
-Here $w_0b=C_{j;m}^{-1}$, and KL polynomials are invariant under
-simultaneous inversion. Thus $[v]m_{e,b}(v)=\mu_{j;m}$.
+Here $w_0b=(u_{j;m}w_0)^{-1}=C_{j;m}^{-1}$,
+and simultaneous inversion of both KL indices identifies
+$P_{w_0,w_0b}$ with $P_{w_0,C_{j;m}}$.
+Thus $[v]m_{e,b}(v)=\mu_{j;m}$.
 Andersen's cohomological interpretation \cite{Andersen}, as in
 \cite[Theorem~4.5]{Luebeck}, gives
 \[
 [v]m_{e,b}=\dim_k\operatorname{Ext}^1_{G}\big(k,L(b\cdot_p0)\big)
 =\dim_k H^1\big(G,L(b\cdot_p0)\big).
 \]
-The dominant restricted hypothesis is \autoref{lem:application-weight}.
+To see the conventions directly in
+\cite[Theorems~5.4(b) and~6.8(a)]{CPS}, take $-2\rho$ in their
+negative fundamental alcove. The weights $0$ and $b\cdot_p0$ then
+have labels $w_0$ and $bw_0$. Conjugation by $w_0$ takes their
+simple reflections to ours and their two labels to $w_0$ and $w_0b$.
+The Weyl module at $0$ is $k$. At the regular restricted weight
+$b\cdot_p0$ of \autoref{lem:application-weight}, the character formula
+identifies their reduced costandard module with $L(b\cdot_p0)$
+by \cite[(1.5.6)]{CPS}.
 
 The Coxeter number is $N$, so Bendel--Nakano--Pillen comparison
 \cite[Theorem~7.5]{BNP}, in the form \cite[Theorem~4.6]{Luebeck},
 applies for $p\ge5(N-1)$, cohomological bound $s=1$, base weight
 $\nu=0$ and field exponent $r=1$, giving the finite group equality.
 Steinberg's restricted-module theorem
-\cite[Sections~1.3, 6.1 and 7.4]{Steinberg} gives irreducibility on
+\cite[Theorems~1.3, 6.1 and 7.4]{Steinberg} gives irreducibility on
 restriction; see also \cite[Proposition~5.3]{Luebeck}.
-The nonzero restricted weight gives nontriviality, and algebraic
-closure of $k$ gives absolute irreducibility.
+The nonzero restricted weight gives nontriviality.
+Since $k$ is algebraically closed, irreducibility is absolute.
 \end{proof}
 
 \subsection{Passage to the finite simple quotient}
@@ -5899,8 +6071,10 @@ H^1\big(H,M_{j;m}(p)\big)
 
 \begin{proof}
 The root-lattice condition makes the algebraic center act
-trivially. The finite center has order $\gcd(N,p-1)$, prime to $p$,
-so averaging and inflation--restriction give the isomorphism.
+trivially. Write $Z$ for the finite center. Its order
+$\gcd(N,p-1)$ is prime to $p$, so
+$H^1(Z,L(\lambda_{j;m}(p)))=0$ by averaging.
+Inflation--restriction therefore gives the displayed isomorphism.
 Descent preserves absolute irreducibility and nontriviality.
 Since $N\ge5$, the group $H$ is nonabelian simple; its nontrivial
 representation is therefore faithful.
@@ -5925,8 +6099,10 @@ Transfer identifies the summands with $\mu_{j;m}$. Apply
 the lower bound tends to infinity.
 \end{proof}
 
-For $m=2$, the Dynkin coordinates are $(p-4,1,1,p-4)$ and
-$(2,p-2,p-2,2)$. Under the stated characteristic assumptions,
+For $m=2$, the Dynkin coordinates of $\lambda_{1;2}(p)$ and
+$\lambda_{2;2}(p)$ are their coefficients in the basis of fundamental
+weights $\varpi_1,\ldots,\varpi_4$. They are $(p-4,1,1,p-4)$ and
+$(2,p-2,p-2,2)$, respectively. Under the stated characteristic assumptions,
 the first cohomology dimension for $H=\mathrm{PSL}_5(\mathbb F_p)$
 is read from the normalized standard expansion of the corrected web:
 \begin{gather*}
@@ -5946,12 +6122,12 @@ For cross characteristic see \cite{GuralnickTiep,GuralnickTiepSectional};
 for quantitative bounds in growing rank see \cite{ParkerStewart}.
 The ranks in our construction grow. By contrast, the earlier
 value $469>63=\dim\mathrm{SL}_8$, independently checked by Scott
-and Sprowl at the June 2012 AIM workshop, already sufficed for
+and Sprowl shortly after the June 2012 AIM workshop, already sufficed for
 the Wall counterexamples discussed in the introduction
 \cite{AIMWall,Luebeck}. Varying the field alone need not increase
 first cohomology.
 
-\section{Methods and AI assistance}
+\section{Methods, AI assistance and AI declaration}
 
 We explain how we found the construction and how AI entered the picture. The route was rather less tidy than the proof, so this section is written in an anecdotal style.
 
@@ -5971,8 +6147,8 @@ that an absolute bound was waiting somewhere beyond them.
 
 This paper grew out of our earlier work \cite{Finite}, where
 we used planar $\mathfrak{sl}_3$ webs to construct
-$\mu$-coefficients growing exponentially with the rank of
-the symmetric group. The construction repeats a small piece
+$\mu$-coefficients growing exponentially with $n$ in
+the symmetric groups $\mathrm{Aut}(\{1,\dots,n\})$. The construction repeats a small piece
 of web and controls the correction needed to obtain a
 canonical basis element. A complicated family of permutations
 thus becomes a fairly simple family of pictures.
@@ -6291,7 +6467,7 @@ Our construction varies only the edge thicknesses.
 We suspect that things get considerably worse if the web
 graph itself is also allowed to grow, but we cannot yet
 prove a stronger growth statement this way.
-In the large-characteristic-setting considered here,
+In the large-characteristic setting considered here,
 L\"ubeck's argument bounds first cohomology dimensions
 for restricted irreducible modules by $2^{O(r^3)}$,
 where $r$ is the rank
@@ -6432,7 +6608,7 @@ W.~Cui.
 \newblock {Kazhdan--Lusztig} bases and the asymptotic forms
 for affine {$q$}-{Schur} algebras.
 \newblock 2014.
-\newblock \url{https://arxiv.org/abs/1407.4557v3}.
+\newblock \url{https://arxiv.org/abs/1407.4557}.
 
 \bibitem[Deo87]{Deodhar}
 V.~V.~Deodhar.
@@ -6490,7 +6666,7 @@ I.~B.~Frenkel, M.~G.~Khovanov and A.~A.~Kirillov, Jr.
 T.~Goertzen, A.~Lacabanne, D.~Tubbenhauer and P.~Vaz.
 \newblock {C}ode and more for the paper {A}nnular webs and
 {G}uralnick's conjecture.
-\newblock 2026. Accessed 26.Oct.2026.
+\newblock 2026. Accessed 5.Nov.2026.
 \newblock \url{https://github.com/dtubbenhauer/mutwo}.
 
 \bibitem[G+26b]{Finite}
@@ -6521,9 +6697,7 @@ pages 94--97. Springer, 1986.
 R.~M.~Guralnick, T.~Hodge, B.~J.~Parshall and L.~L.~Scott.
 \newblock {AIM} workshop counterexample to {Wall}'s conjecture.
 \newblock American Institute of Mathematics workshop report, 2012.
-\newblock \href{https://web.archive.org/web/20260000000000*/https://aimath.org/news/wallsconjecture/wall.conjecture.pdf/}
-{\nolinkurl{aimath.org/news/wallsconjecture/wall.conjecture.pdf}}
-(archived copy).
+\newblock \url{https://www.mathinstitutes.org/highlights/disproof-of-walls-conjecture}.
 
 \bibitem[GH98]{GuralnickHoffman}
 R.~M.~Guralnick and C.~Hoffman.
@@ -6551,10 +6725,10 @@ R.~M.~Guralnick and P.~H.~Tiep.
 {https://doi.org/10.1016/j.jalgebra.2019.04.023}
 {\path{doi:10.1016/j.jalgebra.2019.04.023}}.
 
-\bibitem[HT26]{HT}
+\bibitem[HT27]{HT}
 D.~He and D.~Tubbenhauer.
 \newblock Affine diagram categories, algebras and monoids.
-\newblock {\em J. Algebra}, published online, 2026.
+\newblock {\em J. Algebra}, 712 (2027), 1050--1098.
 \newblock \url{https://arxiv.org/abs/2512.05510}, \href
 {https://doi.org/10.1016/j.jalgebra.2026.09.034}
 {\path{doi:10.1016/j.jalgebra.2026.09.034}}.
@@ -6680,6 +6854,22 @@ I.~G.~Macdonald.
 \newblock \href
 {https://doi.org/10.1093/oso/9780198534891.001.0001}
 {\path{doi:10.1093/oso/9780198534891.001.0001}}.
+
+\bibitem[McG03]{McGerty}
+K.~McGerty.
+\newblock Cells in quantum affine {$\mathfrak{sl}_n$}.
+\newblock {\em Int. Math. Res. Not. IMRN}, 2003(24):1341--1361, 2003.
+\newblock \url{https://arxiv.org/abs/math/0209055}, \href
+{https://doi.org/10.1155/S107379280321120X}
+{\path{doi:10.1155/S107379280321120X}}.
+
+\bibitem[MS21]{MousaaidSavage}
+Y.~Mousaaid and A.~Savage.
+\newblock Affinization of monoidal categories.
+\newblock {\em J. \'Ec. Polytech. Math.}, 8:791--829, 2021.
+\newblock \url{https://arxiv.org/abs/2010.13598}, \href
+{https://doi.org/10.5802/jep.158}
+{\path{doi:10.5802/jep.158}}.
 
 \bibitem[NR03]{NelsenRam}
 K.~Nelsen and A.~Ram.
@@ -6818,7 +7008,7 @@ D.~Tubbenhauer, P.~Vaz and P.~Wedrich.
 G.~Williamson.
 \newblock Singular {Soergel} bimodules.
 \newblock {\em Int. Math. Res. Not. IMRN}, 2011(20):4555--4632, 2011.
-\newblock \url{https://arxiv.org/abs/1010.1283v3}, \href
+\newblock \url{https://arxiv.org/abs/1010.1283}, \href
 {https://doi.org/10.1093/imrn/rnq263}
 {\path{doi:10.1093/imrn/rnq263}}.
 
