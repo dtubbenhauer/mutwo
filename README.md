@@ -117,4 +117,4 @@ The suggested citation is:
 
 ## Erratum
 
-Empty so far.
+Our [AI-assisted comparison note](guralnick_comparison.pdf) relates our annular web to the parabolic construction of [Bowman, de la Fuente, Libedinsky and Plaza](https://arxiv.org/abs/2611.11677), which was discovered indepedently. Combining the two calculations gives the individual coefficients $\mu_{j;m}=j$ for every $1\le j\le m$.
