@@ -1,0 +1,119 @@
+\newpage
+\section{Exact calculations in the spherical module}
+\label{sec:checks}
+
+The accompanying Python program implements two calculations over
+$\mathbb Z[v,v^{-1}]$. In the first, represent a standard vector by the
+levels $a_i=\lfloor(x(i)-1)/N\rfloor$ of the left-minimal window.
+To apply $C_P/\pi_T$, where $T$ is the previous intersection, cut the
+circle at a missing reflection and add one to the levels that pass the cut.
+In each position block sort the lifted levels in increasing order. Let $L$
+be the stabilizer of this minimum in $W_P$, $d(x)$ the within-block
+inversion number and $D=\ell(w_P)-\ell(w_L)$. The new coefficient at $y$
+in its orbit $O$ is
+\[
+ v^{D-d(y)}\frac{\pi_L}{\pi_T}\sum_{x\in O}v^{-d(x)}[M_x]F .
+\]
+Indeed $M_xC_P=v^{-d(x)}M_{\min O}C_P$ and splitting $W_P$ into
+minimal left $W_L$-coset representatives evaluates the latter expression.
+All Laurent divisions in the program check for zero remainder.
+
+The second calculation uses only right simple reflections. For a right
+descent $s$ of $x$, recursively calculate $\mathbf C_{xs}C_s$. At
+each strict lower $z$ subtract the constant term of its standard
+coordinate times $\mathbf C_z$. The resulting monic bar-invariant
+vector satisfies the canonical triangularity condition. This recursion independently computes the seed in the parabolic paper, every endpoint, and the canonical transition matrix
+used to decompose the products. The numerical inputs are the parabolic
+sets, the chain words and the endpoint windows.
+
+Let $L_m=C_{s_2}\cdots C_{s_m}C_{s_1}\cdots C_{s_{m-1}}$ and let
+$D_m$ denote the two normalized parabolic averages. Each cell below
+gives the degree-one identity coefficient followed by the number of
+distinct canonical indices with nonzero graded multiplicity.
+\begin{center}
+\begin{tabular}{c|ccccc}
+$m$ & $\mathcal R_m$ & $\mathcal{BS}_m L_m$ &
+$\mathbf C_{X_0}L_m$ & $\mathbf C_{X_0}D_m$ & $\mathbf C_{\beta_m}$\\ \hline
+2 & $4,5$ & $4,5$ & $3,3$ & $3,3$ & $2,1$\\
+3 & $11,11$ & $18,23$ & $12,13$ & $7,6$ & $3,1$\\
+4 & $25,17$ & $81,70$ & $50,38$ & $14,9$ & $4,1$
+\end{tabular}
+\end{center}
+In each rank all five columns have identical standard support,
+respectively $38,368,3098$ indices, and coefficient one at $M_{\beta_m}$.
+Every coordinate of $\mathcal{BS}_mD_m$ agrees with $\mathcal R_m$.
+Of the family-F summands, the first two columns contain the entire row
+with multiplicity one, and the diagonal is the unique family-F term in the last three.
+The independent KL recursion gives rows $(1,2),(1,2,3),(1,2,3,4)$.
+For instance
+\[
+ [M_e]\mathbf C_{\beta_2}=2v+4v^3+5v^5+4v^7+v^9,\qquad
+ [M_e]\mathbf C_{X_0}=v+v^3+2v^5+v^7\quad(m=2).
+\]
+Executing \texttt{python3 compare.py --full 2 3 4} in the directory
+containing \texttt{compare.py} reproduces the tables and full identity
+polynomials in \texttt{results.txt} without external packages. A second
+script, \texttt{python3 partial.py 2 3 4 5}, checks the mixed
+full-spherical coordinates and the discarded degrees directly. In rank
+five its successive corrected degree-one coefficients are $1,3,6,10,15$;
+the independent KL recursion gives $(1,2,3,4,5)$. For selected entries at larger values of $m$, a separate run gives $\mu_{2;6}=\mu_{2;7}=\mu_{2;8}=2$, $\mu_{3;6}=\mu_{3;7}=3$ and $\mu_{4;6}=4$. The last expansion has 120\,862 standard terms. The script \texttt{check\_off\_diagonal.py} and its output accompany the calculation.
+
+\paragraph{Comparison after boundary projection.}
+At $m=2$, $L_m=D_m$. For $m\ge3$, applying the projector $C_V/\pi_V$ to
+$\mathcal{BS}_mL_m$ gives a vector linearly independent of
+$\mathcal R_m$ over $\mathbb Q(v)$. It suffices to compare two
+coordinates at $v=1$. Write $t=2^{m-1}/m$. The ratio at $M_e$ is
+$t^2$ since each simple factor multiplies this coordinate by 2,
+whereas each divided parabolic factor multiplies it by $m$.
+The ratio at $M_{\beta_m}$ is $t$, as follows.
+
+In type $m$ the first affine product has just the word $A^mBC^m$.
+The next $K_m$-average fixes the initial $A$ and puts the $B$ in any
+one of positions $2,\ldots,m+1$. The $E$-average then gives coefficient
+one to every type-$m$ word with prefix $AB$ (the stabilizer of the
+remaining letters has size $(m-1)!m!$, exactly the overlap denominator).
+The last $m$ letters stay fixed during $L_m$. In the $V$-orbit of
+$\beta_m$ they contain one $C$ and $m-1$ letters $A$, so only
+the initial prefix $ABC^{m-1}$ of length $m+1$ can contribute:
+the leftmost letter is $A$ and the second letter cannot be $C$.
+All first-chain swaps must be chosen to put $B$ at position $m+1$.
+Each of the $2^{m-1}$ choices in the second chain then contributes.
+There are $m$ possible suffixes and $m^2$ words in the target orbit.
+The normalized $V$-average gives $m2^{m-1}/m^2=t$ at $M_{\beta_m}$,
+where $\mathcal R_m$ has coefficient one. The denominators and the
+coordinate used to compare scalars are nonzero at $1$. Since $t>1$,
+the two ratios differ.
+
+\paragraph{Partial galleries.}
+For $T_j=\mathcal{BS}_jD_m$ with $1\le j\le m\le4$, exact
+elimination gives family-F multiplicity one exactly at indices
+$1,\ldots,j$. A truncated gallery can also contain canonical indices
+outside the six families for $\mathcal R_m$. At $(m,j)=(3,2)$ its
+top word is $CCABBBA$, and the family-F word $CBABCBA$ occurs in a lower
+summand. Section~\ref{sec:partialrows} singles out the positive summand
+supported on the relevant seed indices in every rank.
+
+
+\subsection*{Affine-window implementation}
+The directory \path{comparison/independent_checks/} contains an exact
+affine-window implementation separate from the level-word implementation
+above. Its inputs are the defining Hecke relations, parabolic subsets and
+endpoint windows. The recursion constructs canonical vectors directly
+from these inputs, giving an independent check on the row formula and
+the canonical expansions.
+
+The engine's validation checks quadratic, braid and commuting relations,
+inversion, and parabolic-quotient enumeration.
+The normalized partial-sum calculation at \(m=2,3,4,5\) checks every
+standard coordinate of \(\mathcal{BS}_mT_1T_2=\mathcal R_m\), every
+family-F multiplicity in every \(Y_j\), every spherical correction
+\(g_{j-r}\), and the degree bounds on the remaining terms.
+The corrected partial rows are \(1,3\), \(1,3,6\), \(1,3,6,10\),
+and \(1,3,6,10,15\).
+The finite-tail calculation checks the canonical identities in
+Section~\ref{sec:finite-tails} through \(m=5\), including all lower
+correction terms.
+
+The scripts and their saved outputs make these exact Python calculations
+reproducible. They check finite instances of the uniform arguments given
+in the note and are separate from our Lean development.

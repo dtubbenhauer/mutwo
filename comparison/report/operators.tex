@@ -1,0 +1,180 @@
+\section{The two galleries in one Schur algebroid}
+
+Write $C_P=C_{w_P}$, $\pi_P=h_P$, $\Pi_n=v^{-\binom n2}[n]_{v^2}!$,
+$[n]=\Pi_n/\Pi_{n-1}$, and $\eta=[2]=v+v^{-1}$. For a consecutive
+interval $[a,b]$ in a parabolic set we mean $s_a,\ldots,s_b$.
+In the right spherical module the sequence of merge targets
+$P_1,\ldots,P_d$ represents
+\[
+ D(P_1,\ldots,P_d)=
+ \frac{C_I C_{P_1}\cdots C_{P_d}}
+ {\prod_{i=1}^d\pi_{P_{i-1}\cap P_i}},\qquad P_0=I .
+\]
+Between consecutive targets one splits to their intersection and
+merges to the next target. The splits are inclusions. Before inversion
+the merge from $X$ to $Y\supset X$ is left multiplication by
+$C_Y/\pi_X$ on the appropriate image. Inversion reverses the product.
+Thus every quotient below is integral on its specified domain
+(A, Lemma 3B.1; B, Definition 3.2 and Lemma 3.3).
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+Symbol & Generators & Position blocks or symmetric-group type\\
+\hline
+$I$ & $[1,N-1]$ & $(N)$\\
+$J$ & $S\setminus\{s_m,s_{m+1}\}$ & $(2m,1)$ across the cut\\
+$V$ & $I\cap J$ & $(m,1,m)$\\
+$K$ & $[2,N-2]$ & $(1,2m-1,1)$\\
+$L$ & $K\cap J=K\cap V$ & $(1,m-1,1,m-1,1)$\\
+$K'$ & $I\setminus\{s_1,s_{m+1}\}$ & $(1,m,m)$\\
+$E$ & $[3,N-1]$ & $(1,1,2m-1)$\\
+$T$ & $J\cap K'=V\cap K'$ & $(1,m-1,1,m)$\\
+$D'$ & $E\cap K'$ & $(1,1,m-1,m)$
+\end{tabular}
+\end{center}
+
+In particular $\R=D(J,K,V)$ and $\BS_m=D(J,K',E)$. Both start with
+$F=C_I C_J/\pi_V$; this is itself canonical by B, Lemmas 3.1 and
+3.19. The first two stages of our web are
+$I\supset V\subset J$. For the general $\BS_j$ replace $J,K'$ by
+$J_j=S\setminus\{s_j,s_{j+1}\}$ and $K_j=I\setminus\{s_1,s_{j+1}\}$.
+The cut is crossed by merging the final $N-j-1$ packet with the first
+$j$ packet; the singleton stays separate. The intermediate splittings
+have blocks $(j,1,N-j-1)$, $(1,j-1,1,N-j-1)$, and
+$(1,1,j-1,N-j-1)$, apart from the degeneracy at $j=1$, where the
+last two overlaps both equal $K_1=E$. For $\CBS_s=D(P_s,E)$,
+$P_s=S\setminus\{s_s\}$; one joins the packets $(s,N-s)$ across
+the cut, then splits to $(1,1,s-2,N-s)$ and merges the last two
+packets, omitting zero packets. These rotations and their inverse
+undo one another in determinant degree. Explicitly
+$C_{J_j}=\tau^{-(N-j-1)} C_{[1,N-2]}\tau^{N-j-1}$ and
+$C_{P_s}=\tau^{-(N-s)} C_I\tau^{N-s}$ (A, Lemma 2C.9).
+
+For $j\ge2$ the three overlaps for $\BS_j$ have factors
+$\Pi_j\Pi_{N-j-1}$, $\Pi_{j-1}\Pi_{N-j-1}$,
+$\Pi_{j-1}\Pi_{N-j-1}$; for $j=1$ these same scalar formulas hold.
+For $\CBS_s$ they are $\Pi_s\Pi_{N-s}$ and $\Pi_{s-2}\Pi_{N-s}$.
+Our three factors are $\Pi_m^2,\Pi_{m-1}^2,\Pi_{m-1}^2$.
+The length contribution at an individual merge is
+$\ell(w_{P_i})-\ell(w_{P_{i-1}\cap P_i})$.
+
+\clearpage
+\subsection{An exact identity before canonical correction}
+
+Set $Q_1=[2,m]$, $Q_2=[1,m-1]$ and let $T_1,T_2$ denote right
+multiplication by $C_{Q_1}/\Pi_{m-1},C_{Q_2}/\Pi_{m-1}$, respectively,
+on the indicated spherical subspaces. Then
+\[
+ \boxed{\quad\R=D(J,K',E,K',V)=\BS_m T_1T_2.\quad}                 \tag{*}
+\]
+The maximal moving words in these two normalized parabolic factors
+are exactly $s_2\cdots s_m$ and $s_1\cdots s_{m-1}$ from B, Lemma
+2.4. The equality holds for the full standard and canonical expansions.
+
+\smallskip
+\noindent\textit{Proof.}
+Refine $J$ to $V$ in both galleries. The first overlaps are $L\subset V$
+and $T\subset V$, so this factors an inclusion. Everything after this
+refinement is a finite flag calculation. Fix the two end flags
+$U\subset U'$ and $W\subset W'$ of dimensions $m,m+1$ in an
+$N$-space over $\mathbb F_q$. In the $V,K,V$ gallery the $K$-flag is
+a line $a\subset U\cap W$ and a hyperplane $H\supset U'+W'$.
+In the $V,K',E,K',V$ gallery the two $K'$-flags are $(a,U'),(a,W')$,
+and the $E$-flag is $(a,D_2)$ with
+$a\subset D_2\subset U'\cap W'$, $\dim D_2=2$. All refinements are
+uniquely determined by these data. If $d=\dim(U'\cap W')$, then
+\[
+ \dim((U'\cap W')/a)=d-1=N-\dim(U'+W').
+\]
+For each $a$, the numbers of two-planes and hyperplanes are therefore
+equal. Each gallery counts $[\dim(U\cap W)]_q[d-1]_q$ points, where
+$[k]_q=1+\cdots+q^{k-1}$ and $[0]_q=0$.
+
+The normalization shifts agree. Writing $b_n=\binom n2$, the first
+tail contributes $b_{2m-1}+2b_m-4b_{m-1}$, and the second contributes
+$b_{2m-1}+6b_m-4(b_m+b_{m-1})$. The two galleries have the same input and output flags, so the orbit-dependent standard shifts also agree.
+Equality over every finite field gives the generic Schur identity.
+Finally $K'=Q_1\times[m+2,N-1]$ and $V=Q_2\times[m+2,N-1]$.
+The common factor lies in $E$, commutes with $Q_1,Q_2$, and cancels
+one $\Pi_m$ from each of $\pi_{D'}=\pi_T=\Pi_m\Pi_{m-1}$.
+This gives $(*)$.\hfill$\square$
+
+\begin{center}
+\input{webs.tex}
+\end{center}
+{\small Cut-open webs at $m=3$, read upwards. Stack the common part below either tail and identify each pair of red dashed sides. Blue strands have label one. The label-six strand in the common part straddles the cut. The vertices are the normalized splits and merges of A 2D.4.}\par
+
+\noindent The product of the $2m-2$ individual simple KL elements
+differs from the normalized completion for $m\ge3$.
+At the identity coordinate, multiplication by $T_1T_2$ acts
+by $[m]^2$, whereas the individual factors act by $\eta^{2m-2}$
+(B, (3.4)). Since $\eps(\BS_m)\ne0$, evaluation at $v=1$ distinguishes
+the two products by $m^2\ne4^{m-1}$ for $m\ge3$. Averaging further by
+$C_V/\pi_V$ preserves this coordinate. At $m=2$ each parabolic
+factor is already one simple KL element, so the raw products agree.
+
+\input{finite-tails.tex}
+
+\clearpage
+\subsection{What the corrected seed contains}
+
+Write $b_j=u_{j;m}^{-1}$ and let $[\,\C_b\,]$ denote a coefficient
+in the spherical canonical basis. For every $1\le j\le m$,
+\[
+ \boxed{\ [\,\C_{b_j}\,](\C_{X_0}T_1T_2)=\delta_{jm}.\ }          \tag{**}
+\]
+At the other end of $(*)$, B, Proposition 3.21, also gives
+$\BS_m=\sum_{j=1}^m\C_{z(j,1,0)}$. In fact its standards are in
+$\mathbb Z[v]$, with constant term $1$ precisely at the $m$ indicated
+orbit maxima and zero elsewhere. Subtracting those canonical elements
+leaves a bar-invariant vector in $v\mathbb Z[v]\{M_c\}$, hence zero.
+Thus $\R=\sum_{j=1}^m\C_{z(j,1,0)}T_1T_2$. In particular $(**)$
+and A, Lemma 4I.1, place each off-diagonal family-F term, once, in
+\[
+ (\BS_m-\C_{X_0})T_1T_2
+ =\Big(\BS_{m-1}-\eta\sum_{s=2}^{m-1}\CBS_s\Big)T_1T_2.
+\]
+Here $\BS_{m-1}$ is taken in the same period $2m+1$.
+
+\smallskip
+\noindent\textit{Proof of $(**)$.} For consecutive generators starting at
+$s_a$ let $Z_0=Z$, $Z_i=Z C_{[a,a+i-1]}/\Pi_i$; assume $ZH_s=v^{-1}Z$
+for $s\in[a+1,a+i-1]$. The left coset representatives are
+$g_k=s_a\cdots s_{a+k-1}$, $0\le k\le i$, so that
+\[
+ Z_i=\sum_{k=0}^i v^{i-k}ZH_{g_k},
+ \quad Z_1=ZC_{s_a},\quad
+ Z_i=Z_{i-1}C_{s_{a+i-1}}-Z_{i-2}\quad(i\ge2).
+\]
+The last generator commutes with $g_k$ for $k\le i-2$, giving the
+last recurrence. In B, Proposition 2.8, this subtracts the preceding
+cover at each step. The remaining terms $\C_e,\C_{\gamma_k}$ are
+eigenvectors for every later generator, since the word for $\gamma_k$
+is $BC^kB^{N-2k-1}A^k$. Using $[i+1]=\eta[i]-[i-1]$ gives
+\[
+ \C_{X_0}T_1=\C_{x_{m-1}}+[m-1]\C_e+
+             \sum_{k=1}^{m-2}[m-1-k]\C_{\gamma_k}.
+\]
+The terms after $\C_{x_{m-1}}$ retain the right descent $s_{m+1}$
+upon multiplication by $T_2$, as $s_{m+1}$ commutes with $Q_2$.
+Applying the same recurrence to B, Proposition 2.11, yields
+\[
+ \C_{x_{m-1}}T_2=\C_{\beta_m}+\sum_{t=0}^{m-2}[t+1]\mathcal E_t .
+\]
+Indeed each canonical term of $\mathcal E_t$ is sorted on its first
+$m+1$ positions by B, Lemma 4.12(ii) and (4.17)--(4.18). Every
+subsequent generator acts by $\eta$, and each such term has right
+descent $s_m$. The canonical basis of the right $s$-spherical
+subspace consists of the canonical elements with right descent $s$.
+The word of $b_j$ is
+$C^{j-1}B^{m-j}A\,|\,B\,|\,CB^{m-j}A^{j-1}$.
+The adjacent ascents $AB,BC$ give both missing right descents
+$s_m,s_{m+1}$ (B, Lemma 4.9). Therefore none of the remainders
+contains any $\C_{b_j}$.\hfill$\square$
+
+\smallskip
+By B, Proposition 2.6, the identity coordinate of $\C_{X_0}T_1T_2$
+has valuation $3-2m$. For $\C_{\beta_m}$ the valuation is one, so the
+full vectors differ. Formula $(**)$ isolates the diagonal within family F.
+Section~\ref{sec:partialrows} computes the degree-one identity coordinate
+of each family-F constituent by completing successive partial sums.

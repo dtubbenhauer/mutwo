@@ -54,6 +54,7 @@ code/Lean/GuralnickAudit.lean     theorem and interface audits
 code/Lean/ASSUMPTIONS.md          mathematical inputs and computational trust
 code/Lean/verify_lean.sh          build and audit command
 code/finite_computations/        exact Python programs and saved results
+comparison/                     sources and checks for the comparison note
 figures/                        PDF exports of the manuscript figures
 paper/                          manuscript source and compiled PDF
 ```
@@ -98,7 +99,7 @@ The finite computations provide examples and checks of the construction. The Lea
 
 Its general mathematical inputs are explicit theorem parameters; see [ASSUMPTIONS.md](code/Lean/ASSUMPTIONS.md). These inputs include the affine Hecke framework, the flag-convolution realization and the representation theoretic transfer. The project does not formalize all the cited literature. The project proofs use Lean's kernel, with no `sorry`, new axiom declarations or `native_decide`. Numerical Python outputs are not premises of the Lean theorems.
 
-The supplied reports record the earlier successful Lean build. The manuscript in `paper/` is the latest supplied revision; the earlier manuscript hashes remain unchanged in the audit records. See the [package notes](code/README.md) for this distinction. The individual formula `mu_(j;m) = j` is not proved for all parameters.
+The supplied reports record the earlier successful Lean build. The [package notes](code/README.md) identify the manuscript used in that build and the revision in `paper/`. The formalization proves the row sum. The proof for the individual coefficients appears in the [comparison note](guralnick_comparison.pdf).
 
 For the proof verification, follow the [Lean instructions](#reproducing-the-verification). For finite calculations, start with the [program README](code/finite_computations/README.md). The manuscript and figure build commands are in [paper/README.md](paper/README.md) and [figures/README.md](figures/README.md).
 
@@ -115,23 +116,11 @@ The suggested citation is:
 }
 ```
 
-## Added after this GitHub first became available
+## Annular webs and the parabolic construction
 
-Our [AI-assisted comparison note](guralnick_comparison.pdf) relates our annular web to the parabolic construction of [Bowman, de la Fuente, Libedinsky and Plaza](https://arxiv.org/abs/2611.11677) (which was was written independently). In short, the constructions are, in some way or form, very similar. 
+Bowman, de la Fuente, Libedinsky and Plaza independently disproved Guralnick's conjecture in [*The cohomology of finite simple groups is unbounded*](https://arxiv.org/abs/2611.11677). Their parabolic construction gives $\mu_{m;m}=m$ in degree one, and they prove unboundedness for finite simple groups in every fixed positive cohomological degree.
 
-For example, our six-family base change contains more information than the
-row sum: keeping track of the individual contributions also
-gives finer coefficient formulas and their cohomological
-consequences. The comparison illustrates this concretely.
-If we retain only the first $j$ canonical summands in their
-expansion before appending the symmetrizers, we get the
-partial row sum
-$\sum_{i=1}^j\mu_{i;m}=\binom{j+1}{2}$.
-Taking consecutive differences gives $\mu_{j;m}=j$ for every
-$1\le j\le m$, just as our small examples suggested. Their
-degree-one calculation gives precisely the last entry of
-this row, $\mu_{m;m}=m$. Similarly, 
-unboundedness in every fixed positive cohomological degree can also be proven.
+Our web calculation gives the full row sum. Appending two normalized parabolic symmetrizers to their uncorrected product gives our six-stage annular web. If we keep the first $j$ canonical summands before applying the symmetrizers, their parabolic orbit estimates and our web calculation give the partial sum $\sum_{i=1}^j\mu_{i;m}=\binom{j+1}{2}$. Taking consecutive differences gives $\mu_{j;m}=j$ for $1\le j\le m$. See Section 4 of the [AI-assisted comparison note](guralnick_comparison.pdf) and the accompanying [sources and calculation programs](comparison/README.md).
 
 ## Erratum
 

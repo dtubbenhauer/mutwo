@@ -1,0 +1,6 @@
+m=6 j=2 length=33 support=2542 mu=2
+m=7 j=2 length=39 support=4768 mu=2
+m=8 j=2 length=45 support=8225 mu=2
+m=6 j=3 length=51 support=31367 mu=3
+m=7 j=3 length=61 support=86556 mu=3
+m=6 j=4 length=65 support=120862 mu=4

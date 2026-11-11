@@ -107,8 +107,8 @@
   "files": [
     {
       "path": "AI_README.md",
-      "bytes": 14258,
-      "sha256": "b460c8b0efadb79346b9eb14676897018a11b2b95416a26cd780c94508f79112"
+      "bytes": 14748,
+      "sha256": "52c93306c0cb302c025732132210a37ff2e533d4418aa06d3068ffd98b42a970"
     },
     {
       "path": "CITATION.cff",
@@ -217,8 +217,8 @@
     },
     {
       "path": "llms.txt",
-      "bytes": 4350,
-      "sha256": "26712c72f6c877c37810b05e07e1e3620cf665e1ad702a0ee5a17928b615fc0c"
+      "bytes": 4857,
+      "sha256": "e5ddc520ccccd3183cc89d1de80b3c074f43c38a7cb79e61bd815018c44c9b8a"
     }
   ]
 }

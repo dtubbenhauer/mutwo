@@ -1,0 +1,73 @@
+\newpage
+\begingroup
+\setlength{\parskip}{.32em}
+\setlength{\abovedisplayskip}{7pt plus 2pt minus 3pt}
+\setlength{\belowdisplayskip}{7pt plus 2pt minus 3pt}
+\section{Every entry of the row}
+\label{sec:partialrows}
+Combining our six-family bounds with the parabolic orbit estimates in B and applying the normalized completion gives
+\[
+                 \boxed{\ \mu_{j;m}=j\quad(1\le j\le m).\ }
+\]
+The proof takes the first \(j\) canonical summands of \(\mathcal{BS}_m\)
+and applies \(T_1T_2\), with the ambient rank and our output boundary fixed.
+
+\paragraph{1. Nested canonical sums before completing the web.}
+Hereafter $\operatorname{val}$ denotes the lowest exponent of $v$, with $\operatorname{val}0=+\infty$. Let \(T=T_1T_2\) be the normalized finite tail which gives \(\mathcal{BS}_m T=\mathcal R_m\).
+We use their notation for the longest orbit representatives and put
+\[
+ X_i=\mathbf C_{z(i,1,0)},\qquad D_s=\mathbf C_{z(s,1,1)},\qquad
+ \Phi_j=\sum_{i=1}^j X_i,\qquad Y_j=\Phi_j T,\qquad Y_0=0 .
+\]
+Here \(X_i\) is a vector. The lower-case \(x_i\) in the parabolic paper is a permutation on a reflection chain.
+We show
+\begin{equation}\label{eq:partial-seeds}
+ \mathcal{BS}_j=\Phi_j+\sum_{s=2}^{\min(j,m-1)}a_{js}(v)D_s,\qquad
+ D_s=\mathcal{CBS}_s,\qquad
+ \operatorname{val}a_{js}\ge 2-N+2j\quad(a_{js}\ne0).
+\end{equation}
+Only \(s\le m-1\) is needed: at \(j=m\) every \(a_{js}=0\). For \(s\le m-1\) B Proposition 3.21 gives \(\mathcal{CBS}_s\) a unique coordinate with nonpositive valuation: at the \(AA\) maximum of type \(s\), its constant is one. All others are positive, including nonmaxima by refinement. This proves its canonicality. The \(\mathcal{BS}_j\) are right \(E\)-invariant, so only maxima of \(E\)-orbits can be canonical indices; this is the parabolic canonical basis, or follows by descending triangularity in the invariant subspace. Outside the support listed in B Proposition 3.21 no canonical term can occur: clearing the Poincar\'e denominator gives a positive product in the ordinary KL basis. Apply the same valuation argument as A Lemma 4B.1 at the maxima. Columns \(BB,BA\) have positive valuation. Column \(AB\) has valuation zero, so its canonical multiplicity is constant. Column \(AA\) gives the bound \(2-N+2j\) in \eqref{eq:partial-seeds}. At an \(AB\) maximum of type \(i\) the coordinate of \(D_s=\mathcal{CBS}_s\), when present, has valuation \(N-2i\) by the same table. Multiplied by \(a_{js}\) it starts no lower than \(2+2(j-i)\). Other \(AB\) canonical vectors with constant multiplicities contribute only positive powers there. Thus the constant one belongs to \(X_i\) for every feasible \(1\le i\le j\). This proves \eqref{eq:partial-seeds} and in particular \(Y_m=\mathcal R_m\).
+
+\paragraph{2. Support and multiplicity bounds.}
+Each \(Y_j\) is integral and bar invariant. The domain of \(T\) is the right \(E\)-invariant module; both normalized factors are integral sums over finite parabolic cosets there (B Lemma 3.3). If \(p=(\Pi_{m-1})^2\) is their common denominator, \(p(Y_j-Y_{j-1})=X_j C_{Q_1} C_{Q_2}\) has nonnegative ordinary canonical coefficients. Consequently the cleared coefficient of \emph{each} \(Y_j\) is bounded coefficientwise by that of \(p\mathcal R_m\). Thus every canonical index of \(Y_j\) belongs to one of our six families. The valuation of a nonzero multiplicity is at least the corresponding valuation for \(\mathcal R_m\), by subtracting \(\operatorname{val}p\) from the inequality for cleared coefficients. This proves that the degree margins in A Lemmas 4H.1 and 4I.1 apply to \(Y_j\) as well. In particular, for each family-F index its multiplicity in \(Y_j\) is a constant zero or one, nondecreasing in \(j\), since its multiplicity in \(\mathcal R_m\) is one. All standard and canonical indices of \(Y_j\) have type at most \(j\): \eqref{eq:partial-seeds} and B Proposition 3.21 bound the initial standard support, finite right generators preserve word type, and positivity after clearing excludes any additional canonical support.
+
+For completeness we compute the constant at \(A_{j;m}\). A flag for \(\mathcal{BS}_jT\) chooses intermediate \(U\subset U'\) of dimensions \(j,j+1\), with \(I_0\subset U\subset U'\subset K_0\), in the finite quotient of A Definition 3C.1. To check the input conditions directly, B Lemma 3.19 restricts the first parabolic product to words whose $\mathsf A$ letters are in the first \(j\) positions, whose singleton is neutral and whose $\mathsf C$ letters are after position \(j+1\). On the rank orbit this says precisely \(I_0\subset U\subset U'\subset K_0\). The one-cut product similarly imposes just \(I_0\subset U\subset K_0\). Equivalently, divide the nested periodic lattices by the final lattice as in our proof of Proposition 3C.4 in A. For the output \(F\subset F'\) of dimensions \(m,m+1\), it also chooses a line \(L\subset U\cap F\) and a two-plane \(D\) with \(L\subset D\subset U'\cap F'\). Indeed the flags between the first affine parabolic and the output successively retain \((L,U')\), \((L,D)\), \((L,F')\); this works also when \(j=1\) with the repeated cut suppressed. For \(\mathcal{CBS}_s T\), the first affine parabolic retains just an \(s\)-space \(U\) with \(I_0\subset U\subset K_0\), and the final conditions become \(L\subset F\), \(L\subset D\subset U\cap F'\).
+
+At \(A_{j;m}\) the rank is \(j\), so \(U=I_0\) in the first gallery. A Lemma 4C.2 gives \(\dim(I_0\cap F)=\dim(I_0\cap F')=1\) and \(\dim(K_0\cap F')=m-j+2\). Thus \(L\) is forced. The line \(U'/I_0\) must belong to the image of \(K_0\cap F'\) modulo \(I_0\); then \(U'\cap F'\) is the unique possible \(D\). The count is \((m-j+1)_q\) where \(q\) is the flag parameter. Its normalization shift is \(2(m-j)\): the gallery normalization constant is
+\[
+ d_j^{\rm BS}=4m-3+2(j-1)(N-j-1),
+\]
+as follows either by summing the parabolic length shifts or by the origin count below, and A Lemma 4C.2 gives \(d_{A_{j;m}}=2j(N-j)-2(m-j)-3\). Thus the normalized coordinate has constant one. For \(\mathcal{CBS}_sT\), \(s<j\) is impossible and \(s=j\) would require \(D\subset I_0\cap F'\), also impossible. The constant therefore belongs to \(Y_j\). By the margins of A Lemma 4I.1 it is the multiplicity of \(C_{A_{j;m}}\). Monotonicity and the type bound now show that the family-F indices occurring in \(Y_j\) are exactly \(A_{1;m},\ldots,A_{j;m}\), once each.
+
+\paragraph{3. Coordinates at the full-spherical standards.}
+At \(Z_r\) we have \(I_0\cap F'=0\), \(\dim(F\cap K_0)=m-r\), and \(\dim(F'\cap K_0)=m-r+1\), by A Definition 3C.1 and Lemma 4C.2. The choices of \(L,D\) in \(K_0\) number \((m-r)_q^2\), and \(D\) is disjoint from \(I_0\). For the BS gallery choose \(U'/I_0\) containing the image of \(D\), then a hyperplane \(U/I_0\) containing the image of \(L\). For the CBS gallery choose \(U/I_0\) containing the image of \(D\). The two flag counts are, respectively,
+\[
+ (m-r)_q^2(j-r)_q\gb{N-2r-2}{j-r-1}_q,\qquad
+ (m-r)_q^2\gb{N-2r-2}{s-r-2}_q.
+\]
+The first vanishes for \(r\ge j\), the second for \(r>s-2\); these cases are omitted before evaluating Gaussians. The standard normalization is \(v^{d-d_{Z_r}}\) times the count at \(q=v^{-2}\), where \(d_{Z_r}=2r(N-r)\) in our normalization. To verify the absolute shifts, use the origin formulas in B, proof of Proposition 2.6, multiplied by \([m]^2\) for \(T\). Reversing the displayed counting polynomials at \(r=0\) gives \(d=d_j^{\rm BS}\) as above and \(d=d_s^{\rm CBS}=6m-2s+2(s-2)(N-s)\). The flag normalization depends on the endpoint standard only through \(d_{Z_r}\) (A Lemmas 2D.4, 2E.3). Subtracting \(2r(N-r)\) in either formula amounts to replacing \((m,j,s,N)\) by \((m-r,j-r,s-r,N-2r)\).
+
+Set \(h=j-r>0\), \(t=v^2\). On its support the BS coordinate is therefore
+\[
+ v^{3-2h}(m-r)_t^2(h)_t\gb{2(m-r)-1}{h-1}_t .
+\]
+The corresponding CBS coordinate has valuation \(2m+4-2s\); by \eqref{eq:partial-seeds} its contribution to \(Y_j\) starts no lower than \(5+2(j-s)\). Consequently, through degree one inclusive, the \(Z_r\)-coordinate of \(Y_j\) agrees with the \(Z_r\)-coordinate of \(\mathcal R_j\) in \emph{ambient parameter \(j\)}. Indeed \((m-r)_t\equiv(h)_t\bmod t^h\); both Gaussian numerators in the rectangle product formula start contributing only in degree \(h\) or higher. Multiplication by \(v^{3-2h}\) puts the error in degree at least three. For \(r\ge j\) these coordinates vanish.
+
+\paragraph{4. The same spherical corrections in the smaller parameter.}
+For \(r\le s\le j\), the \(Z_r\)-coordinate of the canonical \(C_{Z_s}\) is
+\[
+ \gb{2(m-r)+1}{s-r}_t-\gb{2(m-r)+1}{s-r-1}_t
+\]
+(A Lemma 4E.4). It agrees modulo \(t^{j-r+1}\) with the same coordinate in ambient parameter \(j\): in both rectangle formulas the first numerator exponent is at least \(j-r+2\), unless the lower entry is negative, in which case the Gaussian is zero. In particular, for \(s\le j-2\) this agreement persists through degree one after multiplication by our correction \(g_{j-s}\), whose valuation is \(3-2(j-s)\).
+
+For \(r\ge j\), the standard coordinates at \(Z_r\) vanish;
+positivity after clearing the denominator excludes the corresponding
+full-spherical canonical summands. At \(r=j-1\) the coordinate starts
+in degree one, so its bar-symmetric spherical multiplicity is zero.
+Now descend through \(r\le j-2\). At \(Z_r\) all one-incidence terms in \(Y_j\), including their multiplicities, have valuation at least three (step 2 and A Lemma 4H.1). Every family-F coefficient there is proper, hence has positive valuation, and its multiplicity is constant. Full-spherical indices of rank less than \(r\) have zero coordinate. Thus after subtracting the already known higher full-spherical terms, the nonpositive powers at \(Z_r\) determine its bar-symmetric multiplicity completely. By step 3 and the preceding Gaussian comparison these powers agree with our smaller-parameter computation (Lemmas 4J.2, 4K.1). It follows that the multiplicity at \(Z_r\) in \(Y_j\) is \(g_{j-r}\) for \(0\le r\le j-2\), and zero for \(r\ge j-1\). At \(r=0\), after all these subtractions the coefficient of \(v\) is also the one in our smaller calculation, namely \(\binom{j+1}{2}\). For \(j=1\), the raw coordinate begins with \(v\), and there is no spherical subtraction; this gives the same formula directly.
+
+The only remaining contributors in degree one at \(Z_0\) are the family-F terms of step 2. We have proved \(\sum_{i=1}^j\mu_{i;m}=\binom{j+1}{2}\) while \emph{holding \(m\) fixed}. Taking consecutive differences gives the individual formula.
+
+Equivalently, before reading the distinguished coefficient, \(X_iT=Y_i-Y_{i-1}\) contains \(C_{A_{i;m}}\) once and none of the other family-F vectors. Its full-spherical coefficient at \(Z_r\) is \(g_{i-r}-g_{i-1-r}\), with \(g_a=0\) for \(a\le1\). The residual one-incidence terms can persist as operators. Their origin coordinates, including multiplicities, start in degree at least three by the same cleared-positivity bound. We thus identify one canonical summand in the parabolic product for each entry of our row.
+\label{partial:end}
+\par\endgroup

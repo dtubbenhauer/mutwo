@@ -1,0 +1,2 @@
+All 1750 (m,j,r) triangular tests passed, 1 <= j <= m <= 20.
+These test standard-coordinate arithmetic, independently of canonical-basis enumeration.

@@ -2,7 +2,7 @@
 
 > Mathematical paper by Tom Goertzen, Abel Lacabanne, Daniel Tubbenhauer and Pedro Vaz. An explicit family of ordinary affine Kazhdan–Lusztig mu-coefficients with fixed source w_0 has sum m(m+1)/2. For each m >= 2 and all sufficiently large primes p, these coefficients are first cohomology dimensions of faithful absolutely irreducible PSL_{2m+1}(F_p)-modules. Companion snapshot: 2026-11-03.
 
-The main theorem proves a row sum. The individual formula mu_{j;m}=j is not proved for general m. The characteristic threshold may depend on m. The manuscript and its stated hypotheses determine the claims; the guide provides navigation. This file follows the llms.txt proposal and is an additional entry point, not a crawler policy or a promise of indexing.
+Our manuscript and its Lean formalization establish the row sum under their stated hypotheses. The characteristic threshold may depend on m. In a separate comparison note we prove mu_{j;m}=j for every 1<=j<=m by combining our web calculation with the parabolic construction of Bowman, de la Fuente, Libedinsky and Plaza.
 
 ## Start here
 
@@ -10,6 +10,9 @@ The main theorem proves a row sum. The individual formula mu_{j;m}=j is not prov
 - [Complete text](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/paper.md): Full reading edition, including proofs and bibliography; mathematics retained as LaTeX.
 - [Source TeX](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/source.tex): Exact source snapshot, including all TikZ definitions.
 - [Source PDF](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/ai/source.pdf): Matching supplied typeset manuscript and diagrams.
+- [Parabolic construction](https://arxiv.org/abs/2611.11677): Bowman, de la Fuente, Libedinsky and Plaza compute the diagonal coefficient and prove unboundedness in every fixed positive cohomological degree.
+- [Comparison note](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/guralnick_comparison.pdf): Section 4 proves the individual coefficient formula.
+- [Comparison sources](https://raw.githubusercontent.com/dtubbenhauer/mutwo/main/comparison/README.md): Editable sources and reproduction instructions for the exact calculations.
 
 ## Read individual sections
 

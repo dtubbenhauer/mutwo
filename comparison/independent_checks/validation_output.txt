@@ -1,0 +1,2 @@
+N 5 : inverse, Hecke quadratic, braid and commuting relations on 18 spherical standards; exhaustive quotient cross-checks passed
+N 7 : inverse, Hecke quadratic, braid and commuting relations on 19 spherical standards; exhaustive quotient cross-checks passed

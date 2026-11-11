@@ -1,0 +1,86 @@
+\clearpage
+\subsection{Both finite tails are canonical}
+\label{sec:finite-tails}
+
+The finite tails can be compared in finite type~A before applying the
+common affine prefix. In the finite spherical module $C_V\mathcal H(S_N)$ put
+\[
+ \mathsf a_m=\frac{C_VC_KC_V}{\pi_L^2},\qquad
+ \mathsf b_m=\frac{C_VC_{K'}C_E}
+ {\pi_{V\cap K'}\pi_{K'\cap E}}.
+\]
+The right $V$-eigenrelations of $F=C_IC_J/\pi_V$ define the module map
+\[
+ \Phi:C_V\mathcal H(S_N)\longrightarrow C_I\mathcal H(W),
+ \qquad \Phi(C_Vh)=Fh.
+\]
+Thus $\Phi(\mathsf a_m)=\mathcal R_m$ and
+$\Phi(\mathsf b_m)=\mathcal{BS}_m$, with all normalization factors included.
+Both finite tails are single ordinary canonical elements:
+\[
+ \mathsf a_m=C_{w_A},\qquad
+ w_A=w_0w_{\{s_m,s_{m+1}\}},
+ \qquad
+ \mathsf b_m=C_{w_B},\qquad
+ w_B=[m,m+1,N,N-1,\ldots,m+2,m-1,\ldots,1].
+\]
+Their minimal left $V$-representatives have lengths $m^2+2m-3$
+and $m^2-1$, respectively.
+
+\noindent\textit{Proof.}
+In the three-letter notation of the parabolic paper, let
+$c_0=c_{\mathsf A^m\mathsf B\mathsf C^m}$, with window
+$[1-m,\ldots,0,m+1,N+1,\ldots,N+m]$ and length $m^2$.
+For $x\in{}^VW_I$, the map
+$C_VH_x\mapsto M_{c_0x}$ identifies the finite standard basis with
+the type-$m$ standard span. The window formula gives
+$\ell(c_0x)=m^2+\ell(x)$, and the equal-letter and unequal-letter
+multiplication rules show that it commutes with finite right Hecke
+actions (B, Lemmas 3.8--3.9).
+The type-$m$ part of $F$ is just $M_{c_0}$ with coefficient one
+(B, Lemma 3.19).
+Consequently the standard coefficients of the two finite tails are
+exactly the type-$m$ coefficients of the two affine products.
+
+At the boundary $m-r=0$, our six-family estimates give coefficient
+one at the unique top and strictly positive valuation at every
+proper orbit maximum; refinement adds the nonnegative length
+deficit (A, Lemmas 4C.2 and 4D.1).
+The lowest-exponent table in the parabolic paper at type $m$ has a unique $AB$ orbit
+maximum of valuation zero; the $AA$ maxima have valuation one,
+and every nonmaximum has an additional positive length deficit
+(B, Proposition 3.21). The top coefficient is one in each case.
+The two top words are $\mathsf C^{m-1}\mathsf A\mathsf B\mathsf C
+\mathsf A^{m-1}$ and $\mathsf A\mathsf B\mathsf C^m\mathsf A^{m-1}$,
+which give the displayed finite permutations. Integrality and bar
+invariance of the normalized products now identify both tails by
+canonical triangularity.\hfill$\square$
+
+Let $L_m=C_{s_2}\cdots C_{s_m}C_{s_1}\cdots C_{s_{m-1}}$.
+The corresponding reflection word takes $w_B$ to $w_A$, increasing
+length at every step: first it moves $m+1$ past the larger entries,
+then it moves $m$ past them. Finite KL multiplication therefore gives
+\begin{align*}
+ \mathsf b_mL_m
+ &=\mathsf a_m+\sum_{z<w_A}d_z(v)C_z,
+ &d_z(v)&\in\mathbb N[v,v^{-1}],\\
+ \mathcal{BS}_mL_m
+ &=\mathcal R_m+\sum_{z<w_A}d_z(v)\Phi(C_z).
+\end{align*}
+Only finite canonical indices with left $V$-descents occur in the sum.
+The top multiplicity is one. This expresses our web as the image of
+the top finite canonical summand after the two simple-reflection
+chains. Using the normalized completion instead gives the exact
+finite identity $\mathsf b_mT_1T_2=\mathsf a_m$.
+
+For $m=3$, the correction has the following form. On the appropriate
+spherical domain, the $S_3$ identity
+$C_{\{s,t\}}=C_sC_tC_s-C_s$ gives
+\[
+ \mathcal R_3=\mathcal{BS}_3(C_2C_3-1)(C_1C_2-1),
+ \qquad C_i=C_{s_i}.
+\]
+For $m=2,3,4,5$ the uncorrected finite product
+$\mathsf b_mL_m-\mathsf a_m$ has respectively $0,3,10,20$
+distinct canonical terms. These are exact finite checks; the
+canonical-tail and summand statements above hold for all $m$.

@@ -1,0 +1,67 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,mathtools,booktabs,tabularx,array,enumitem,tikz,fancyhdr,xcolor}
+\usepackage[margin=21mm,top=19mm,bottom=20mm]{geometry}
+\usepackage[colorlinks=true,urlcolor=teal!65!black,linkcolor=teal!65!black]{hyperref}
+\hypersetup{pdftitle={The common web and its individual coefficients},pdfauthor={Tom Goertzen, Abel Lacabanne, Daniel Tubbenhauer and Pedro Vaz},pdfsubject={Comparison of arXiv:2611.09114v1 and arXiv:2611.11677v1},citecolor=teal!65!black}
+\definecolor{navy}{HTML}{193E50}
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{navy}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{.7ex}{1.1ex}
+\titlespacing*{\subsection}{0pt}{1.2ex}{.35ex}
+\setlength\parindent{0pt}\setlength\parskip{.48em}
+\setlist{nosep,leftmargin=*}
+\setlength{\headheight}{13pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Guralnick's conjecture}\fancyhead[R]{\small Web and parabolic constructions}\fancyfoot[R]{\small\thepage}\renewcommand\headrulewidth{.2pt}
+\newcommand{\C}{\mathbf C}
+\newcommand{\R}{\mathcal R_m}
+\newcommand{\BS}{\mathcal{BS}}
+\newcommand{\CBS}{\mathcal{CBS}}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\FF}{\mathbb F}
+\newtheorem{remark}{Remark}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Aword}{\mathsf A}
+\newcommand{\Bword}{\mathsf B}
+\newcommand{\Cword}{\mathsf C}
+\newcommand{\ord}{\operatorname{ord}_v}
+\newcommand{\gb}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\arraystretch}{1.12}
+\begin{document}
+{\small AI-assisted comparison note}\par
+{\LARGE\bfseries\color{navy} The common web and its individual coefficients}\par
+{\large Tom Goertzen, Abel Lacabanne, Daniel Tubbenhauer and Pedro Vaz}
+\section*{Overview}
+We used an annular web to disprove Guralnick's conjecture on first cohomology for finite simple groups. Independently, Bowman, de la Fuente, Libedinsky and Plaza proved unboundedness in every fixed positive cohomological degree using a product of parabolic symmetrizers. We explain how their construction meets ours in degree one. Both lead to ordinary affine Kazhdan--Lusztig coefficients with the same lower endpoint.
+
+In type~A, singular Bott--Samelson characters and the corresponding split and merge webs describe the same normalized maps in the affine Schur category. Appending two normalized parabolic symmetrizers to their uncorrected product $\BS_m$ gives our six-stage web $\mathcal R_m$, in every rank and every standard coordinate. Each finite part is a single canonical element, and both constructions apply the same affine prefix.
+
+Our web calculation gives the row sum $\sum_{i=1}^m\mu_{i;m}=\binom{m+1}{2}$. Their parabolic calculation gives the diagonal entry $\mu_{m;m}=m$ and follows the leading coefficient through higher degrees. To recover the individual entries, we complete the first $j$ canonical constituents of their uncorrected product at fixed ambient rank. We obtain
+\[
+\sum_{i=1}^{j}\mu_{i;m}=\binom{j+1}{2},\qquad
+\mu_{j;m}=j\quad(1\le j\le m).
+\]
+For the partial sums we use their parabolic orbit estimates, our support, multiplicity and degree calculations for the six families, and a finite flag identity. Taking consecutive differences gives the individual coefficients.
+
+On the diagonal, their highest-weight module agrees with ours after scalar extension. In higher degrees they obtain exact rational and quantum cohomology dimensions and lower bounds for finite groups. Section~6 records the transfers and their hypotheses.
+
+For $m\ge3$, the normalized completion and the simple-reflection chains give different canonical expansions. The completion identifies the two uncorrected products exactly. The chains introduce lower finite canonical summands, which we describe along with the corrections in both calculations.
+
+\subsection{Sources and notation}
+A denotes our paper \emph{Annular webs and Guralnick's conjecture}, \href{https://arxiv.org/abs/2611.09114v1}{arXiv:2611.09114v1}.
+
+B denotes their paper \emph{The cohomology of finite simple groups is unbounded}, \href{https://arxiv.org/abs/2611.11677v1}{arXiv:2611.11677v1}.
+
+We use the numbering of these two versions. Section~\ref{sec:partialrows}, pages~\pageref{sec:partialrows}--\pageref{partial:end}, gives the proof of the individual formula. Our \href{https://dtubbenhauer.com/mutwo.html}{project page}, also linked in their bibliography, points to the repository. Its \texttt{comparison/} directory contains the source of this note, both Python implementations and their recorded outputs. Our Lean development verifies the row sum in A.
+
+\input{conventions.tex}
+\newpage\input{operators.tex}
+\input{mechanisms.tex}
+\input{partialrows.tex}
+\input{offdiag.tex}
+\input{implications.tex}
+\input{calculations.tex}
+\input{provenance.tex}
+\end{document}

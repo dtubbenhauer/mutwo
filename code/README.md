@@ -12,8 +12,9 @@ See the [repository README](../README.md) for setup and run instructions.
 The Lean project proves the uniform fixed-source affine KL row sum and its
 eventual-characteristic cohomological consequence, conditional on explicit
 general literature inputs. See [ASSUMPTIONS.md](Lean/ASSUMPTIONS.md).
-Numerical Python outputs are not premises of these theorems. The individual
-formula `mu_(j;m)=j` for all parameters remains conjectural.
+Numerical Python outputs are not premises of these theorems. Section 4 of
+the [comparison note](../guralnick_comparison.pdf) gives a separate
+mathematical proof of the individual formula `mu_(j;m)=j` for all parameters.
 
 ## Supplied reports and current manuscript
 

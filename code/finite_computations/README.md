@@ -13,9 +13,10 @@ do not establish the representation-theoretic transfer to first cohomology.
 | `m=6`, `j=1,2,3,4` | `mu=1,2,3,4`, respectively, with the same full outputs | Partial row |
 | `m=j=6` | `mu=6`, full degree-40 ordinary KL polynomial | Direct KL computation only |
 
-No completed `m=6,j=5` calculation is included. There is no complete sixth
-row here, and no general proof of the individual formula `mu_(j;m)=j`.
-The uniform row-sum theorem in Lean is separate from these finite examples.
+The saved sixth row has one missing calculation, `m=6,j=5`. The Lean
+project proves the uniform row sum. Section 4 of the [comparison
+note](../../guralnick_comparison.pdf) gives a mathematical proof of the
+individual formula `mu_(j;m)=j` for all parameters.
 
 The saved diagonal `m=6` calculation took about 551.5 seconds (9.2 minutes).
 The Bernstein `m=6,j=4` record took about 244.5 seconds. These are historical

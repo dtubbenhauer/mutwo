@@ -1,0 +1,93 @@
+\newpage\section{What follows for coefficients and cohomology}
+
+Write \(k=\overline{\mathbb F}_p\), \(N=2m+1\), and \(G=\mathrm{SL}_N(k)\).
+For degree one, both papers assume Lusztig's character formula in the
+given rank and \(p\ge5(N-1)\) for finite group comparison. These assumptions
+hold for every sufficiently large \(p\) at fixed \(m\).
+
+\begingroup\small\renewcommand{\arraystretch}{1.17}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.215\linewidth}Y@{}}
+\toprule
+Setting and source & Consequence \\ \midrule
+A, Theorem 4L.1 and Corollary 6C.2 &
+\(\sum_{j=1}^m\mu_{j;m}=m(m+1)/2\).
+Each coefficient equals the rational \(H^1\)-dimension of
+\(L(\lambda_{j;m}(p))\) and the finite \(H^1\)-dimension for its restriction
+to \(\mathrm{SL}_N(\mathbb F_p)\) and its descendant \(M_{j;m}(p)\)
+on \(\mathrm{PSL}_N(\mathbb F_p)\), over \(k\).
+The row sum gives \(\max_j\mu_{j;m}\ge\lceil(m+1)/2\rceil\).\\
+B, Theorems A and B &
+\(\mu_{m;m}=m\), and
+\(\dim_{\mathbb F_p}H^1(\mathrm{PSL}_N(\mathbb F_p),V_{m,p})=m\).
+All \(V_{m,p}\) are faithful and absolutely irreducible.\\
+The two KL theorems together &
+\(\sum_{j<m}\mu_{j;m}=m(m-1)/2\) and \(\max_j\mu_{j;m}\ge m\).\\
+Partial-row calculation, \S\ref{sec:partialrows} &
+$\mu_{j;m}=j$ throughout, with maximum $m$ at $j=m$. For each sufficiently large $p$, our $m$ modules realize every first cohomology dimension $1,\ldots,m$ for this one finite group.\\
+B, Theorem B, (2.17), Corollary 2.20 &
+For \(0\le s<m\), the normalized polynomial for \(y_s\) starts with
+\(mv^{s+1}\). For large \(p\),
+\(\dim_k H^{s+1}(G,L(y_s\cdot_p0))=m\), and its rational
+cohomology vanishes in all lower degrees. The identified diagonal is \(s=0\).\\
+B, Theorem C, Lemma 2.18 &
+Fix \(1\le n\le m\). For sufficiently large \(p\), then sufficiently
+large \(a\), a faithful absolutely irreducible \(k\)-module for
+\(\mathrm{PSL}_N(\mathbb F_{p^a})\) has \(\dim_kH^n\ge m\).
+The proof uses injective restriction.\\
+B, Theorem D, (2.18) &
+For a primitive complex root of odd order \(\ell>N\),
+\(\dim_{\mathbb C}H^{s+1}(U_\zeta,L_\zeta(y_s\cdot_\ell0))=m\),
+with vanishing in lower degrees. This is Ext in finite-dimensional
+integrable type-1 modules of Lusztig's divided-power quantum group.\\
+A with B's (2.18) &
+The same standard quantum KL formula transports our row sum to quantum
+\(H^1\) for the \(m\) modules \(L_\zeta(u_{j;m}^{-1}\cdot_\ell0)\).\\
+\bottomrule
+\end{tabularx}\endgroup
+
+\paragraph{The coefficient fields.}
+On the diagonal the highest weights agree. The split group gives an
+\(\mathbb F_p\)-form of the simple highest-weight module. Its root-lattice
+weight makes the finite center act trivially. That center has
+prime-to-\(p\) order, so inflation across it is an isomorphism in every
+degree. Thus, as modules for the \emph{same} finite group,
+\[
+ M_{m;m}(p)\cong V_{m,p}\otimes_{\mathbb F_p}k.
+\]
+Extending the finite group bar complex shows that the scalar extension
+preserves the cohomology dimension. The same descent applies to our
+other restricted highest weights. See A Lemmas 6A.2, 6B.1 and 6C.1;
+B Proposition 2.15 and the proof of Theorem A.
+
+\paragraph{Finite-group comparison in higher degrees.}
+For the weights in the parabolic paper, the standard large-characteristic comparison gives exact
+finite-group cohomology dimensions.
+Fix \(1\le n\le m\), set \(\lambda=y_{n-1}\cdot_p0\), and assume
+the character-formula hypotheses in that paper together with
+\(p\ge(4n+1)(N-1)\).
+B Lemma~2.17 makes \(\lambda\) nonzero, \(p\)-restricted and a root-lattice
+weight in the affine dot orbit of zero. It is therefore \(p^a\)-restricted
+for every \(a\ge1\).
+Parshall--Scott--Stewart, \emph{Shifted generic cohomology},
+Theorem~5.12 and its proof on pp.~1780--1781, give
+\[
+ H^d(\mathrm{SL}_N(\mathbb F_{p^a}),L(\lambda))
+ \cong H^d(G,L(\lambda))
+ \qquad(1\le d\le n,\ a\ge1).
+\]
+Here one takes \(\nu=0\) in the Bendel--Nakano--Pillen
+Theorem~7.5 comparison displayed in that proof.
+Combining this with Theorem~B and (2.17) of the parabolic paper, and inflating across the
+prime-to-\(p\) center, gives a faithful absolutely irreducible
+\(k\mathrm{PSL}_N(\mathbb F_{p^a})\)-module \(V_a\) with
+\[
+ \dim_k H^n(\mathrm{PSL}_N(\mathbb F_{p^a}),V_a)=m,\qquad
+ H^d(\mathrm{PSL}_N(\mathbb F_{p^a}),V_a)=0\quad(0\le d<n).
+\]
+Degree zero vanishes by nontrivial irreducibility.
+In particular, equality and lower-degree vanishing hold for \(a=1\).
+This follows from the rational cohomology calculation in the parabolic paper and the cited
+comparison theorem.
+The required lower bound on the characteristic depends on the rank and
+the chosen degree.
+\href{https://doi.org/10.1112/S0010437X13007331}{doi:10.1112/S0010437X13007331}.

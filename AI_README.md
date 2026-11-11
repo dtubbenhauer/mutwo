@@ -22,6 +22,7 @@ The mathematical sources are the [manuscript PDF](ai/source.pdf) and [LaTeX sour
 | [Source manifest](ai/manifest.json) | The exact source snapshot and file hashes. |
 | [Exact LaTeX source](ai/source.tex) | Original formulas, proofs, cross-references and TikZ definitions. |
 | [Exact PDF](ai/source.pdf) | Typeset statements and the original diagrams. |
+| [Comparison note](guralnick_comparison.pdf) and [its sources](comparison/README.md) | The relation to the parabolic construction of Bowman, de la Fuente, Libedinsky and Plaza, and the proof of the individual coefficient formula in Section 4 of the note. |
 | [Lean assumptions](code/Lean/ASSUMPTIONS.md) | The formal development's explicit background assumptions. |
 | [Lean model comparison](code/Lean/Guralnick/ModelComparisonCounterexample.lean) | A code entry point for examining the cohomological conclusion and its model assumptions. |
 
@@ -70,7 +71,7 @@ $$
 \max_{1\le j\le m}\mu_{j;m}\ge\left\lceil\frac{m+1}{2}\right\rceil.
 $$
 
-The statement is a row-sum identity. It does not give a general formula for the individual entries or identify a maximizing `j`. Sources: [endpoint construction](ai/source.tex#L3182), [endpoint lemma](ai/source.tex#L4326), [main theorem](ai/source.tex#L5604), labels `lem:dictionary-endpoints` and `thm:aggregate-web`.
+We prove this row sum for every `m>=2`. See the [endpoint construction](ai/source.tex#L3182), [endpoint lemma](ai/source.tex#L4326) and [main theorem](ai/source.tex#L5604), with labels `lem:dictionary-endpoints` and `thm:aggregate-web`. Bowman, de la Fuente, Libedinsky and Plaza compute the diagonal entry $\mu_{m;m}=m$ and prove unboundedness in every fixed positive cohomological degree. In Section 4 of the comparison note we combine their parabolic calculation with our web expansion to prove $\mu_{j;m}=j$ throughout the row. [Parabolic paper](https://arxiv.org/abs/2611.11677) · [Comparison note](guralnick_comparison.pdf).
 
 ### First cohomology and the quantifiers on the characteristic
 
@@ -151,7 +152,7 @@ This table describes the mathematical argument, not a Lean import graph.
 
 The standard splitter satisfies `[B_m]_v=\theta_{B_m}`. A canonical vector requires bar invariance **and** triangularity, with proper standard coefficients in `v\mathbb Z[v]`. The corrected web `\mathcal R_m^{\rm crit}` is still a sum of canonical vectors; the auxiliary vectors remain present, but do not affect its linear coefficient at `B_m`. Sources: [dictionary and conventions](ai/source.tex#L4007), [positivity lemma](ai/source.tex#L4811), [corrected expansion](ai/source.tex#L5613).
 
-## Small examples and the boundary between evidence and theorem
+## Small examples
 
 At `m=2`, `N=5`, the increasing windows are
 
@@ -183,7 +184,7 @@ The introduction reports these exact computations:
 | 4 | 9 | `(1,2,3,4)` | 10 |
 | 5 | 11 | `(1,2,3,4,5)` | 15 |
 
-The row-sum theorem holds for all `m>=2`. The individual formula `\mu_{j;m}=j` is explicitly **not proved in general**. Faster growth obtained by enlarging the graph is also speculative. [Computational table and qualification](ai/source.tex#L3238), [final discussion](ai/source.tex#L6294).
+These computed rows suggested the individual formula subsequently proved in the comparison note. The manuscript also asks whether larger graphs can give faster growth. [Computational table](ai/source.tex#L3238) · [Final discussion](ai/source.tex#L6294).
 
 ## Formalization and cited background
 

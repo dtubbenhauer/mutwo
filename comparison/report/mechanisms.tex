@@ -1,0 +1,58 @@
+\newpage
+\section{Two ways of organizing the coefficient calculation}
+
+Both arguments use the same refinement identity. If \(z\) is the longest index in a right-parabolic orbit, the coefficient of \(M_c\) in a vector invariant under that parabolic is \(v^{\ell(z)-\ell(c)}\) times its coefficient at \(z\). One proves this along a single edge by the quadratic Hecke relation. We use the identity to refine output flags (A, Lemma 4D.1). Bowman, de la Fuente, Libedinsky and Plaza use it to compute once per orbit (B, Lemmas 3.11, 3.17 and Proposition 3.21).
+
+\paragraph{Two multiplicity-one expansions.}
+The uncorrected product has a multiplicity-one expansion. Write \(z(t,a,b)\) for the longest element of their orbit of type \(t\) with indicators \(a,b\) for the first two letters. Then
+\[
+ \mathcal{BS}_m=\sum_{t=1}^m\mathbf C_{z(t,1,0)},\qquad
+ \mathcal{BS}_{m-1}-\eta\sum_{s=2}^{m-1}\mathcal{CBS}_s
+    =\sum_{t=1}^{m-1}\mathbf C_{z(t,1,0)},\qquad \eta=v+v^{-1}.
+\]
+Indeed, B Proposition 3.21 gives least exponents \(1,1,0,1\) at feasible maxima with prefixes \(BB,BA,AB,AA\), respectively, for \(\mathcal{BS}_m\). The \(AB\) maxima occur exactly for \(1\le t\le m\), and their constant terms are one. All other standard coordinates have positive valuation by refinement. Subtract the canonical vectors displayed in the first sum. The difference is bar invariant and every standard coordinate lies in \(v\mathbb Z[v]\), so it vanishes (B Lemma 3.1). B Proposition 3.5, with \(X_0=z(m,1,0)\), gives the second equality. In its proof the \(AB\) constants below the top cancel against \(\mathcal{BS}_{m-1}\); in column \(AA\) the \(-v^{-1}\) from that subtraction is canceled by \(+\eta\mathcal{CBS}_t\) at each type \(2\le t<m\). This isolates a single seed.
+
+We prove multiplicity one for the completed web. In A, Lemma 3C.3, we fix flags \(I_0\subset K_0\) of dimensions \(r,N-r\) and \(F\subset F'\) of dimensions \(m,m+1\). For a line \(L\subset F\) and a hyperplane \(H\supset F'\), put \(e=\mathbf1_{L\not\subset I_0}\), \(d=\mathbf1_{H\not\supset K_0}\). The remaining choices of \(I'\subset K'\) of dimensions \(m,m+1\), between \(I_0+L\) and \(K_0\cap H\), number
+\(
+ \gb{N-2r-e-d}{m-r-e}_q(m+1-r-d)_q
+\)
+over a field of size \(q\). Sum against the corresponding line and hyperplane counts (A (3C.2)), substitute \(q=v^{-2}\) and multiply by \(v^{D-d_A}\), \(D=2m^2+2m-3\) (A Proposition 3C.4). If \(F_A(q)\) is the resulting counting polynomial before normalization, the exponents of a nonzero canonical multiplicity lie between \(-E\) and \(E\), \(E=2\deg F_A-(D-d_A)\). We apply positivity after clearing the overlap denominator. With \(l=m-r\), the bounds for the six allowed families A--F are respectively \(2l-3,l-2,l-1,l-2,l-1,0\) (Lemmas 4B.1 and 4C.2). At an F-standard \(A_{j;m}\), a full-spherical, strong one-incidence or weak one-incidence contribution of rank \(j+h\) starts in degree at least \(2h+6,2h+2,2h+4\), respectively. Larger F-terms contribute only positive powers there. Thus the constant one belongs to \(A_{j;m}\) itself (Lemma 4I.1). At a full-spherical standard, in contrast, one-incidence terms with their multiplicities start in degree at least three (Lemma 4H.1), which suffices for the row sum.
+
+\newpage\subsection*{The same Gaussian and different subtractions}
+The common Gaussian has a direct flag-counting explanation.
+At the zero orbit, our gallery chooses
+$L\subset I'\subset K'\subset H$ of dimensions $1,m,m+1,2m$,
+with $L\subset F$ and $F'\subset H$, where
+$\dim F=m$ and $\dim F'=m+1$.
+There are $(m)_q$ choices each for $L$ and $H$.
+In the $(2m-1)$-space $H/L$, the remaining flag
+$I'/L\subset K'/L$ contributes
+$\gb{2m-1}{m-1}_q(m)_q$.
+The full count is therefore $(m)_q^3\gb{2m-1}{m-1}_q$.
+
+Let \(t=v^2\), \(G=\gb{2m-1}{m-1}_t\), and use \((k)_t=1+\cdots+t^{k-1}\), \([k]=v^{1-k}(k)_t\). At the identity the normalized raw values are
+\[
+ \epsilon(\mathcal R_m)=v^{3-2m}(m)_t^3G,\qquad
+ \epsilon(\mathcal{BS}_m)=v(m)_tG .
+\]
+These instances of the same rectangle follow from the operator identity and the finite eigenvalue, with ratio \([m]^2\) (A Prop.\ 3C.4, B proof of Prop.\ 2.6 in \S3.5). The auxiliary operators satisfy related identities after merging all outputs. Define \(U_j=C_I C_{J_j}C_I/\pi_{I\cap J_j}^2\) and let \(V_s=C_I C_{P_s}C_I/\pi_{I\cap P_s}^2\) be our spherical web (Definition 4E.1). With \(p_E(F)=FC_I/\pi_E\),
+\[
+ p_E(\mathcal{BS}_j)=[j]^2U_j,\qquad p_E(\mathcal{CBS}_s)=[s][s-1]V_s .
+\]
+Indeed \(C_Q C_I=\pi_Q C_I\) for \(Q\subset I\). The two factorial ratios remaining are \(\pi_{I\cap J_j}\pi_{K_j}/(\pi_{J_j\cap K_j}\pi_{K_j\cap E})=[j]^2\) and \(\pi_{I\cap P_s}/\pi_{P_s\cap E}=[s][s-1]\). Thus the parabolic seed correction includes scalar multiples of our cumulative spherical webs after the total merge. If instead one merges first to $Q=I\setminus\{s_1\}$ and appends the move to $I\setminus\{s_f\}$ for $f=m,m+1$, the result for $\CBS_s$ is $[s-1]$ times our one-line gallery $\mathcal E_{s,f}$. This follows from $\pi_{P_s\cap Q}/\pi_{P_s\cap E}=[s-1]$ and A Definition 4F.1.
+
+We take the differences \(C_{Z_s}=V_s-V_{s-1}\), whose standard coefficients are differences of consecutive Gaussians (Lemma 4E.4). We subtract \(g_{m-s}C_{Z_s}\), where \(g_l=\sum_{a=0}^{l-2}\binom{a+3}{3}(v^{2l-3-2a}+v^{-(2l-3-2a)})\). To determine these multiplicities, we invert a convolution of Gaussian polynomials and truncate modulo \(q^m\); the common series \(1/((1-q)^3(q;q)_\infty)\) cancels, leaving \(\binom{m+1}{2}q^{m-1}\) (Lemmas 4J.1--4K.1). The surviving linear coefficient at the origin is the sum over family F (Theorem 4L.1).
+
+In the parabolic paper the authors apply \(\epsilon\) to their corrected seed to obtain \(h_{X_0}=vG+O(v^{2m+1})\). The first \(m\) coefficients are ordinary partition numbers, since partitions of size below \(m\) fit the Gaussian rectangle. The first reflection chain satisfies \(h_{x_1}=\eta h_{X_0}-1\) and
+\[
+ h_{x_{k+1}}=\eta h_{x_k}-h_{x_{k-1}}-v^k\gb{N-1}{k}_t
+ \quad(1\le k\le m-2).
+\]
+The last term is \(h_{\gamma_k}\) (Lemma 3.25). Bruhat covers supply the predecessor; positivity excludes the lower \(\gamma_j\), paired deletion reduces the surviving multiplicity to one, and a nonidentity seed bound excludes the \(\kappa_j\) (Proposition 2.8, Lemmas 3.24, 4.20, 5.1). If \(d_{a,b}\) counts partitions of \(a+b\) with at least \(a\) parts, the coefficient of \(v^{a+1+2b}\) in \(h_{x_a}\) is \(\sum_{i=0}^a d_{i,b}\) for \(0\le b\le m-1-a\) (Lemmas 2.9, 5.2). In particular \(h_{x_{m-1}}\) starts with \(mv^m\).
+
+On the second chain the predecessor and remainder have identity-coordinate valuation at least \(t'+3\) in the step to \(y_{t'}\) (Proposition 2.11 and Lemma 2.12). Of its noncover candidates the ordered terms vanish after rank reduction, the pure terms have sufficiently high valuation by finite ascent bounds, and mixed terms vanish after a rank-two star operation and a descent test (Lemmas 6.1, 6.2, 6.5). This transports \(m\) down one degree at each step. They illustrate the remainders by explicit computation at \(m=5\) and prove the degree bound in every rank. Their partition recurrence follows the coefficient along a chain. Our
+Gaussian convolution computes the row sum from the six-family base change.
+The completion identity relates the products underlying these two calculations.
+
+\paragraph{Relation to Scott--Xi.}
+Scott--Xi, arXiv:0909.3394v4, Theorem 3.3, obtained \(n+2\) for \(\mu(xw_0,vxw_0)\) with a regularly translated lower endpoint. For the word in their Lemma 3.4 the fixed-source coefficient is \(2\) in every rank \(n\ge4\). At \(n=4\) this gives the \(m=2\) example in both papers. Scott--Xi pose the fixed-source question in Section 4. Their suggested weight for \(n=4k\) has coefficient \(p-2\) at every internal node, so for \(n>4\) it differs from the common diagonal weight considered here. The low-rank coincidence, the fixed-source question and the use of degree bounds in a KL recursion all have this earlier precedent.

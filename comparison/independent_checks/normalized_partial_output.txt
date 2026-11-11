@@ -1,0 +1,51 @@
+m 2 full normalized identity A=B*T: True; five-target gallery equality: True; standard support 38
+ j 1 canonical terms 2 F multiplicities [1, 0] spherical multiplicities g_(j-r): True; residual [v] 1 other origin valuation 3 discarded spherical valuations [None]
+  Y_j[e]= v^1 + 2*v^3 + v^5
+  residual[e]= v^1 + 2*v^3 + v^5
+ j 2 canonical terms 5 F multiplicities [1, 1] spherical multiplicities g_(j-r): True; residual [v] 3 other origin valuation 3 discarded spherical valuations [None, None]
+  Y_j[e]= v^-1 + 4*v^1 + 7*v^3 + 7*v^5 + 4*v^7 + v^9
+  residual[e]= 3*v^1 + 7*v^3 + 7*v^5 + 4*v^7 + v^9
+elapsed 0.004
+m 3 full normalized identity A=B*T: True; five-target gallery equality: True; standard support 368
+ m3 relative-word identity A=B(C2C3-1)(C1C2-1): True
+ j 1 canonical terms 2 F multiplicities [1, 0, 0] spherical multiplicities g_(j-r): True; residual [v] 1 other origin valuation 3 discarded spherical valuations [None]
+  Y_j[e]= v^1 + 2*v^3 + 3*v^5 + 2*v^7 + v^9
+  residual[e]= v^1 + 2*v^3 + 3*v^5 + 2*v^7 + v^9
+ j 2 canonical terms 6 F multiplicities [1, 1, 0] spherical multiplicities g_(j-r): True; residual [v] 3 other origin valuation 3 discarded spherical valuations [5, None]
+  Y_j[e]= v^-1 + 4*v^1 + 9*v^3 + 13*v^5 + 14*v^7 + 12*v^9 + 9*v^11 + 6*v^13 + 3*v^15 + v^17
+  residual[e]= 3*v^1 + 9*v^3 + 13*v^5 + 14*v^7 + 12*v^9 + 9*v^11 + 6*v^13 + 3*v^15 + v^17
+ j 3 canonical terms 11 F multiplicities [1, 1, 1] spherical multiplicities g_(j-r): True; residual [v] 6 other origin valuation 3 discarded spherical valuations [None, None, None]
+  Y_j[e]= v^-3 + 4*v^-1 + 11*v^1 + 21*v^3 + 33*v^5 + 42*v^7 + 46*v^9 + 42*v^11 + 33*v^13 + 21*v^15 + 11*v^17 + 4*v^19 + v^21
+  residual[e]= 6*v^1 + 18*v^3 + 31*v^5 + 40*v^7 + 44*v^9 + 40*v^11 + 32*v^13 + 21*v^15 + 11*v^17 + 4*v^19 + v^21
+elapsed 0.089
+m 4 full normalized identity A=B*T: True; five-target gallery equality: True; standard support 3098
+ j 1 canonical terms 2 F multiplicities [1, 0, 0, 0] spherical multiplicities g_(j-r): True; residual [v] 1 other origin valuation 3 discarded spherical valuations [None]
+  Y_j[e]= v^1 + 2*v^3 + 3*v^5 + 4*v^7 + 3*v^9 + 2*v^11 + v^13
+  residual[e]= v^1 + 2*v^3 + 3*v^5 + 4*v^7 + 3*v^9 + 2*v^11 + v^13
+ j 2 canonical terms 6 F multiplicities [1, 1, 0, 0] spherical multiplicities g_(j-r): True; residual [v] 3 other origin valuation 3 discarded spherical valuations [5, None]
+  Y_j[e]= v^-1 + 4*v^1 + 9*v^3 + 15*v^5 + 20*v^7 + 22*v^9 + 21*v^11 + 19*v^13 + 16*v^15 + 13*v^17 + 10*v^19 + 6*v^21 + 3*v^23 + v^25
+  residual[e]= 3*v^1 + 9*v^3 + 15*v^5 + 20*v^7 + 22*v^9 + 21*v^11 + 19*v^13 + 16*v^15 + 13*v^17 + 10*v^19 + 6*v^21 + 3*v^23 + v^25
+ j 3 canonical terms 11 F multiplicities [1, 1, 1, 0] spherical multiplicities g_(j-r): True; residual [v] 6 other origin valuation 3 discarded spherical valuations [5, 5, None]
+  Y_j[e]= v^-3 + 4*v^-1 + 11*v^1 + 23*v^3 + 39*v^5 + 56*v^7 + 71*v^9 + 82*v^11 + 87*v^13 + 87*v^15 + 81*v^17 + 69*v^19 + 54*v^21 + 38*v^23 + 24*v^25 + 14*v^27 + 7*v^29 + 3*v^31 + v^33
+  residual[e]= 6*v^1 + 20*v^3 + 37*v^5 + 54*v^7 + 69*v^9 + 80*v^11 + 85*v^13 + 85*v^15 + 80*v^17 + 69*v^19 + 54*v^21 + 38*v^23 + 24*v^25 + 14*v^27 + 7*v^29 + 3*v^31 + v^33
+ j 4 canonical terms 17 F multiplicities [1, 1, 1, 1] spherical multiplicities g_(j-r): True; residual [v] 10 other origin valuation 3 discarded spherical valuations [None, None, None, None]
+  Y_j[e]= v^-5 + 4*v^-3 + 11*v^-1 + 25*v^1 + 47*v^3 + 78*v^5 + 117*v^7 + 159*v^9 + 199*v^11 + 231*v^13 + 248*v^15 + 248*v^17 + 231*v^19 + 199*v^21 + 159*v^23 + 117*v^25 + 78*v^27 + 47*v^29 + 25*v^31 + 11*v^33 + 4*v^35 + v^37
+  residual[e]= 10*v^1 + 33*v^3 + 65*v^5 + 104*v^7 + 145*v^9 + 184*v^11 + 215*v^13 + 233*v^15 + 237*v^17 + 224*v^19 + 194*v^21 + 155*v^23 + 114*v^25 + 76*v^27 + 46*v^29 + 25*v^31 + 11*v^33 + 4*v^35 + v^37
+elapsed 2.158
+m 5 full normalized identity A=B*T: True; five-target gallery equality: True; standard support 25592
+ j 1 canonical terms 2 F multiplicities [1, 0, 0, 0, 0] spherical multiplicities g_(j-r): True; residual [v] 1 other origin valuation 3 discarded spherical valuations [None]
+  Y_j[e]= v^1 + 2*v^3 + 3*v^5 + 4*v^7 + 5*v^9 + 4*v^11 + 3*v^13 + 2*v^15 + v^17
+  residual[e]= v^1 + 2*v^3 + 3*v^5 + 4*v^7 + 5*v^9 + 4*v^11 + 3*v^13 + 2*v^15 + v^17
+ j 2 canonical terms 6 F multiplicities [1, 1, 0, 0, 0] spherical multiplicities g_(j-r): True; residual [v] 3 other origin valuation 3 discarded spherical valuations [5, None]
+  Y_j[e]= v^-1 + 4*v^1 + 9*v^3 + 15*v^5 + 22*v^7 + 28*v^9 + 31*v^11 + 31*v^13 + 30*v^15 + 28*v^17 + 25*v^19 + 22*v^21 + 19*v^23 + 15*v^25 + 10*v^27 + 6*v^29 + 3*v^31 + v^33
+  residual[e]= 3*v^1 + 9*v^3 + 15*v^5 + 22*v^7 + 28*v^9 + 31*v^11 + 31*v^13 + 30*v^15 + 28*v^17 + 25*v^19 + 22*v^21 + 19*v^23 + 15*v^25 + 10*v^27 + 6*v^29 + 3*v^31 + v^33
+ j 3 canonical terms 10 F multiplicities [1, 1, 1, 0, 0] spherical multiplicities g_(j-r): True; residual [v] 6 other origin valuation 3 discarded spherical valuations [5, 5, None]
+  Y_j[e]= v^-3 + 4*v^-1 + 11*v^1 + 23*v^3 + 41*v^5 + 62*v^7 + 85*v^9 + 106*v^11 + 124*v^13 + 137*v^15 + 147*v^17 + 151*v^19 + 150*v^21 + 142*v^23 + 128*v^25 + 108*v^27 + 87*v^29 + 66*v^31 + 48*v^33 + 33*v^35 + 22*v^37 + 13*v^39 + 7*v^41 + 3*v^43 + v^45
+  residual[e]= 6*v^1 + 20*v^3 + 39*v^5 + 60*v^7 + 83*v^9 + 104*v^11 + 122*v^13 + 135*v^15 + 145*v^17 + 149*v^19 + 149*v^21 + 142*v^23 + 128*v^25 + 108*v^27 + 87*v^29 + 66*v^31 + 48*v^33 + 33*v^35 + 22*v^37 + 13*v^39 + 7*v^41 + 3*v^43 + v^45
+ j 4 canonical terms 17 F multiplicities [1, 1, 1, 1, 0] spherical multiplicities g_(j-r): True; residual [v] 10 other origin valuation 3 discarded spherical valuations [5, 5, 5, None]
+  Y_j[e]= v^-5 + 4*v^-3 + 11*v^-1 + 25*v^1 + 49*v^3 + 84*v^5 + 131*v^7 + 187*v^9 + 249*v^11 + 314*v^13 + 377*v^15 + 432*v^17 + 477*v^19 + 506*v^21 + 513*v^23 + 499*v^25 + 466*v^27 + 416*v^29 + 356*v^31 + 293*v^33 + 230*v^35 + 172*v^37 + 122*v^39 + 81*v^41 + 50*v^43 + 29*v^45 + 15*v^47 + 7*v^49 + 3*v^51 + v^53
+  residual[e]= 10*v^1 + 35*v^3 + 71*v^5 + 118*v^7 + 173*v^9 + 234*v^11 + 298*v^13 + 360*v^15 + 414*v^17 + 460*v^19 + 493*v^21 + 504*v^23 + 492*v^25 + 460*v^27 + 411*v^29 + 352*v^31 + 290*v^33 + 228*v^35 + 171*v^37 + 122*v^39 + 81*v^41 + 50*v^43 + 29*v^45 + 15*v^47 + 7*v^49 + 3*v^51 + v^53
+ j 5 canonical terms 23 F multiplicities [1, 1, 1, 1, 1] spherical multiplicities g_(j-r): True; residual [v] 15 other origin valuation 3 discarded spherical valuations [None, None, None, None, None]
+  Y_j[e]= v^-7 + 4*v^-5 + 11*v^-3 + 25*v^-1 + 51*v^1 + 92*v^3 + 153*v^5 + 237*v^7 + 346*v^9 + 476*v^11 + 624*v^13 + 780*v^15 + 934*v^17 + 1071*v^19 + 1181*v^21 + 1251*v^23 + 1276*v^25 + 1251*v^27 + 1181*v^29 + 1071*v^31 + 934*v^33 + 780*v^35 + 624*v^37 + 476*v^39 + 346*v^41 + 237*v^43 + 153*v^45 + 92*v^47 + 51*v^49 + 25*v^51 + 11*v^53 + 4*v^55 + v^57
+  residual[e]= 15*v^1 + 52*v^3 + 109*v^5 + 189*v^7 + 293*v^9 + 416*v^11 + 557*v^13 + 706*v^15 + 855*v^17 + 993*v^19 + 1111*v^21 + 1190*v^23 + 1222*v^25 + 1203*v^27 + 1138*v^29 + 1034*v^31 + 904*v^33 + 757*v^35 + 608*v^37 + 466*v^39 + 339*v^41 + 232*v^43 + 150*v^45 + 90*v^47 + 50*v^49 + 25*v^51 + 11*v^53 + 4*v^55 + v^57
+elapsed 64.397

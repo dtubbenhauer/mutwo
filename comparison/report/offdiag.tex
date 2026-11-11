@@ -1,0 +1,143 @@
+\newpage
+\section{The first-entry polynomial and rank reduction}
+Put \(b_{j;m}=u_{j;m}^{-1}\) and \(h_x=[M_e]\mathbf C_x\). In the word convention of the parabolic paper,
+the negative, zero and positive shifts in our sorted window give the letters
+\(\mathsf C,\mathsf B,\mathsf A\), respectively. Thus the word of \(b_{j;m}\) is
+\[
+ \mathsf C^{j-1}\mathsf B^{m-j}\mathsf A\mathsf B\mathsf C
+                  \mathsf B^{m-j}\mathsf A^{j-1}.
+\]
+The two reflection chains in that paper keep \(m\) letters of each wound type throughout.
+The off-diagonal endpoints have \(j<m\) of each.
+
+\subsection*{The first entry admits a finite Hecke calculation}
+\textbf{Deduction.} For every \(m\ge2\),
+\[
+   P_{w_0,C_{1;m}}(q)=1+q+\cdots+q^{m-1},\qquad \mu_{1;m}=1 .
+\]
+Indeed, the window of \(s_0\) has \(0\) at position \(1\) and \(N+1\) at
+position \(N\). Moving them to positions \(m,m+2\) gives
+\[
+ b=b_{1;m}=s_0(s_1\cdots s_{m-1})(s_{N-1}\cdots s_{m+2})\in W_J .
+\]
+Use the same \(V=I\cap J\) and \(L=V\setminus\{s_1,s_{N-1}\}\) as in our gallery.
+Thus \(W_V=S_m\times S_m\). Write \([a]=(v^a-v^{-a})/(v-v^{-1})\).
+In the spherical right module consider the bar-invariant vector
+\(G=M_e C_{s_0}C_V/\pi_L\), where \(C_V=C_{w_V}\).
+The right \(W_V\)-orbit of the left coset indexed by \(s_0\) has minimal
+index \(s_0\) and maximal index \(b\). Its elements move the one
+\(\mathsf A\) within the first block of \(m\) positions and the one
+\(\mathsf C\) within the last block, keeping the middle \(\mathsf B\) fixed.
+The stabilizer is \(W_L\). Expanding the parabolic symmetrizer into
+minimal coset representatives gives
+\[
+ G=\sum_{x\in\mathcal O_V(s_0)}
+ v^{\ell(b)-\ell(x)}M_x+v[m]^2M_e .
+\]
+Here \(M_e C_{s_0}=M_{s_0}+vM_e\), and \(\pi_V/\pi_L=[m]^2\).
+For the orbit term, each shortest shuffle moves the two marked letters
+away from their initial positions by length-increasing steps. Thus it
+acts by \(M_{s_0}H_z=M_{s_0z}\), with exponent
+\(\ell(w_V)-\ell(w_L)-\ell(z)=\ell(b)-\ell(s_0z)\).
+This is also the orbit formula underlying B \S3.3.
+Now \(v[m]^2-[m][m-1]=v^m[m]\). The vector
+\[
+ \mathbf C_b=G-[m][m-1]M_e
+\]
+is characterized by bar invariance, leading standard \(M_b\) with
+coefficient one, and strictly positive powers of \(v\) at all other
+standards. This proves the displayed KL formula since
+\(h_b=v^m[m]\) and \(\ell(b)=2m-1\).
+
+This finite calculation gives the entire first-column KL polynomial. For example, at $m=3$ it gives $1+q+q^2$. Section~\ref{sec:partialrows} determines the leading coefficient of every column.
+
+
+\subsection*{The first seed in the uncorrected parabolic family}
+The same entry can be read from the parabolic product in the ambient period
+\(2m+1\). With \(T_1,T_2\) as in \((*)\) and our strong one-line
+canonical \(\mathcal E_{1,m}\) refined to \(V\), one has
+\[
+ \mathcal{BS}_1T_1T_2=\mathbf C_{b_{1;m}}+[m-1]\mathcal E_{1,m}.
+\]
+Here \(\mathcal{BS}_1=D(J_1)\) has coefficient \(v^{2m-1}\) at \(e\)
+and \(v^{c-3}\) at the rank-one words with \(\mathsf A\) in position
+one and \(\mathsf C\) in position \(3\le c\le N\) (B Lemma 3.19).
+For the three output orbit maxima \(H,U,F\), the \(\mathsf A\) is in
+position \(m\) and the \(\mathsf C\) in positions \(1,m+1,m+2\),
+respectively. The four standard coordinates are
+\[
+\begin{array}{c|cccc}
+ &H&U&F&e\\ \hline
+ \mathcal{BS}_1T_1T_2 &[m-1]&v^{m-1}[m-1]&v^{m-1}[m]&v^{2m-1}[m]^2\\
+ \mathcal E_{1,m} &1&v^{m-1}&v^m&v^{2m}[m].
+\end{array}
+\]
+For the first row, \(T_1\) sends the terms \(3\le c\le m+1\) to
+their orbit sum with top coefficient
+\(\sum_{c=3}^{m+1}v^{c-3+c-m-1}=[m-1]\), and multiplies the others
+by \([m]\). For \(H\), the second averaging contributes the sum
+\(\sum_{c=2}^m v^{c-2+c-m}=[m-1]\) divided by \([m-1]\);
+for \(U,F\) it moves a single \(\mathsf A\) to the end of the first
+block. The second row follows from A Lemmas 4F.2 and 4D.1.
+These are all occupied orbits. Subtract the rows with the stated factor,
+using \(v^{m-1}[m]-v^m[m-1]=1\).
+
+\newpage
+\subsection*{The rank-reduction identity}
+Let \(\Theta_k\) have word \(\mathsf C^k\mathsf B^{N-2k}\mathsf A^k\).
+It is the finite-orbit maximum of type \(k\) (B Lemma 3.11), hence represents
+our full-spherical standard \(Z_k\) after output refinement. The coefficient
+at its longest fine representative has shift zero (A Lemma 4D.1).
+For \(0\le k<j\le m\) we obtain the all-degree identity
+\[
+   [\Delta_{Z_k}]C_{A_{j;m}}
+   =[M_{\Theta_k}]\mathbf C_{b_{j;m}}
+   =h^{(m-k)}_{b_{j-k;m-k}},
+\]
+where the superscript gives the smaller rank parameter.
+For \(k>0\), both ordinary endpoints \(w_I\Theta_k,w_Ib_{j;m}\) take
+the values \(2N,1-N\) at positions \(1,N\), respectively. Every
+fundamental-window entry lies between those bounds. Deleting the common
+first and last letters removes one \(\mathsf C\) and one \(\mathsf A\):
+the relabelling in B Definition 4.17 gives
+\(w'_I\Theta_{k-1},w'_I b_{j-1;m-1}\), with period \(N-2\).
+To check Bruhat comparability use the rank functions
+\(\#\{i\le a:w(i)\ge b\}\).
+At each cut the deleted periodic strands contribute equally to the
+two functions. On the remaining strands their inequalities are exactly
+the smaller-period inequalities. Iterating reaches the comparable pair
+\(w'_I,w'_I b_{j-k;m-k}\). B Proposition 4.18 now applies at each
+deletion and preserves the normalized coefficient. For \(j\le k\) the
+original coordinate vanishes since
+\(\ell(\Theta_k)=2k(N-k)\ge 2j(N-j)>D_{j;m}\).
+
+On the diagonal, the coefficient formula in the parabolic paper gives \([v][\Delta_{Z_k}] C_{A_{m;m}}=m-k\) for
+\(0\le k<m\). The final case reduces to \(s_0\) in period three.
+The independent KL recursion checked the full polynomial identity for every
+\(k,j\) in ranks \(m=2,3,4\). For example, at \(m=4\) the rows of
+linear coefficients, with columns \(j=1,2,3,4\), are
+\((1,2,3,4),(0,1,2,3),(0,0,1,2),(0,0,0,1)\).
+Together with our one-line degree bound at each \(Z_k\) (Lemma 4H.1),
+these tests at full-spherical standards recover the row sums in
+parameters \(m-k\). To distinguish entries within a fixed row,
+Section~\ref{sec:partialrows} computes its successive partial sums.
+
+\subsection*{The length gap in direct rank reduction for \(2\le j<m\)}
+At the ordinary pair \(w_I,w_Ib_{j;m}\) the only common window
+position is the central \(\mathsf B\) at \(m+1\). The other two
+\(\mathsf B\)-blocks have \(b(i)=i+1\) and \(i-1\), respectively.
+Deleting the common position and image leaves type \(j\) in period
+\(N-1\). In B Lemma 3.9, \(\ell=2j(N-j)-\operatorname{inv}\) with
+\(\mathsf C<\mathsf B<\mathsf A\). Deletion drops two inversions, one
+with the preceding \(\mathsf A\), one with the following \(\mathsf C\).
+The ordinary length gap therefore drops by \(2j-2>0\), preventing
+Henderson cancellation at this strand. Across fixed \(j\) the full gap
+difference is \(D_{j;m}-D_{j;j}=(4j-2)(m-j)\).
+
+The seed correction also depends on the ambient parameter. B Proposition 3.21 gives
+lowest exponent \(2-(N-2j)=1-2(m-j)<0\) for \(\mathcal{BS}_j\) at the
+orbit maximum \(z(j,1,1)\). The terms \(\mathcal{BS}_{j-1}\) and
+\(\mathcal{CBS}_s\) for \(s\le j-1\) vanish on this type-\(j\) orbit.
+Replacing \(m\) by \(j\) in the correction while retaining period \(2m+1\)
+therefore leaves a negative power at this orbit, so it does not give the
+canonical seed.

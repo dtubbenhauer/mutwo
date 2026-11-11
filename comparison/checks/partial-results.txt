@@ -1,0 +1,18 @@
+m=2 j=1 raw spherical restrictions and correction-depth checks pass; residual [v]=1, KL row entry=1
+m=2 j=2 raw spherical restrictions and correction-depth checks pass; residual [v]=3, KL row entry=2
+row 2 [1, 2]
+m=3 j=1 raw spherical restrictions and correction-depth checks pass; residual [v]=1, KL row entry=1
+m=3 j=2 raw spherical restrictions and correction-depth checks pass; residual [v]=3, KL row entry=2
+m=3 j=3 raw spherical restrictions and correction-depth checks pass; residual [v]=6, KL row entry=3
+row 3 [1, 2, 3]
+m=4 j=1 raw spherical restrictions and correction-depth checks pass; residual [v]=1, KL row entry=1
+m=4 j=2 raw spherical restrictions and correction-depth checks pass; residual [v]=3, KL row entry=2
+m=4 j=3 raw spherical restrictions and correction-depth checks pass; residual [v]=6, KL row entry=3
+m=4 j=4 raw spherical restrictions and correction-depth checks pass; residual [v]=10, KL row entry=4
+row 4 [1, 2, 3, 4]
+m=5 j=1 raw spherical restrictions and correction-depth checks pass; residual [v]=1, KL row entry=1
+m=5 j=2 raw spherical restrictions and correction-depth checks pass; residual [v]=3, KL row entry=2
+m=5 j=3 raw spherical restrictions and correction-depth checks pass; residual [v]=6, KL row entry=3
+m=5 j=4 raw spherical restrictions and correction-depth checks pass; residual [v]=10, KL row entry=4
+m=5 j=5 raw spherical restrictions and correction-depth checks pass; residual [v]=15, KL row entry=5
+row 5 [1, 2, 3, 4, 5]
