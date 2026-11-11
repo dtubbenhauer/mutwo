@@ -117,7 +117,20 @@ The suggested citation is:
 
 ## Added after this GitHub first became available
 
-Our [AI-assisted comparison note](guralnick_comparison.pdf) relates our annular web to the parabolic construction of [Bowman, de la Fuente, Libedinsky and Plaza](https://arxiv.org/abs/2611.11677) (which was was written independently).
+Our [AI-assisted comparison note](guralnick_comparison.pdf) relates our annular web to the parabolic construction of [Bowman, de la Fuente, Libedinsky and Plaza](https://arxiv.org/abs/2611.11677) (which was was written independently). In short, the constructions are, in some way or form, very similar. 
+
+For example, our six-family base change contains more information than the
+row sum: keeping track of the individual contributions also
+gives finer coefficient formulas and their cohomological
+consequences. The comparison illustrates this concretely.
+If we retain only the first $j$ canonical summands in their
+expansion before appending the symmetrizers, we get the
+partial row sum
+$\sum_{i=1}^j\mu_{i;m}=\binom{j+1}{2}$.
+Taking consecutive differences gives $\mu_{j;m}=j$ for every
+$1\le j\le m$, just as our small examples suggested. Their
+degree-one calculation gives precisely the last entry of
+this row, $\mu_{m;m}=m$. From that unboundedness in every fixed positive cohomological degree follows.
 
 ## Erratum
 
