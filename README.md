@@ -130,7 +130,8 @@ $\sum_{i=1}^j\mu_{i;m}=\binom{j+1}{2}$.
 Taking consecutive differences gives $\mu_{j;m}=j$ for every
 $1\le j\le m$, just as our small examples suggested. Their
 degree-one calculation gives precisely the last entry of
-this row, $\mu_{m;m}=m$. From that unboundedness in every fixed positive cohomological degree follows.
+this row, $\mu_{m;m}=m$. Similarly, 
+unboundedness in every fixed positive cohomological degree can also be proven.
 
 ## Erratum
 
