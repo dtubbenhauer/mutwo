@@ -118,7 +118,7 @@ The suggested citation is:
 
 ## Annular webs and the parabolic construction
 
-Bowman, de la Fuente, Libedinsky and Plaza independently disproved Guralnick's conjecture in [*The cohomology of finite simple groups is unbounded*](https://arxiv.org/abs/2611.11677). Their parabolic construction gives $\mu_{m;m}=m$ in degree one, and they prove unboundedness for finite simple groups in every fixed positive cohomological degree.
+Our annular web and the parabolic construction of Bowman, de la Fuente, Libedinsky and Plaza give independent disproofs of Guralnick's conjecture. Their construction gives $\mu_{m;m}=m$ in degree one, and they prove unboundedness for finite simple groups in every fixed positive cohomological degree. See [*The cohomology of finite simple groups is unbounded*](https://arxiv.org/abs/2611.11677).
 
 Our web calculation gives the full row sum. Appending two normalized parabolic symmetrizers to their uncorrected product gives our six-stage annular web. If we keep the first $j$ canonical summands before applying the symmetrizers, their parabolic orbit estimates and our web calculation give the partial sum $\sum_{i=1}^j\mu_{i;m}=\binom{j+1}{2}$. Taking consecutive differences gives $\mu_{j;m}=j$ for $1\le j\le m$. See Section 4 of the [AI-assisted comparison note](guralnick_comparison.pdf) and the accompanying [sources and calculation programs](comparison/README.md).
 
