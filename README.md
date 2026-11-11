@@ -115,6 +115,10 @@ The suggested citation is:
 }
 ```
 
-## Erratum
+## Added after this GitHub first became available
 
 Our [AI-assisted comparison note](guralnick_comparison.pdf) relates our annular web to the parabolic construction of [Bowman, de la Fuente, Libedinsky and Plaza](https://arxiv.org/abs/2611.11677) (which was was written independently).
+
+## Erratum
+
+Empty so far.
